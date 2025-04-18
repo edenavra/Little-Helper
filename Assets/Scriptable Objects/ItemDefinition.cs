@@ -1,0 +1,18 @@
+using UnityEngine;
+
+namespace Scriptable_Objects
+{
+    [CreateAssetMenu(
+        fileName = "ItemDefinition",
+        menuName = "Game/ Item Definition",
+        order = 1)]
+    public class ItemDefinition : ScriptableObject
+    {
+        public string itemName;
+        [Tooltip("icon shown in UI")]
+        public Sprite icon;
+        [Tooltip("prefab spawned in the world")]
+        public GameObject prefab;
+
+    }
+}
