@@ -22,6 +22,11 @@ public class PlayerHealth : MonoBehaviour
             Die();
         }
     }
+    
+    public int getHealth()
+    {
+        return currentHealth;
+    }
 
     private void Die()
     {
