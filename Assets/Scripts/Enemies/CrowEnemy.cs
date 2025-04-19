@@ -113,7 +113,7 @@ namespace Enemies
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            if (other.gameObject.CompareTag("Player"))
+            if (other.gameObject.CompareTag("Player") && (isDiving || isReturning))
             {
                 AttackPlayer(other.gameObject);
             }
@@ -123,7 +123,7 @@ namespace Enemies
                 if (!isDiving && !isReturning)
                 {
                     Vector3 collisionNormal = new Vector3(other.contacts[0].normal.x, other.contacts[0].normal.y, 0f);
-                    Vector3 awayFromWall = transform.position - collisionNormal;
+                    Vector3 awayFromWall = transform.position - 2*collisionNormal;
                     transform.position = awayFromWall + collisionNormal * 0.1f;
 
                 }
