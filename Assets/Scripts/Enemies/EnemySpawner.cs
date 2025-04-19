@@ -1,16 +1,21 @@
-using System;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private GameObject enemyPrefab;     
     [SerializeField] private Transform[] spawnPoints;    
-    [SerializeField] private int baseAmount = 1;         
+    [SerializeField] private int baseAmount = 1;
 
-    private void Start()
+    private Rooms.Room parentRoom;
+
+    private void Awake()
     {
-        SpawnEnemies(1);
+        parentRoom = GetComponentInParent<Rooms.Room>();
+    }
+
+    public void SetRoom(Rooms.Room room)
+    {
+        parentRoom = room;
     }
 
     public void SpawnEnemies(int round)
@@ -20,7 +25,10 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < totalToSpawn; i++)
         {
             Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-            Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
+            GameObject enemy = Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
+
+            if (parentRoom != null)
+                parentRoom.RegisterEnemy(enemy);
         }
     }
 }
