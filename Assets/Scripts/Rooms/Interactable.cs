@@ -7,12 +7,12 @@ namespace Rooms
 {
     public class Interactable : MonoBehaviour
     {
-        [SerializeField] private ItemDefinition _storedItem = null;
-
         [SerializeField] private Transform itemSpawnPoint; 
+
+        private ItemDefinition _storedItem = null;
+        public bool IsEmpty => _storedItem == null;
         
         private float _revealTime = 0.5f;
-        
         private bool _isPlayerInRange = false;
         private bool _isOpen = false;
         
@@ -23,6 +23,9 @@ namespace Rooms
                 Open();
             }
         }
+
+        public void AddItem(ItemDefinition item) {_storedItem = item;}
+        
 
         private void OnTriggerEnter2D(Collider2D other)
         {

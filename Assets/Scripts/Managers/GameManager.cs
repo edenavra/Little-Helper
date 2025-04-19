@@ -1,16 +1,49 @@
+using System;
+using System.Collections.Generic;
+using Rooms;
+using Scriptable_Objects;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
-public class GameManager : MonoBehaviour
+namespace Managers
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class GameManager : MonoBehaviour
     {
+        [Header("Run Setup")]
+        [SerializeField] private List<Room> rooms;
+        [SerializeField] private List<ItemDefinition> allItems;
         
-    }
+        public IReadOnlyList<ItemDefinition> PlacedItems => allItems;
+        
+        [SerializeField] private int rounds = 5;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private void Start()
+        {
+            PopulateContainers();
+        }
+
+        private void PopulateContainers()
+        {
+            //TODO : THIS IS A PLACE HOLDER FOR MONDAY. CHANGE TO MORE COMPLEX SHIT LATER.
+            foreach (var item in allItems)
+            {
+                bool placed = false;
+                while (!placed)
+                {
+                    var room = rooms[ChooseRandomRoom()];
+                    placed = room.TryAddItemToRandomContainer(item);
+                }
+            }
+        }
+
+        private int ChooseRandomRoom()
+        {
+            int randomRoomIndex;
+            do
+            {
+                randomRoomIndex = Random.Range(0, rooms.Count);
+            } while(rooms[randomRoomIndex].AllContainersFull);
+            return randomRoomIndex;
+        }
     }
 }
