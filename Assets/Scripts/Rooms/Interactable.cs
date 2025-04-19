@@ -1,7 +1,8 @@
 ﻿using System;
 using Scriptable_Objects;
 using UnityEngine;
-using DG.Tweening; 
+using DG.Tweening;
+using UnityEngine.UIElements;
 
 namespace Rooms
 {
@@ -44,7 +45,11 @@ namespace Rooms
             print("box opened");
             // Todo: add some kind of feedback that the object is empty
             _isOpen = true;
-            if(_storedItem == null) return;
+            if (_storedItem == null)
+            {
+                print("box is empty");
+                return;
+            }
             RevealItem();
         }
 
@@ -52,8 +57,9 @@ namespace Rooms
         {
             print("reveal");
             GameObject item = Instantiate(_storedItem.prefab, itemSpawnPoint.position, Quaternion.identity);
+            var scale = item.transform.localScale;
             item.transform.localScale = Vector3.zero;
-            item.transform.DOScale(Vector3.one, _revealTime).onComplete = OnItemRevealed(item);
+            item.transform.DOScale(scale, _revealTime).onComplete = OnItemRevealed(item);
         }
 
         private TweenCallback OnItemRevealed(GameObject item)
