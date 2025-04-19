@@ -16,13 +16,12 @@ namespace Player
             return true;
         }
 
-        public ItemDefinition DropItem()
+        public void DropItem()
         {
-            if(CurrentItem == null) return null;
-            var tmp = CurrentItem;
+            // if(CurrentItem == null) return;
+            // var tmp = CurrentItem;
             CurrentItem = null;
             // TODO: update UI
-            return tmp;
         }
     }
 }
