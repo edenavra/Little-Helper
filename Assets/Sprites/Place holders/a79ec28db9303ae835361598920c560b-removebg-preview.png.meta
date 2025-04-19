@@ -138,6 +138,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -484,7 +497,22 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      a79ec28db9303ae835361598920c560b-removebg-preview_0: 2598249478742908700
+      a79ec28db9303ae835361598920c560b-removebg-preview_1: -4899291398280539985
+      a79ec28db9303ae835361598920c560b-removebg-preview_10: -4860776747981322302
+      a79ec28db9303ae835361598920c560b-removebg-preview_11: 6739388358731324896
+      a79ec28db9303ae835361598920c560b-removebg-preview_12: 9112850039636325657
+      a79ec28db9303ae835361598920c560b-removebg-preview_13: -7166137155064780526
+      a79ec28db9303ae835361598920c560b-removebg-preview_14: 3889676354288967662
+      a79ec28db9303ae835361598920c560b-removebg-preview_2: 7948013583939919800
+      a79ec28db9303ae835361598920c560b-removebg-preview_3: 8632736235173087559
+      a79ec28db9303ae835361598920c560b-removebg-preview_4: 8940040140260415316
+      a79ec28db9303ae835361598920c560b-removebg-preview_5: -5814983408094328955
+      a79ec28db9303ae835361598920c560b-removebg-preview_6: 7693948096259203263
+      a79ec28db9303ae835361598920c560b-removebg-preview_7: -3671750427513898151
+      a79ec28db9303ae835361598920c560b-removebg-preview_8: 6935923615789958010
+      a79ec28db9303ae835361598920c560b-removebg-preview_9: -3622745552456016640
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
