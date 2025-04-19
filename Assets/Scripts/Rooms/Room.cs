@@ -7,6 +7,7 @@ namespace Rooms
     public class Room : MonoBehaviour
     {
         [SerializeField] private List<Interactable> containers;
+        [SerializeField] private EnemySpawner enemySpawner;
         private int _fullContainers;
         public bool AllContainersFull => _fullContainers == containers.Count;
 
@@ -14,7 +15,8 @@ namespace Rooms
 
         public void OnRoundStarted(int currentRound)
         {
-            throw new System.NotImplementedException();
+            if (enemySpawner != null)
+                enemySpawner.SpawnEnemies(currentRound);
         }
 
         public bool TryAddItemToRandomContainer(ItemDefinition item)
