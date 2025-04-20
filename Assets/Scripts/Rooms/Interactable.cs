@@ -10,11 +10,12 @@ namespace Rooms
 {
     public class Interactable : MonoBehaviour
     {
+        [Header("sprites")]
+        [SerializeField] private Sprite closedSprite;
+        [SerializeField] private Sprite openSprite;
+        private SpriteRenderer _sr;
         
-        /// <summary>
-        /// TODO FIX BUG WHERE A BOX CANNOT BE OPENED AGAIN ONCE AN ITEM HAS BEEN TAKEN FROM IT 
-        /// </summary>
-        
+        [Header("Item spawn point")]
         [SerializeField] private Transform itemSpawnPoint;
         private GrandmaQuestGiver _questGiver;
         private PlayerInventory _inventory;
@@ -38,6 +39,8 @@ namespace Rooms
         {
             _questGiver = FindFirstObjectByType<GrandmaQuestGiver>();
             _inventory = FindFirstObjectByType<PlayerInventory>();
+            _sr = GetComponentInParent<SpriteRenderer>();
+            _sr.sprite = closedSprite;
         }
         
         private void Update()
@@ -65,6 +68,7 @@ namespace Rooms
         private void Open()
         {
             print("box opened");
+            _sr.sprite = openSprite;
             // Todo: add some kind of feedback that the object is empty
             _isOpen = true;
             if (_storedItem == null)
@@ -104,6 +108,7 @@ namespace Rooms
                         Destroy(item);
                         _storedItem = null;
                         _isOpen = false;
+                        _sr.sprite = closedSprite;
                     });
             }
             else
@@ -122,6 +127,7 @@ namespace Rooms
                                 // allow box to be opened again
                                 _isOpen = false;
                                 Destroy(item);
+                                _sr.sprite = closedSprite;
                             });
                     });
             }
