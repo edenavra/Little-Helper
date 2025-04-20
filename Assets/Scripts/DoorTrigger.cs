@@ -3,6 +3,7 @@ using UnityEngine;
 public class DoorTrigger : MonoBehaviour
 {
     public Transform targetPosition;
+    [SerializeField] private RoomTransition _transition;
 
     private bool playerInside = false;
 
@@ -11,6 +12,7 @@ public class DoorTrigger : MonoBehaviour
         if (!playerInside && other.CompareTag("Player"))
         {
             other.transform.position = targetPosition.position;
+            _transition.SwitchCamera();
             playerInside = true;
         }
     }
