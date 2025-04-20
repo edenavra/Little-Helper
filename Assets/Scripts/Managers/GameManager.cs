@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using Rooms;
 using Scriptable_Objects;
 using UnityEngine;
+using Utils;
 using Random = UnityEngine.Random;
 
 namespace Managers
 {
-    public class GameManager : MonoBehaviour
+    public class GameManager : MonoSingleton<GameManager>
     {
         [Header("Run Setup")]
         [SerializeField] private List<Room> rooms;

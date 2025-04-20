@@ -1,8 +1,9 @@
 using UnityEngine;
+using Utils;
 
 namespace Managers
 {
-    public class SoundManager : MonoBehaviour
+    public class SoundManager : MonoSingleton<SoundManager>
     {
         public static SoundManager Instance;
 

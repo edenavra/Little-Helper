@@ -70,6 +70,7 @@ namespace Rooms
             if (_storedItem == null)
             {
                 print("box is empty");
+                _isOpen = false;
                 return;
             }
             RevealItem();
@@ -102,6 +103,7 @@ namespace Rooms
                             Debug.LogWarning("Couldn't pick up — inventory full?");
                         Destroy(item);
                         _storedItem = null;
+                        _isOpen = false;
                     });
             }
             else

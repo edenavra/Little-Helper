@@ -4,10 +4,11 @@ using Grandma;
 using Rooms;
 using Scriptable_Objects;
 using UnityEngine;
+using Utils;
 
 namespace Managers
 {
-    public class RoundManager : MonoBehaviour
+    public class RoundManager : MonoSingleton<RoundManager>
     {
         [SerializeField] private GameManager gameManager; 
         [SerializeField] private GrandmaQuestGiver questGiver;
