@@ -1964,7 +1964,7 @@ GameObject:
   - component: {fileID: 600084480}
   - component: {fileID: 600084479}
   m_Layer: 0
-  m_Name: Kitchen Camera
+  m_Name: Pantry Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3948,7 +3948,7 @@ GameObject:
   - component: {fileID: 1094524830}
   - component: {fileID: 1094524831}
   m_Layer: 8
-  m_Name: Kitchen Border
+  m_Name: Pantry Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4003,7 +4003,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.1, y: 0}
+  m_Offset: {x: 0.005496025, y: 0.013000965}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4013,7 +4013,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 20, y: 20}
+  m_Size: {x: 20.189009, y: 20.074493}
   m_EdgeRadius: 0
 --- !u!4 &1116051220 stripped
 Transform:
@@ -4220,7 +4220,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.1, y: 0}
+  m_Offset: {x: 0.03280735, y: 0.030804157}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4230,7 +4230,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 20, y: 20}
+  m_Size: {x: 20.134386, y: 20.061607}
   m_EdgeRadius: 0
 --- !u!1 &1185068352
 GameObject:
@@ -4593,7 +4593,7 @@ GameObject:
   - component: {fileID: 1271775729}
   - component: {fileID: 1271775728}
   m_Layer: 8
-  m_Name: GrandmaRoom Border
+  m_Name: Kitchen Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4633,7 +4633,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.1, y: 0}
+  m_Offset: {x: -0.00000667572, y: 0.0032138824}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4643,7 +4643,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 20, y: 20}
+  m_Size: {x: 20.033003, y: 20.060963}
   m_EdgeRadius: 0
 --- !u!4 &1271775729
 Transform:
@@ -4989,7 +4989,7 @@ GameObject:
   - component: {fileID: 1387631832}
   - component: {fileID: 1387631830}
   m_Layer: 0
-  m_Name: GrandmaRoom Camera
+  m_Name: Kitchen Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6681,7 +6681,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.1, y: 0}
+  m_Offset: {x: 0.034137726, y: 0.02738142}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -6691,7 +6691,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 20, y: 20}
+  m_Size: {x: 20.131725, y: 20.120872}
   m_EdgeRadius: 0
 --- !u!1 &1787498579
 GameObject:
