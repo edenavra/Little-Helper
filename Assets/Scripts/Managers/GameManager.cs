@@ -10,11 +10,14 @@ namespace Managers
 {
     public class GameManager : MonoSingleton<GameManager>
     {
-        [Header("Run Setup")]
-        [SerializeField] private List<Room> rooms;
+        [Header("Run Setup")] [SerializeField] private List<Room> rooms;
         [SerializeField] private List<ItemDefinition> allItems;
-        
-        public IReadOnlyList<ItemDefinition> PlacedItems => allItems;
+
+        [SerializeField] internal GameObject playerObject;
+        public GameObject PlayerObject => playerObject; 
+
+
+    public IReadOnlyList<ItemDefinition> PlacedItems => allItems;
         
         [SerializeField] private int rounds = 5;
 

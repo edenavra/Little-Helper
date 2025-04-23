@@ -1,3 +1,4 @@
+using Managers;
 using UnityEngine.UIElements;
 
 namespace Enemies
@@ -26,7 +27,7 @@ namespace Enemies
 
         private void Start()
         {
-            player = GameObject.FindGameObjectWithTag("Player");
+            player = GameManager.Instance.playerObject;
             GetComponent<Rigidbody2D>().gravityScale = 0;
             GetComponent<Rigidbody2D>().freezeRotation = true;
             originalOffset = new Vector3(0, flightHeight, 0);
