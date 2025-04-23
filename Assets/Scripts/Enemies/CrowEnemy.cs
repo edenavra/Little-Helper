@@ -81,7 +81,6 @@ namespace Enemies
 
         private IEnumerator DiveAttack()
         {
-            print("attacing");
             isDiving = true;
             diveShadowPosition = new Vector3(player.transform.position.x, player.transform.position.y, shadow.transform.position.z);
 
@@ -120,7 +119,6 @@ namespace Enemies
             }
             if (other.gameObject.CompareTag("Wall") || other.gameObject.CompareTag("Door"))
             {
-                print("hit wall");
                 if (!isDiving && !isReturning)
                 {
                     Vector3 collisionNormal = other.contacts[0].normal;
