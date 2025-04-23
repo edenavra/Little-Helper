@@ -1,3 +1,5 @@
+using UnityEngine.UIElements;
+
 namespace Enemies
 {
     using UnityEngine;
@@ -49,14 +51,12 @@ namespace Enemies
                     StartCoroutine(DiveAttack());
                 }
 
-                // עדכון צל מתחת לעורב
                 Vector3 shadowPos = new Vector3(transform.position.x, transform.position.y - flightHeight, shadow.transform.position.z);
                 shadow.transform.position = shadowPos;
                 shadow.transform.localScale = shadowMinScale;
             }
             else
             {
-                // צל נשאר במקום, משתנה רק בגודל
                 shadow.transform.position = diveShadowPosition;
 
                 float distance = Vector2.Distance(transform.position, diveShadowPosition);
@@ -64,7 +64,6 @@ namespace Enemies
                 shadow.transform.localScale = Vector3.Lerp(shadowMinScale, shadowMaxScale, t);
             }
 
-            // תיקון מיקום צל מהפינה (אם צריך)
             Vector3 scaleCorrection = new Vector3(
                 (shadow.transform.localScale.x - shadowMinScale.x) / 2f,
                 0,
@@ -81,6 +80,7 @@ namespace Enemies
 
         private IEnumerator DiveAttack()
         {
+            print("attacing");
             isDiving = true;
             diveShadowPosition = new Vector3(player.transform.position.x, player.transform.position.y, shadow.transform.position.z);
 
@@ -117,19 +117,19 @@ namespace Enemies
             {
                 AttackPlayer(other.gameObject);
             }
-            if (other.gameObject.CompareTag("Wall"))
+            if (other.gameObject.CompareTag("Wall") || other.gameObject.CompareTag("Door"))
             {
-                // שינוי כיוון לפי מצב תנועה
+                print("hit wall");
                 if (!isDiving && !isReturning)
                 {
-                    Vector3 collisionNormal = new Vector3(other.contacts[0].normal.x, other.contacts[0].normal.y, 0f);
-                    Vector3 awayFromWall = transform.position - 2*collisionNormal;
-                    transform.position = awayFromWall + collisionNormal * 0.1f;
+                    Vector3 collisionNormal = other.contacts[0].normal;
+                    Vector3 reflectDirection = Vector3.Reflect((player.transform.position - transform.position).normalized, collisionNormal);
+                    Vector3 bounceTarget = transform.position + reflectDirection * 0.5f;
 
+                    transform.position = Vector3.MoveTowards(transform.position, bounceTarget, followSpeed * Time.deltaTime);
                 }
                 else if (isDiving)
                 {
-                    // אם העורב מתנגש בקיר במהלך הדאייה – נפסיק את הדאייה ונחזיר אותו
                     StopAllCoroutines();
                     isDiving = false;
                     isReturning = true;
