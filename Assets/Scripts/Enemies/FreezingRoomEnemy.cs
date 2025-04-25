@@ -4,7 +4,7 @@ using TMPro;
 public class FreezingRoomEnemy : MonoBehaviour, IEnemy
 {
     [SerializeField] private float freezeTime = 10f; 
-    [SerializeField] private TextMeshProUGUI timerText;
+    private TextMeshProUGUI timerText;
 
     private float currentTime;
     private bool playerInside = false;
@@ -13,6 +13,8 @@ public class FreezingRoomEnemy : MonoBehaviour, IEnemy
 
     private void Start()
     {
+        var go = GameObject.FindWithTag("FreezeTimer");
+        timerText = go.GetComponent<TextMeshProUGUI>();
         timerText.gameObject.SetActive(false);
         currentTime = freezeTime;
         player = GameObject.FindGameObjectWithTag("Player");

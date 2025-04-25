@@ -75,6 +75,7 @@ namespace Rooms
             {
                 print("box is empty");
                 _isOpen = false;
+                _sr.sprite = closedSprite;
                 return;
             }
             RevealItem();
@@ -94,7 +95,7 @@ namespace Rooms
         {
             if (_questGiver.IsCurrentItem(_storedItem))
             {
-                // 2) Animate “collect”: jump/arch to the player
+                //Animate “collect”: jump/arch to the player
                 Vector3 target = _inventory.transform.position;
                 item.transform
                     .DOJump(target, _jumpPower, _jumpCount, _collectTime)

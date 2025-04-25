@@ -7,10 +7,7 @@ public class RoomTransition : MonoBehaviour
 {
     public CinemachineCamera previousCamera;
     public CinemachineCamera newCamera;
-
- 
     
-
     public void SwitchCamera()
     {
         if (previousCamera != null)

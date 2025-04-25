@@ -1,19 +1,25 @@
+using System;
 using UnityEngine;
 
 public class DoorTrigger : MonoBehaviour
 {
     public Transform targetPosition;
-    [SerializeField] private RoomTransition _transition;
+    private RoomTransition _transition;
 
-    private bool playerInside = false;
+    private bool _playerInside;
+
+    private void Awake()
+    {
+        _transition = GetComponent<RoomTransition>();
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!playerInside && other.CompareTag("Player"))
+        if (!_playerInside && other.CompareTag("Player"))
         {
             other.transform.position = targetPosition.position;
             _transition.SwitchCamera();
-            playerInside = true;
+            _playerInside = true;
         }
     }
 
@@ -21,7 +27,7 @@ public class DoorTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            playerInside = false;
+            _playerInside = false;
         }
     }
 }
