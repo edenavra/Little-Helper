@@ -378,7 +378,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPosition: {fileID: 1018335827}
-  _transition: {fileID: 59722255}
 --- !u!61 &59722254
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1520,7 +1519,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPosition: {fileID: 1001152566}
-  _transition: {fileID: 423030700}
 --- !u!61 &423030698
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2538,7 +2536,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPosition: {fileID: 614906368}
-  _transition: {fileID: 648848621}
 --- !u!114 &648848621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2741,7 +2738,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPosition: {fileID: 247986232}
-  _transition: {fileID: 690943403}
 --- !u!61 &690943401
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4358,7 +4354,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPosition: {fileID: 1398246152}
-  _transition: {fileID: 1226609526}
 --- !u!61 &1226609524
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5549,7 +5544,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   freezeTime: 10
-  timerText: {fileID: 2103197609}
 --- !u!114 &1589942529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7162,7 +7156,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPosition: {fileID: 1713010059}
-  _transition: {fileID: 2009417076}
 --- !u!61 &2009417074
 BoxCollider2D:
   m_ObjectHideFlags: 0

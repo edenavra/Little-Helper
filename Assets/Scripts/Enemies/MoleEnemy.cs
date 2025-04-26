@@ -13,6 +13,7 @@ namespace Enemies
         [SerializeField] private float followSpeed = 2f;
         [SerializeField] private float attackInterval = 5f;
         [SerializeField] private float visibleDuration = 2f;
+        [SerializeField] private LayerMask obstacleLayer;
 
         [Header("Visual References")]
         [SerializeField] private GameObject moundVisual; 
@@ -50,11 +51,23 @@ namespace Enemies
                 }
             }
         }
-
+        
         private void FollowPlayer()
         {
-            Vector2 randomOffset = Random.insideUnitCircle * moveRadius;
-            Vector2 targetPos = (Vector2)player.transform.position + randomOffset;
+            Vector2 targetPos = transform.position;
+
+            for (int i = 0; i < 10; i++)
+            {
+                Vector2 randomOffset = Random.insideUnitCircle * moveRadius;
+                Vector2 possiblePos = (Vector2)player.transform.position + randomOffset;
+
+                if (!Physics2D.OverlapCircle(possiblePos, 0.3f, obstacleLayer))
+                {
+                    targetPos = possiblePos;
+                    break;
+                }
+            }
+
             transform.position = Vector2.Lerp(transform.position, targetPos, followSpeed * Time.deltaTime);
         }
 
