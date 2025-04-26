@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Managers;
 using Unity.Cinemachine;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -8,29 +9,30 @@ namespace Rooms
     
     public class WorldGenerator : MonoBehaviour
     {
-        [SerializeField] private WorldConfig config;
-        [SerializeField] private Transform roomsParent;
-        
-        private GameObject _kitchen, _roomLeft, _roomRight, _roomThird;
-        
+        [SerializeField] private GameObject kitchenPrefab;
+                
+        private GameObject _roomLeft, _roomRight, _roomThird;
+        [SerializeField] private RoomFactory roomFactory;
+
+   
         public List<Room> GenerateWorld()
         {
-            _kitchen = Instantiate(config.kitchenPrefab,Vector2.zero,Quaternion.identity,roomsParent);
             var types = new List<RoomType> { RoomType.Pantry, RoomType.Freezer, RoomType.Garden };
             RoomType rightRoomType = PopRandom(types);
             RoomType leftRoomType = PopRandom(types);
             RoomType thirdRoomType = types[0];
 
-
-            _roomRight = InstantiateRoom(rightRoomType, Vector2.right);
-            _roomLeft = InstantiateRoom(leftRoomType, Vector2.left);
+            _roomRight = roomFactory.InstantiateRoom(rightRoomType, Vector2.right);
+            SetUpRoomCamera(_roomRight);
+            _roomLeft = roomFactory.InstantiateRoom(leftRoomType, Vector2.left);
+            SetUpRoomCamera(_roomLeft);
 
             bool attachedRight = Random.value < 0.5f;
             Vector2 dir = attachedRight ? Vector2.right : Vector2.left;
-            _roomThird = InstantiateRoom(thirdRoomType, dir * 2f);
+            _roomThird = roomFactory.InstantiateRoom(thirdRoomType, dir * 2f);
             
-            Connect(_kitchen, DoorSide.Right, _roomRight, DoorSide.Left);
-            Connect(_kitchen, DoorSide.Left, _roomLeft, DoorSide.Right);
+            Connect(kitchenPrefab, DoorSide.Right, _roomRight, DoorSide.Left);
+            Connect(kitchenPrefab, DoorSide.Left, _roomLeft, DoorSide.Right);
             if (attachedRight)
             {
                 Connect (_roomRight, DoorSide.Right, _roomThird, DoorSide.Left);
@@ -44,7 +46,7 @@ namespace Rooms
                 DisableDoor(_roomThird, DoorSide.Left);
             }
             
-            return new List<Room> { _roomRight.GetComponent<Room>(), _roomLeft.GetComponent<Room>(), _roomThird.GetComponent<Room>() };
+            return new List<Room> { _roomRight.GetComponent<Room>(), _roomLeft.GetComponent<Room>(), _roomThird.GetComponent<Room>()};
         }
         
         private void Connect(GameObject fromRoom, DoorSide fromSide, GameObject toRoom, DoorSide toSide)
@@ -63,9 +65,25 @@ namespace Rooms
             var doorToTrigger = doorTo.GetComponent<DoorTrigger>();
             doorToTrigger.targetPosition = doorFrom.Find("EntryPoint");
             
-            var rt = doorFrom.GetComponent<RoomTransition>();
-            rt.previousCamera = fromRoom.GetComponentInChildren<CinemachineCamera>();
-            rt.newCamera = toRoom.GetComponentInChildren<CinemachineCamera>();
+            var doorFromTransition = doorFrom.GetComponent<RoomTransition>();
+            doorFromTransition.previousCamera = fromRoom.GetComponentInChildren<CinemachineCamera>();
+            doorFromTransition.newCamera = toRoom.GetComponentInChildren<CinemachineCamera>();
+            
+            var doorToTransition = doorTo.GetComponent<RoomTransition>();
+            doorToTransition.previousCamera = toRoom.GetComponentInChildren<CinemachineCamera>();
+            doorToTransition.newCamera = fromRoom.GetComponentInChildren<CinemachineCamera>();
+        }
+
+        private void SetUpRoomCamera(GameObject roomGameObject)
+        {
+            var roomCamera = roomGameObject.GetComponentInChildren<CinemachineCamera>();
+            if (roomCamera == null)
+            {
+                Debug.Log("camera not found");
+            }
+            var player = GameManager.Instance.PlayerObject;
+            roomCamera.LookAt = player.transform;
+            roomCamera.Follow = player.transform;
         }
         
         private void DisableDoor(GameObject room, DoorSide side)
@@ -73,30 +91,7 @@ namespace Rooms
             var door = room.transform.Find(side + "Door");
             if(door != null) door.gameObject.SetActive(false);
         }
-
-        private GameObject InstantiateRoom(RoomType type, Vector2 dir)
-        {
-            GameObject roomPrefab;
-            switch (type)
-            {
-                case RoomType.Pantry:
-                    roomPrefab = RandomFrom(config.pantryLayouts);
-                    break;
-                case RoomType.Freezer:
-                    roomPrefab = RandomFrom(config.freezerLayouts);
-                    break;
-                case RoomType.Garden:
-                    roomPrefab = RandomFrom(config.gardenLayouts);
-                    break;
-                default:
-                    return null;
-            }
-            return Instantiate(roomPrefab, dir * config.roomSpacing, Quaternion.identity, roomsParent);
-            
-        }
         
-        private GameObject RandomFrom(List<GameObject> list) => list[Random.Range(0, list.Count)];
-
         private static RoomType PopRandom(List<RoomType> types)
         {
             var i = Random.Range(0, types.Count);

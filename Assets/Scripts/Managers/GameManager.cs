@@ -11,21 +11,20 @@ namespace Managers
     public class GameManager : MonoSingleton<GameManager>
     {
         [Header("Run Setup")] 
-        private List<Room> _rooms;
+        public List<Room> Rooms { get; private set;}
         [SerializeField] private WorldGenerator worldGenerator;
         [SerializeField] private List<ItemDefinition> allItems;
 
         [SerializeField] internal GameObject playerObject;
         public GameObject PlayerObject => playerObject; 
-
-
-    public IReadOnlyList<ItemDefinition> PlacedItems => allItems;
+        
+        public IReadOnlyList<ItemDefinition> PlacedItems => allItems;
         
         [SerializeField] private int rounds = 5;
 
         private void Awake()
         {
-            _rooms = worldGenerator.GenerateWorld();
+            Rooms = worldGenerator.GenerateWorld();
         }
 
         private void Start()
@@ -41,7 +40,7 @@ namespace Managers
                 bool placed = false;
                 while (!placed)
                 {
-                    var room = _rooms[ChooseRandomRoom()];
+                    var room = Rooms[ChooseRandomRoom()];
                     placed = room.TryAddItemToRandomContainer(item);
                 }
             }
@@ -52,8 +51,8 @@ namespace Managers
             int randomRoomIndex;
             do
             {
-                randomRoomIndex = Random.Range(0, _rooms.Count);
-            } while(_rooms[randomRoomIndex].AllContainersFull);
+                randomRoomIndex = Random.Range(0, Rooms.Count);
+            } while(Rooms[randomRoomIndex].AllContainersFull);
             return randomRoomIndex;
         }
     }
