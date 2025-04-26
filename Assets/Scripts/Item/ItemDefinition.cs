@@ -1,3 +1,4 @@
+using Rooms;
 using UnityEngine;
 
 namespace Scriptable_Objects
@@ -13,6 +14,7 @@ namespace Scriptable_Objects
         public Sprite icon;
         [Tooltip("prefab spawned in the world")]
         public GameObject prefab;
-
+        [Tooltip("Room where the item will be spawned")]
+        public RoomType roomType;
     }
 }
