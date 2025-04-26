@@ -6,14 +6,12 @@ using Random = UnityEngine.Random;
 
 namespace Rooms
 {
-    
     public class WorldGenerator : MonoBehaviour
     {
         [SerializeField] private GameObject kitchenPrefab;
-                
-        private GameObject _roomLeft, _roomRight, _roomThird;
         [SerializeField] private RoomFactory roomFactory;
-
+        private GameObject _roomLeft, _roomRight, _roomThird;
+        
    
         public List<Room> GenerateWorld()
         {
@@ -88,7 +86,7 @@ namespace Rooms
         
         private void DisableDoor(GameObject room, DoorSide side)
         {
-            var door = room.transform.Find(side + "Door");
+            var door = room.transform.Find($"Doors/{side} Door");
             if(door != null) door.gameObject.SetActive(false);
         }
         
