@@ -1,10 +1,11 @@
 using System;
 using System.Collections;
+using Managers;
 using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Managers
+namespace Enemies
 {
     public class MoleEnemy : MonoBehaviour, IEnemy
     {
@@ -12,19 +13,21 @@ namespace Managers
         [SerializeField] private float followSpeed = 2f;
         [SerializeField] private float attackInterval = 5f;
         [SerializeField] private float visibleDuration = 2f;
+        [SerializeField] private LayerMask obstacleLayer;
 
         [Header("Visual References")]
         [SerializeField] private GameObject moundVisual; 
         [SerializeField] private SpriteRenderer moleSprite;
         [SerializeField] private Collider2D moleCollider;
 
-        private float attackTimer = 0f;
-        private bool isAttacking = false;
-        private GameObject player;
+        private float _attackTimer = 0f;
+        private bool _isAttacking = false;
+        private GameObject _player;
+        private float _currentAttackInterval;
 
         private void Start()
         {
-            player = GameManager.Instance.playerObject;
+            _player = GameManager.Instance.playerObject;
             if (moundVisual != null)
                 moundVisual.SetActive(false);
 
@@ -33,15 +36,15 @@ namespace Managers
 
         private void Update()
         {
-            if (player == null) return;
+            if (_player == null) return;
 
-            if (!isAttacking)
+            if (!_isAttacking)
             {
-                attackTimer += Time.deltaTime;
-                if (attackTimer >= attackInterval)
+                _attackTimer += Time.deltaTime;
+                if (_attackTimer >= _currentAttackInterval)
                 {
                     StartCoroutine(AttackRoutine());
-                    attackTimer = 0f;
+                    _attackTimer = 0f;
                 }
                 else
                 {
@@ -49,17 +52,29 @@ namespace Managers
                 }
             }
         }
-
+        
         private void FollowPlayer()
         {
-            Vector2 randomOffset = Random.insideUnitCircle * moveRadius;
-            Vector2 targetPos = (Vector2)player.transform.position + randomOffset;
+            Vector2 targetPos = transform.position;
+
+            for (int i = 0; i < 10; i++)
+            {
+                Vector2 randomOffset = Random.insideUnitCircle * moveRadius;
+                Vector2 possiblePos = (Vector2)_player.transform.position + randomOffset;
+
+                if (!Physics2D.OverlapCircle(possiblePos, 0.3f, obstacleLayer))
+                {
+                    targetPos = possiblePos;
+                    break;
+                }
+            }
+
             transform.position = Vector2.Lerp(transform.position, targetPos, followSpeed * Time.deltaTime);
         }
 
         private IEnumerator AttackRoutine()
         {
-            isAttacking = true;
+            _isAttacking = true;
 
             //TODO: ADD ANIMATION INSTEAD OF ENABLE MOUND
             if (moundVisual != null)
@@ -79,7 +94,7 @@ namespace Managers
             if (moundVisual != null)
                 moundVisual.SetActive(false);
 
-            isAttacking = false;
+            _isAttacking = false;
         }
 
         private void HideMole()
@@ -102,11 +117,23 @@ namespace Managers
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (isAttacking && moleCollider.enabled && collision.gameObject == player)
+            if (_isAttacking && moleCollider.enabled && collision.gameObject == _player)
             {
-                AttackPlayer(player);
+                AttackPlayer(_player);
             }
         }
+        
+       /* private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject.CompareTag("Wall") || other.gameObject.CompareTag("Door"))
+            {
+                Vector3 collisionNormal = other.offset;
+                Vector3 reflectDirection = Vector3.Reflect((player.transform.position - transform.position).normalized, collisionNormal);
+                Vector3 bounceTarget = transform.position + reflectDirection * 0.5f;
+
+                transform.position = Vector3.MoveTowards(transform.position, bounceTarget, followSpeed * Time.deltaTime);
+            }
+        }*/
 
         
         public void AttackPlayer(GameObject player)
@@ -120,7 +147,7 @@ namespace Managers
 
         public void OnRoundStarted(int level)
         {
-            attackInterval = Mathf.Max(1f, attackInterval - level * 0.3f);
+            _currentAttackInterval = Mathf.Max(1f, attackInterval - level * 0.3f);
         }
     }
 }

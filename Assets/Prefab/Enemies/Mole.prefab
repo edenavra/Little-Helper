@@ -193,6 +193,9 @@ MonoBehaviour:
   followSpeed: 2
   attackInterval: 5
   visibleDuration: 2
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 512
   moundVisual: {fileID: 5111923269954329480}
   moleSprite: {fileID: 7998108746690428952}
   moleCollider: {fileID: 2710191838922060021}
