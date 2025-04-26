@@ -1,10 +1,11 @@
 using System;
 using System.Collections;
+using Managers;
 using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Managers
+namespace Enemies
 {
     public class MoleEnemy : MonoBehaviour, IEnemy
     {
