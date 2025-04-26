@@ -27,15 +27,20 @@ namespace Rooms
         private void Awake()
         {
             if (enemySpawner == null)
-                enemySpawner = GetComponentInChildren<EnemySpawner>();
+            {
+                if (hasEnemies)
+                {
+                    enemySpawner = GetComponentInChildren<EnemySpawner>();
+                    if (enemySpawner == null)
+                    {
+                        Debug.LogError("EnemySpawner is missing in this room with enemies!");
+                    }
+                }
+            }
 
-            if (enemySpawner != null)
+            if (hasEnemies && enemySpawner != null)
             {
                 enemySpawner.SetRoom(this);
-            }
-            if (hasEnemies)
-            {
-                enemyPool = EnemyPoolManager.Instance.GetPool(enemyTypeNeededForThisRoom);
             }
 
             IEnemy[] existingEnemies = GetComponentsInChildren<IEnemy>(includeInactive: true);
@@ -44,6 +49,15 @@ namespace Rooms
                 enemiesInRoom.Add(enemy);
             }
         }
+
+        private void Start()
+        {
+            if (hasEnemies)
+            {
+                enemyPool = EnemyPoolManager.Instance.GetPool(enemyTypeNeededForThisRoom);
+            }
+        }
+
 
         public void RegisterEnemy(GameObject enemyObj)
         {
@@ -57,13 +71,6 @@ namespace Rooms
         public void OnRoundStarted(int currentRound)
         {
             this.currentRound = currentRound;
-            /*if (enemySpawner != null)
-                enemySpawner.SpawnEnemies(currentRound);
-
-            foreach (var enemy in enemiesInRoom)
-            {
-                enemy.OnRoundStarted(currentRound);
-            }*/
         }
         private void UpdateEnemyLevel(int round)
         {

@@ -1,9 +1,11 @@
+using Utils;
+
 namespace Enemies
 {
     using System.Collections.Generic;
     using UnityEngine;
 
-    public class EnemyPoolManager : MonoBehaviour
+    public class EnemyPoolManager : MonoSingleton<EnemyPoolManager>
     {
         public static EnemyPoolManager Instance { get; private set; }
 
@@ -11,13 +13,6 @@ namespace Enemies
 
         private void Awake()
         {
-            if (Instance != null)
-            {
-                Destroy(gameObject);
-                return;
-            }
-            Instance = this;
-        
             EnemyPool[] allPools = GetComponentsInChildren<EnemyPool>(true);
             foreach (var pool in allPools)
             {
