@@ -819,6 +819,30 @@ PrefabInstance:
       propertyPath: 'rooms.Array.data[2]'
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6440198090329449163, guid: ef38540cd35058f489e8d4525ffb416f, type: 3}
+      propertyPath: recipeItems.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6440198090329449163, guid: ef38540cd35058f489e8d4525ffb416f, type: 3}
+      propertyPath: 'recipeItems.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: bacd280d8e90b0a4a930dd5a338e9538, type: 2}
+    - target: {fileID: 6440198090329449163, guid: ef38540cd35058f489e8d4525ffb416f, type: 3}
+      propertyPath: 'recipeItems.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 9f307ca39ef199e4684bcbe99f928815, type: 2}
+    - target: {fileID: 6440198090329449163, guid: ef38540cd35058f489e8d4525ffb416f, type: 3}
+      propertyPath: 'recipeItems.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: b167c7b4468b04143ba16de661a5e2be, type: 2}
+    - target: {fileID: 6440198090329449163, guid: ef38540cd35058f489e8d4525ffb416f, type: 3}
+      propertyPath: 'recipeItems.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a4f9f8c2b0cc2fc4e956c3e950239427, type: 2}
+    - target: {fileID: 6440198090329449163, guid: ef38540cd35058f489e8d4525ffb416f, type: 3}
+      propertyPath: 'recipeItems.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 30777d23b73295744ad810dc1ec21898, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

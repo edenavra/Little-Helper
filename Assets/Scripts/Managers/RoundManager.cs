@@ -34,7 +34,7 @@ namespace Managers
         {
             _currentRound++;
             //notify all rooms about next round (to increase difficultly)
-            foreach (var room in GameManager.Rooms) room.OnRoundStarted(_currentRound);
+            foreach (var room in GameManager.Instance.Rooms) room.OnRoundStarted(_currentRound);
         }
     }
 }

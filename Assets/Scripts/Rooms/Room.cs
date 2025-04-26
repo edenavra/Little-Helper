@@ -22,9 +22,7 @@ namespace Rooms
         private bool playerInside = false;
         private int currentRound = 1;
         private EnemyPool enemyPool;
-
-        public bool AllContainersFull => _fullContainers == containers.Count;
-
+        
         private List<IEnemy> enemiesInRoom = new();
 
         private void Awake()

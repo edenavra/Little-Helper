@@ -11,7 +11,7 @@ namespace Item
         {
             foreach (var item in items)
             {
-                foreach (var room in GameManager.Rooms)
+                foreach (var room in GameManager.Instance.Rooms)
                 {
                     if (item.roomType == room.RoomType)
                     {

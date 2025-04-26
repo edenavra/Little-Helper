@@ -7,7 +7,7 @@ namespace Enemies
 
     public class EnemyPoolManager : MonoSingleton<EnemyPoolManager>
     {
-        public static EnemyPoolManager Instance { get; private set; }
+        //public static EnemyPoolManager Instance { get; private set; }
 
         private Dictionary<EnemyType, EnemyPool> pools = new Dictionary<EnemyType, EnemyPool>();
 
