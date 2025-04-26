@@ -1,20 +1,38 @@
 using UnityEngine;
-using Utils;
+using System.Collections.Generic;
+using Player;
 
 namespace Managers
 {
-    public class UpgradeManager : MonoSingleton<UpgradeManager>
+    public class UpgradeManager : MonoBehaviour
     {
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
+        public List<Upgrade> availableUpgrades;
+        private PlayerStats playerStats;
+
+        private void Start()
         {
-        
+            playerStats = FindObjectOfType<PlayerController>().stats;
         }
 
-        // Update is called once per frame
-        void Update()
+        public void ApplyUpgrade(Upgrade upgrade)
         {
-        
+            switch (upgrade.type)
+            {
+                case UpgradeType.ExtraHealth:
+                    playerStats.maxHealth += 1;
+                    break;
+                case UpgradeType.SpeedBoost:
+                    playerStats.moveSpeed += 2f;
+                    break;
+                case UpgradeType.Dash:
+                    playerStats.dashForce += 5f;
+                    break;
+                case UpgradeType.Hide:
+                    playerStats.hideDuration += 1f;
+                    break;
+            }
+
+            Debug.Log($"Applied upgrade: {upgrade.upgradeName}");
         }
     }
 }
