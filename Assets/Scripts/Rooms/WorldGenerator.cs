@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Door;
 using Managers;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -20,17 +21,18 @@ namespace Rooms
             RoomType leftRoomType = PopRandom(types);
             RoomType thirdRoomType = types[0];
 
-            _roomRight = roomFactory.InstantiateRoom(rightRoomType, Vector2.right);
-            SetUpRoomCamera(_roomRight);
-            _roomLeft = roomFactory.InstantiateRoom(leftRoomType, Vector2.left);
-            SetUpRoomCamera(_roomLeft);
-
+            _roomRight = SetUpRoom(rightRoomType,Vector2.right);
+            
+            _roomLeft = SetUpRoom(leftRoomType,Vector2.left);
+            
             bool attachedRight = Random.value < 0.5f;
             Vector2 dir = attachedRight ? Vector2.right : Vector2.left;
-            _roomThird = roomFactory.InstantiateRoom(thirdRoomType, dir * 2f);
+            _roomThird = SetUpRoom(thirdRoomType, dir * 2);
             
             Connect(kitchenPrefab, DoorSide.Right, _roomRight, DoorSide.Left);
+            
             Connect(kitchenPrefab, DoorSide.Left, _roomLeft, DoorSide.Right);
+            
             if (attachedRight)
             {
                 Connect (_roomRight, DoorSide.Right, _roomThird, DoorSide.Left);
@@ -46,6 +48,15 @@ namespace Rooms
             
             return new List<Room> { _roomRight.GetComponent<Room>(), _roomLeft.GetComponent<Room>(), _roomThird.GetComponent<Room>()};
         }
+
+
+        private GameObject SetUpRoom(RoomType roomType, Vector2 dir)
+        {
+            var room = roomFactory.InstantiateRoom(roomType, dir);
+            SetUpRoomCamera(room);
+            room.GetComponent<Room>().RoomType = roomType;
+            return room;
+        } 
         
         private void Connect(GameObject fromRoom, DoorSide fromSide, GameObject toRoom, DoorSide toSide)
         {

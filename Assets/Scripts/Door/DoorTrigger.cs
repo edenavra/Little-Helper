@@ -1,33 +1,35 @@
-using System;
 using UnityEngine;
 
-public class DoorTrigger : MonoBehaviour
+namespace Door
 {
-    public Transform targetPosition;
-    private RoomTransition _transition;
-
-    private bool _playerInside;
-
-    private void Awake()
+    public class DoorTrigger : MonoBehaviour
     {
-        _transition = GetComponent<RoomTransition>();
-    }
+        public Transform targetPosition;
+        private RoomTransition _transition;
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (!_playerInside && other.CompareTag("Player"))
+        private bool _playerInside;
+
+        private void Awake()
         {
-            other.transform.position = targetPosition.position;
-            _transition.SwitchCamera();
-            _playerInside = true;
+            _transition = GetComponent<RoomTransition>();
         }
-    }
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            _playerInside = false;
+            if (!_playerInside && other.CompareTag("Player"))
+            {
+                other.transform.position = targetPosition.position;
+                _transition.SwitchCamera();
+                _playerInside = true;
+            }
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (other.CompareTag("Player"))
+            {
+                _playerInside = false;
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Scriptable_Objects;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -10,22 +11,19 @@ namespace Rooms
     {
         [SerializeField] private List<Interactable> containers;
         [SerializeField] private EnemySpawner enemySpawner;
+        public RoomType RoomType {get; set;}
 
         private int _fullContainers;
-        public bool AllContainersFull => _fullContainers == containers.Count;
+        private bool AllContainersFull => _fullContainers == containers.Count;
 
-        private List<IEnemy> enemiesInRoom = new List<IEnemy>();
+        private List<IEnemy> enemiesInRoom = new();
 
         private void Awake()
         {
-            if (enemySpawner == null)
-                enemySpawner = GetComponentInChildren<EnemySpawner>();
+            if (enemySpawner == null) enemySpawner = GetComponentInChildren<EnemySpawner>();
 
-            if (enemySpawner != null)
-            {
-                enemySpawner.SetRoom(this);
-            }
-
+            if (enemySpawner != null) enemySpawner.SetRoom(this);
+            
             IEnemy[] existingEnemies = GetComponentsInChildren<IEnemy>(includeInactive: true);
             foreach (var enemy in existingEnemies)
             {
@@ -53,21 +51,19 @@ namespace Rooms
             }
         }
 
-        public bool TryAddItemToRandomContainer(ItemDefinition item)
+        public bool AddItemToRandomContainer(ItemDefinition item)
         {
-            if (AllContainersFull)
-                return false;
+            if (AllContainersFull) return false;
+            GetRandomEmptyContainer()?.AddItem(item);
+            return true;
+        }
 
-            // try up to containers.Count times to find an empty one
-            for (int i = 0; i < containers.Count; i++)
-            {
-                var index = Random.Range(0, containers.Count);
-                if (!containers[index].IsEmpty) continue;
-                containers[index].AddItem(item);
-                _fullContainers++;
-                return true;
-            }
-            return false;
+        private Interactable GetRandomEmptyContainer()
+        {
+            var emptyContainers = containers.Where(c => c.IsEmpty).ToList();
+            if (emptyContainers.Count == 0) return null;
+            int index = Random.Range(0, emptyContainers.Count);
+            return emptyContainers[index];
         }
     }
 }
