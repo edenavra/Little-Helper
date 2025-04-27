@@ -19,7 +19,7 @@ namespace Rooms
 
         private int _fullContainers;
         private bool AllContainersFull => _fullContainers == containers.Count;
-        private bool playerInside = false;
+        private bool playerInside;
         private int currentRound = 1;
         private EnemyPool enemyPool;
         

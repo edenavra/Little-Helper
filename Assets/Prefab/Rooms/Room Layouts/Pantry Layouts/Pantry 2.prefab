@@ -914,13 +914,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   containers:
-  - {fileID: 0}
   - {fileID: 8604626374951812443}
   - {fileID: 346814520958365588}
   - {fileID: 6191911507065614791}
   hasEnemies: 1
   enemySpawner: {fileID: 7193819804617391386}
-  enemyPool: {fileID: -2517723254512529570, guid: 5a07c7d19f12dc14a83a2eb5ec4395d9, type: 3}
+  enemyTypeNeededForThisRoom: 0
 --- !u!114 &7193819804617391386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -933,12 +932,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d481ac3a2874ebdba8be172f2e5ed4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 5798508817191216985, guid: 6a15a8c31a6fd4e00aaf115911886cf0, type: 3}
   spawnPoints:
   - {fileID: 5324120897273996848}
   - {fileID: 3195767140498962261}
   baseAmount: 1
-  enemyPool: {fileID: 0}
 --- !u!114 &-7339675387651779222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -952,6 +949,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 5798508817191216985, guid: 6a15a8c31a6fd4e00aaf115911886cf0, type: 3}
+  enemyType: 0
 --- !u!61 &-5522287532055653005
 BoxCollider2D:
   m_ObjectHideFlags: 0

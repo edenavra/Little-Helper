@@ -4,7 +4,6 @@ using Rooms;
 using Scriptable_Objects;
 using UnityEngine;
 using Utils;
-using Random = UnityEngine.Random;
 
 namespace Managers
 {
