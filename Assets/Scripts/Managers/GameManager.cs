@@ -29,9 +29,9 @@ namespace Managers
         private void Awake()
         {
             Rooms = new List<Room>();
-            /*Rooms = worldGenerator.GenerateWorld();
+            Rooms = worldGenerator.GenerateWorld();
             ItemPlacer.PopulateContainers(recipeItems);
-            ItemPlacer.PopulateContainers(TrashItems);*/
+            ItemPlacer.PopulateContainers(TrashItems);
         }
 
         private void Start()
