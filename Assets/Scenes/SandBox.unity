@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a292cfb24d4b40aeaf7e624925f8d44a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kitchenPrefab: {fileID: 676025622}
+  kitchenPrefab: {fileID: 0}
   roomFactory: {fileID: 180007301}
 --- !u!4 &180007300
 Transform:
@@ -1009,12 +1009,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a054759962b22944b085713ec2d1652, type: 3}
---- !u!1 &676025622 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1076377229932869508, guid: e3a93abc1ff4e194fbcf575b73d95aa7, type: 3}
-  m_PrefabInstance: {fileID: 711384675}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &711384675
+--- !u!1001 &1149541881
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1066,10 +1061,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6103768815598488081, guid: e3a93abc1ff4e194fbcf575b73d95aa7, type: 3}
-      propertyPath: Target.TrackingTarget
-      value: 
-      objectReference: {fileID: 1422595820}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1402,15 +1393,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 180007299}
     - target: {fileID: 6440198090329449163, guid: ef38540cd35058f489e8d4525ffb416f, type: 3}
-      propertyPath: rooms.Array.data[0]
+      propertyPath: 'rooms.Array.data[0]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6440198090329449163, guid: ef38540cd35058f489e8d4525ffb416f, type: 3}
-      propertyPath: rooms.Array.data[1]
+      propertyPath: 'rooms.Array.data[1]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6440198090329449163, guid: ef38540cd35058f489e8d4525ffb416f, type: 3}
-      propertyPath: rooms.Array.data[2]
+      propertyPath: 'rooms.Array.data[2]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6440198090329449163, guid: ef38540cd35058f489e8d4525ffb416f, type: 3}
@@ -1418,23 +1409,23 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6440198090329449163, guid: ef38540cd35058f489e8d4525ffb416f, type: 3}
-      propertyPath: recipeItems.Array.data[0]
+      propertyPath: 'recipeItems.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: bacd280d8e90b0a4a930dd5a338e9538, type: 2}
     - target: {fileID: 6440198090329449163, guid: ef38540cd35058f489e8d4525ffb416f, type: 3}
-      propertyPath: recipeItems.Array.data[1]
+      propertyPath: 'recipeItems.Array.data[1]'
       value: 
       objectReference: {fileID: 11400000, guid: 9f307ca39ef199e4684bcbe99f928815, type: 2}
     - target: {fileID: 6440198090329449163, guid: ef38540cd35058f489e8d4525ffb416f, type: 3}
-      propertyPath: recipeItems.Array.data[2]
+      propertyPath: 'recipeItems.Array.data[2]'
       value: 
       objectReference: {fileID: 11400000, guid: b167c7b4468b04143ba16de661a5e2be, type: 2}
     - target: {fileID: 6440198090329449163, guid: ef38540cd35058f489e8d4525ffb416f, type: 3}
-      propertyPath: recipeItems.Array.data[3]
+      propertyPath: 'recipeItems.Array.data[3]'
       value: 
       objectReference: {fileID: 11400000, guid: a4f9f8c2b0cc2fc4e956c3e950239427, type: 2}
     - target: {fileID: 6440198090329449163, guid: ef38540cd35058f489e8d4525ffb416f, type: 3}
-      propertyPath: recipeItems.Array.data[4]
+      propertyPath: 'recipeItems.Array.data[4]'
       value: 
       objectReference: {fileID: 11400000, guid: 30777d23b73295744ad810dc1ec21898, type: 2}
     m_RemovedComponents: []
@@ -1753,15 +1744,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 123725673}
     - target: {fileID: 9046071585241662633, guid: 46bb33820fb4b2d4691a0b8746c2d9c3, type: 3}
-      propertyPath: rooms.Array.data[0]
+      propertyPath: 'rooms.Array.data[0]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 9046071585241662633, guid: 46bb33820fb4b2d4691a0b8746c2d9c3, type: 3}
-      propertyPath: rooms.Array.data[1]
+      propertyPath: 'rooms.Array.data[1]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 9046071585241662633, guid: 46bb33820fb4b2d4691a0b8746c2d9c3, type: 3}
-      propertyPath: rooms.Array.data[2]
+      propertyPath: 'rooms.Array.data[2]'
       value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2902,4 +2893,4 @@ SceneRoots:
   - {fileID: 3829736385038036051}
   - {fileID: 1114841726626541190}
   - {fileID: 760725806105602464}
-  - {fileID: 711384675}
+  - {fileID: 1149541881}
