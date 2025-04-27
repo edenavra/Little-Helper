@@ -17,7 +17,7 @@ namespace Managers
         [SerializeField] internal GameObject playerObject;
         public  List<Room> Rooms { get; private set;}
         
-        public List<ItemDefinition> PlacedItems => recipeItems;
+        public List<ItemDefinition> RecipeItems => recipeItems;
         public List<ItemDefinition> TrashItems => trashItems;
         public GameObject PlayerObject => playerObject; 
 

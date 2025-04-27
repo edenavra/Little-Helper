@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using Scriptable_Objects;
 using UnityEngine;
 using DG.Tweening;
@@ -74,11 +75,17 @@ namespace Rooms
             if (_storedItem == null)
             {
                 print("box is empty");
-                _isOpen = false;
-                _sr.sprite = closedSprite;
+                StartCoroutine(CloseAfterDelay());
                 return;
             }
             RevealItem();
+        }
+
+        private IEnumerator CloseAfterDelay()
+        {
+            yield return new WaitForSeconds(1f);
+            _isOpen = false;
+            _sr.sprite = closedSprite;
         }
 
         private void RevealItem()
