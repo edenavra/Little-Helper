@@ -1,18 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
 using DG.Tweening;
 using Managers;
 using Player;
 using Scriptable_Objects;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Grandma
 {
-    //TODO: change the system to work with the new rules. (iterate through the list normally) 
-    
     public class GrandmaQuestGiver : MonoBehaviour
     {
+        [SerializeField] private GameManager gameManager;
         [SerializeField] private PlayerInventory playerInventory;
         
+        private List<ItemDefinition> _remainingItems;
         private ItemDefinition _currentItem;
         private bool _isPlayerInRange;
         private int _currentItemIndex;

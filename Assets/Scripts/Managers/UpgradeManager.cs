@@ -8,7 +8,8 @@ namespace Managers
     {
         public List<Upgrade> availableUpgrades;
         private PlayerStats playerStats;
-
+        public int currentCoins = 999;
+        
         private void Start()
         {
             playerStats = FindObjectOfType<PlayerController>().stats;
@@ -34,5 +35,20 @@ namespace Managers
 
             Debug.Log($"Applied upgrade: {upgrade.upgradeName}");
         }
+        
+        public void TryBuyUpgrade(Upgrade upgrade)
+        {
+            if (currentCoins >= upgrade.cost)
+            {
+                currentCoins -= upgrade.cost;
+                ApplyUpgrade(upgrade);
+                Debug.Log($"Purchased {upgrade.upgradeName}! Remaining coins: {currentCoins}");
+            }
+            else
+            {
+                Debug.Log("Not enough coins to purchase upgrade!");
+            }
+        }
+
     }
 }
