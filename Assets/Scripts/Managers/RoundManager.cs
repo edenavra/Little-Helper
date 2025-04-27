@@ -17,6 +17,7 @@ namespace Managers
         
         private void Start()
         {
+            _currentRound = GameManager.Instance.CurrentRound;
             StartNextRound();
         }
 
