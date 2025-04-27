@@ -654,7 +654,7 @@ MonoBehaviour:
   - {fileID: 6310966764253516170}
   hasEnemies: 1
   enemySpawner: {fileID: 600106367837860625}
-  enemyPool: {fileID: 0}
+  enemyTypeNeededForThisRoom: 1
 --- !u!114 &600106367837860625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -667,12 +667,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d481ac3a2874ebdba8be172f2e5ed4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 5793066981831633996, guid: ee2012383d7d94a57abf2d9b1402f397, type: 3}
   spawnPoints:
   - {fileID: 1304069315822567216}
   - {fileID: 1521490592656664718}
   baseAmount: 1
-  enemyPool: {fileID: 0}
 --- !u!61 &524624741987440832
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
+using Enemies;
 using Utils;
 
-namespace Enemies
+namespace Managers
 {
     using System.Collections.Generic;
     using UnityEngine;

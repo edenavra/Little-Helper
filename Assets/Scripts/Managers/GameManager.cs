@@ -3,6 +3,7 @@ using Item;
 using Rooms;
 using Scriptable_Objects;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Utils;
 
 namespace Managers
@@ -10,7 +11,7 @@ namespace Managers
     public class GameManager : MonoSingleton<GameManager>
     {
         [Header("Run Setup")] 
-        [SerializeField] private int rounds = 5;
+        [SerializeField] private int rounds = 7;
         [SerializeField] private List<ItemDefinition> recipeItems;
         [SerializeField] private List<ItemDefinition> trashItems;
         [SerializeField] private WorldGenerator worldGenerator;
@@ -20,17 +21,72 @@ namespace Managers
         public List<ItemDefinition> RecipeItems => recipeItems;
         public List<ItemDefinition> TrashItems => trashItems;
         public GameObject PlayerObject => playerObject; 
+    
+        private int _currentRound;
 
+        public int CurrentRound => _currentRound;
 
         private void Awake()
         {
-            Rooms = worldGenerator.GenerateWorld();
+            Rooms = new List<Room>();
+            /*Rooms = worldGenerator.GenerateWorld();
             ItemPlacer.PopulateContainers(recipeItems);
-            ItemPlacer.PopulateContainers(TrashItems);
+            ItemPlacer.PopulateContainers(TrashItems);*/
         }
 
         private void Start()
         {
+            if (SceneManager.GetActiveScene().name == "GameScene")
+            {
+                StartRun();
+            }
+        }
+        
+        public void StartRun()
+        {
+            _currentRound = 1;
+            GenerateWorld();
+            StartNextRound();
+        }
+        
+        private void GenerateWorld()
+        {
+            Rooms = worldGenerator.GenerateWorld();
+            ItemPlacer.PopulateContainers(recipeItems);
+            ItemPlacer.PopulateContainers(trashItems);
+        }
+        
+        public void StartNextRound()
+        {
+            _currentRound++;
+            foreach (var room in Rooms)
+            {
+                room.OnRoundStarted(_currentRound);
+            }
+        }
+        
+        public void PlayerFailed()
+        {
+            Debug.Log("Player Failed!");
+            //SoundManager.Instance.PlayGameOver();
+            SceneManager.LoadScene("UpgradeScene");
+        }
+        
+        public void PlayerSucceeded()
+        {
+            Debug.Log("Player Won!");
+            CurrencyManager.Instance.ResetMoney();
+            SceneManager.LoadScene("VictoryScene");
+        }
+        
+        public void FinishRun()
+        {
+            SceneManager.LoadScene("Start");
+        }
+        
+        public void ContinueAfterUpgrade()
+        {
+            SceneManager.LoadScene("GameScene");
         }
     }
 }
