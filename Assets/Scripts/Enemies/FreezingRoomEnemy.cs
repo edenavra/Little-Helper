@@ -46,7 +46,6 @@ public class FreezingRoomEnemy : MonoBehaviour, IEnemy
         timerText.text = $"{minutes:00}:{seconds:00}:{hundredths:00}";
     }
 
-    // קריאה לזה כששחקן נכנס לחדר
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -58,7 +57,6 @@ public class FreezingRoomEnemy : MonoBehaviour, IEnemy
         }
     }
 
-    // קריאה לזה כששחקן יוצא מהחדר
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -80,7 +78,7 @@ public class FreezingRoomEnemy : MonoBehaviour, IEnemy
 
     public void OnRoundStarted(int level)
     {
-        freezeTime = Mathf.Max(3f, freezeTime - level * 1f);
-        currentTime = freezeTime;
+        float newFreezeTime = Mathf.Max(3f, freezeTime - level * 1f);
+        currentTime = newFreezeTime;
     }
 }

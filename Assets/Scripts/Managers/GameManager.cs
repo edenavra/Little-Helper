@@ -1,59 +1,92 @@
-using System;
 using System.Collections.Generic;
+using Item;
 using Rooms;
 using Scriptable_Objects;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Utils;
-using Random = UnityEngine.Random;
 
 namespace Managers
 {
     public class GameManager : MonoSingleton<GameManager>
     {
         [Header("Run Setup")] 
-        public List<Room> Rooms { get; private set;}
+        [SerializeField] private int rounds = 7;
+        [SerializeField] private List<ItemDefinition> recipeItems;
+        [SerializeField] private List<ItemDefinition> trashItems;
         [SerializeField] private WorldGenerator worldGenerator;
-        [SerializeField] private List<ItemDefinition> allItems;
-
         [SerializeField] internal GameObject playerObject;
+        public  List<Room> Rooms { get; private set;}
+        
+        public List<ItemDefinition> PlacedItems => recipeItems;
+        public List<ItemDefinition> TrashItems => trashItems;
         public GameObject PlayerObject => playerObject; 
-        
-        public IReadOnlyList<ItemDefinition> PlacedItems => allItems;
-        
-        [SerializeField] private int rounds = 5;
+    
+        private int _currentRound;
+
+        public int CurrentRound => _currentRound;
 
         private void Awake()
         {
-            Rooms = worldGenerator.GenerateWorld();
+            Rooms = new List<Room>();
+            /*Rooms = worldGenerator.GenerateWorld();
+            ItemPlacer.PopulateContainers(recipeItems);
+            ItemPlacer.PopulateContainers(TrashItems);*/
         }
 
         private void Start()
         {
-            PopulateContainers();
-        }
-
-        private void PopulateContainers()
-        {
-            //TODO : THIS IS A PLACE HOLDER FOR MONDAY. CHANGE TO MORE COMPLEX SHIT LATER.
-            foreach (var item in allItems)
+            if (SceneManager.GetActiveScene().name == "GameScene")
             {
-                bool placed = false;
-                while (!placed)
-                {
-                    var room = Rooms[ChooseRandomRoom()];
-                    placed = room.TryAddItemToRandomContainer(item);
-                }
+                StartRun();
             }
         }
-
-        private int ChooseRandomRoom()
+        
+        public void StartRun()
         {
-            int randomRoomIndex;
-            do
+            _currentRound = 1;
+            GenerateWorld();
+            StartNextRound();
+        }
+        
+        private void GenerateWorld()
+        {
+            Rooms = worldGenerator.GenerateWorld();
+            ItemPlacer.PopulateContainers(recipeItems);
+            ItemPlacer.PopulateContainers(trashItems);
+        }
+        
+        public void StartNextRound()
+        {
+            _currentRound++;
+            foreach (var room in Rooms)
             {
-                randomRoomIndex = Random.Range(0, Rooms.Count);
-            } while(Rooms[randomRoomIndex].AllContainersFull);
-            return randomRoomIndex;
+                room.OnRoundStarted(_currentRound);
+            }
+        }
+        
+        public void PlayerFailed()
+        {
+            Debug.Log("Player Failed!");
+            //SoundManager.Instance.PlayGameOver();
+            SceneManager.LoadScene("UpgradeScene");
+        }
+        
+        public void PlayerSucceeded()
+        {
+            Debug.Log("Player Won!");
+            CurrencyManager.Instance.ResetMoney();
+            SceneManager.LoadScene("VictoryScene");
+        }
+        
+        public void FinishRun()
+        {
+            SceneManager.LoadScene("Start");
+        }
+        
+        public void ContinueAfterUpgrade()
+        {
+            SceneManager.LoadScene("GameScene");
         }
     }
 }

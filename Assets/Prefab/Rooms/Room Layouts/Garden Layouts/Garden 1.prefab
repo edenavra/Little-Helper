@@ -425,6 +425,7 @@ GameObject:
   - component: {fileID: 6677383430677694901}
   - component: {fileID: 296899656008468763}
   - component: {fileID: 600106367837860625}
+  - component: {fileID: 5586072382450942822}
   m_Layer: 0
   m_Name: Garden 1
   m_TagString: Untagged
@@ -523,7 +524,9 @@ MonoBehaviour:
   - {fileID: 4793904667410726907}
   - {fileID: 490428231916781058}
   - {fileID: 6310966764253516170}
+  hasEnemies: 1
   enemySpawner: {fileID: 600106367837860625}
+  enemyTypeNeededForThisRoom: 1
 --- !u!114 &600106367837860625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -536,11 +539,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d481ac3a2874ebdba8be172f2e5ed4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 5793066981831633996, guid: ee2012383d7d94a57abf2d9b1402f397, type: 3}
   spawnPoints:
   - {fileID: 1304069315822567216}
   - {fileID: 1521490592656664718}
   baseAmount: 1
+--- !u!61 &5586072382450942822
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737035277805924819}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1804151918393479051
 GameObject:
   m_ObjectHideFlags: 0

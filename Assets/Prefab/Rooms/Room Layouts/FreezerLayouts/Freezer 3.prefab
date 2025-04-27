@@ -643,7 +643,9 @@ MonoBehaviour:
   - {fileID: 6961029883773907620}
   - {fileID: 8276380524936232311}
   - {fileID: 4764015839545761774}
+  hasEnemies: 0
   enemySpawner: {fileID: 0}
+  enemyTypeNeededForThisRoom: 2
 --- !u!114 &8278947156029699209
 MonoBehaviour:
   m_ObjectHideFlags: 0

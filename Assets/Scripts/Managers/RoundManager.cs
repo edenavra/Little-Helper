@@ -10,7 +10,6 @@ namespace Managers
 {
     public class RoundManager : MonoSingleton<RoundManager>
     {
-        [SerializeField] private GameManager gameManager; 
         [SerializeField] private GrandmaQuestGiver questGiver;
 
         private int _currentRound;
@@ -18,6 +17,7 @@ namespace Managers
         
         private void Start()
         {
+            _currentRound = GameManager.Instance.CurrentRound;
             StartNextRound();
         }
 
@@ -35,7 +35,7 @@ namespace Managers
         {
             _currentRound++;
             //notify all rooms about next round (to increase difficultly)
-            foreach (var room in gameManager.Rooms) room.OnRoundStarted(_currentRound);
+            foreach (var room in GameManager.Instance.Rooms) room.OnRoundStarted(_currentRound);
         }
     }
 }
