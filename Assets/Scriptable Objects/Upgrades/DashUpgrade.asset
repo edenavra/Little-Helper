@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Dash
   description: Dash forward through enemies
-  cost: 150
+  cost: 300
   type: 2

@@ -32,5 +32,16 @@ namespace Managers
         {
             return coinSpawner;
         }
+        
+        public bool CanAfford(int price)
+        {
+            return _currentMoney >= price;
+        }
+
+        public void SpendMoney(int amount)
+        {
+            _currentMoney -= amount;
+        }
+
     }
 }

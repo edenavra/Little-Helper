@@ -50,6 +50,7 @@ namespace Player
             else if (movement.y < 0 && currentDirection != "Down")
             {
                 animator.SetTrigger("GoDown");
+                
                 currentDirection = "Down";
             }
             else if (movement == Vector2.zero)
@@ -57,5 +58,18 @@ namespace Player
                 currentDirection = "";
             }
         }
+        
+        public void IncreaseMaxHealth(int amount)
+        {
+            stats.maxHealth += amount;
+            Debug.Log($"Max Health increased by {amount}. New max health: {stats.maxHealth}");
+        }
+
+        public void IncreaseMoveSpeed(float amount)
+        {
+            stats.moveSpeed += amount;
+            Debug.Log($"Move Speed increased by {amount}. New speed: {stats.moveSpeed}");
+        }
+
     }
 }
