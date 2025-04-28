@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Hide
   description: Temporarily become invincible
-  cost: 200
+  cost: 400
   type: 3

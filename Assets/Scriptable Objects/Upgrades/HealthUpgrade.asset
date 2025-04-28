@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Extra Heart
   description: Add 1 extra max heart
-  cost: 50
+  cost: 100
   type: 0

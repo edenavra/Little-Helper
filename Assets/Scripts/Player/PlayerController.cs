@@ -86,10 +86,24 @@ namespace Player
             if (activeModel != null) activeModel.SetActive(false);
 
             // turn on new
-            model.SetActive(true);
+                
+                model.SetActive(true);
             activeModel = model;
             activeAnim  = anim;
         }
+        
+        public void IncreaseMaxHealth(int amount)
+        {
+            stats.maxHealth += amount;
+            Debug.Log($"Max Health increased by {amount}. New max health: {stats.maxHealth}");
+        }
+
+        public void IncreaseMoveSpeed(float amount)
+        {
+            stats.moveSpeed += amount;
+            Debug.Log($"Move Speed increased by {amount}. New speed: {stats.moveSpeed}");
+        }
+
 
         // private void HandleDirection()
         // {
