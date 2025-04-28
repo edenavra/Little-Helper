@@ -11,26 +11,26 @@ namespace Grandma
 {
     public class GrandmaQuestGiver : MonoBehaviour
     {
+        [SerializeField] private GameManager gameManager;
         [SerializeField] private PlayerInventory playerInventory;
-       
-
         
+        private List<ItemDefinition> _remainingItems;
         private ItemDefinition _currentItem;
         private bool _isPlayerInRange;
-        private int _currentItemIndex = 0;
+        private int _currentItemIndex;
         
         public event Action OnItemDelivered;
         
         
         private void Start()
         {
-            //SetRandomItemGoal();
+            SetNextItemGoal();
         }
         
         private void Update()
         {
             if (!_isPlayerInRange || !Input.GetKeyDown(KeyCode.F)) return; 
-            //if(playerInventory.CurrentItem == _currentItem) ItemDelivered(playerInventory.CurrentItem);
+            if(playerInventory.CurrentItem == _currentItem) ItemDelivered(playerInventory.CurrentItem);
         }
 
 
@@ -45,29 +45,30 @@ namespace Grandma
             if (other.CompareTag("Player")) _isPlayerInRange = false;
         }
 
-        // private void ItemDelivered(ItemDefinition delivered)
-        // {
-        //     if (delivered != _currentItem) return;
-        //     
-        //     playerInventory.DropItem();
-        //     
-        //     OnItemDelivered?.Invoke();
-        //     
-        //     //TODO: REMOVE THIS SHIT ONCE WE HAVE PROPER ANIMATIONS 
-        //     transform
-        //         .DOPunchPosition(Vector3.up * 0.5f, 0.2f, vibrato: 1, elasticity: 0.5f)
-        //         .SetEase(Ease.OutQuad);
-        //     
-        //     if(_currentItemIndex == ) SetRandomItemGoal();
-        //     else print("All Items Delivered");
-        // }
+        private void ItemDelivered(ItemDefinition delivered)
+        {
+            if (delivered != _currentItem) return;
+            
+            playerInventory.DropItem();
+            
+            OnItemDelivered?.Invoke();
+            
+            //TODO: REMOVE THIS SHIT ONCE WE HAVE PROPER ANIMATIONS 
+            transform
+                .DOPunchPosition(Vector3.up * 0.5f, 0.2f, vibrato: 1, elasticity: 0.5f)
+                .SetEase(Ease.OutQuad);
+            
+            if(_currentItemIndex != GameManager.Instance.RecipeItems.Count) SetNextItemGoal();
+            else print("All Items Delivered");
+        }
         
-        // private void SetRandomItemGoal()
-        // {
-        //     _currentItem = _remainingItems[Random.Range(0, _remainingItems.Count)];
-        //     print("current item is: " + _currentItem.name);
-        // }
 
+        private void SetNextItemGoal()
+        {
+            _currentItem = GameManager.Instance.RecipeItems[_currentItemIndex++];
+            print($"current Item is {_currentItem.itemName}");
+        }
+        
         public bool IsCurrentItem(ItemDefinition item)
         {
             return _currentItem == item;

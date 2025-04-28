@@ -25,4 +25,4 @@ MonoBehaviour:
   - {fileID: 1737035277805924819, guid: 1a7f954a8dedbbe46b674f2217fcb5e6, type: 3}
   - {fileID: 1737035277805924819, guid: 39cee6c2052c8ee4084720d71c2c87f8, type: 3}
   - {fileID: 1737035277805924819, guid: 5357de8ee1699db45a0fff1a865649c8, type: 3}
-  roomSpacing: 30
+  roomSpacing: 50

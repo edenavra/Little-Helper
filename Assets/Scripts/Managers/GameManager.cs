@@ -18,7 +18,7 @@ namespace Managers
         [SerializeField] internal GameObject playerObject;
         public  List<Room> Rooms { get; private set;}
         
-        public List<ItemDefinition> PlacedItems => recipeItems;
+        public List<ItemDefinition> RecipeItems => recipeItems;
         public List<ItemDefinition> TrashItems => trashItems;
         public GameObject PlayerObject => playerObject; 
     
@@ -29,9 +29,9 @@ namespace Managers
         private void Awake()
         {
             Rooms = new List<Room>();
-            /*Rooms = worldGenerator.GenerateWorld();
+            Rooms = worldGenerator.GenerateWorld();
             ItemPlacer.PopulateContainers(recipeItems);
-            ItemPlacer.PopulateContainers(TrashItems);*/
+            ItemPlacer.PopulateContainers(TrashItems);
         }
 
         private void Start()

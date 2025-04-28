@@ -721,7 +721,7 @@ GameObject:
   - component: {fileID: 6301620689076972628}
   - component: {fileID: 4230721449627982929}
   m_Layer: 0
-  m_Name: Kitchen
+  m_Name: Kitchenn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
