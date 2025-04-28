@@ -25,8 +25,10 @@ namespace Player
             animFront = foxFront.GetComponent<Animator>();
             animSide  = foxSide .GetComponent<Animator>();
             animBack  = foxBack .GetComponent<Animator>();
+            animFront.speed = 5;
+            animSide.speed = 5;
+            animBack.speed = 5;
 
-            // ensure only front is active at start
             ActivateModel(foxFront, animFront);
         }
 
@@ -46,8 +48,8 @@ namespace Player
                 ActivateModel(foxSide, animSide);
                 // flip left/right
                 foxSide.transform.localScale = new Vector3(
-                    movement.x < 0 ? -1 : 1,
-                    1, 1);
+                    movement.x < 0 ? -0.4f : 0.4f,
+                    0.4f, 0.4f);
             }
             else
             {
