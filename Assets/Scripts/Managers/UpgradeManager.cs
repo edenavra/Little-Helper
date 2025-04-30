@@ -1,21 +1,43 @@
 using UnityEngine;
-using System.Collections.Generic;
 using Player;
+using Managers;
 
 namespace Managers
 {
     public class UpgradeManager : MonoBehaviour
     {
-        public List<Upgrade> availableUpgrades;
-        private PlayerStats playerStats;
+        public PlayerStats playerStats;
         public int currentCoins = 999;
-        
+
         private void Start()
         {
-            playerStats = FindObjectOfType<PlayerController>().stats;
+            if (playerStats == null)
+            {
+                playerStats = FindObjectOfType<PlayerController>().stats;
+            }
+            ReapplyAllUpgrades();
         }
 
-        public void ApplyUpgrade(Upgrade upgrade)
+        public bool TryBuyUpgrade(Upgrade upgrade)
+        {
+            if (currentCoins >= upgrade.cost)
+            {
+                currentCoins -= upgrade.cost;
+                ApplyUpgrade(upgrade);
+
+                GameManager.Instance.RegisterUpgrade(upgrade.type);
+
+                Debug.Log($"Purchased {upgrade.upgradeName}! Remaining coins: {currentCoins}");
+                return true;
+            }
+            else
+            {
+                Debug.Log("Not enough coins to purchase upgrade!");
+                return false;
+            }
+        }
+
+        private void ApplyUpgrade(Upgrade upgrade)
         {
             switch (upgrade.type)
             {
@@ -35,20 +57,19 @@ namespace Managers
 
             Debug.Log($"Applied upgrade: {upgrade.upgradeName}");
         }
-        
-        public void TryBuyUpgrade(Upgrade upgrade)
-        {
-            if (currentCoins >= upgrade.cost)
-            {
-                currentCoins -= upgrade.cost;
-                ApplyUpgrade(upgrade);
-                Debug.Log($"Purchased {upgrade.upgradeName}! Remaining coins: {currentCoins}");
-            }
-            else
-            {
-                Debug.Log("Not enough coins to purchase upgrade!");
-            }
-        }
 
+        public void ReapplyAllUpgrades()
+        {
+            var upgrades = GameManager.Instance.PurchasedUpgrades;
+
+            foreach (var pair in upgrades)
+            {
+                for (int i = 0; i < pair.Value; i++)
+                {
+                    ApplyUpgrade(new Upgrade { type = pair.Key });
+                }
+            }
+            Debug.Log("All saved upgrades reapplied.");
+        }
     }
 }

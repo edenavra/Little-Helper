@@ -5,6 +5,7 @@ using Scriptable_Objects;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Utils;
+using Player;
 
 namespace Managers
 {
@@ -25,6 +26,9 @@ namespace Managers
         private int _currentRound;
 
         public int CurrentRound => _currentRound;
+        
+        public Dictionary<UpgradeType, int> PurchasedUpgrades { get; private set; } = new();
+
 
         private void Awake()
         {
@@ -88,5 +92,15 @@ namespace Managers
         {
             SceneManager.LoadScene("GameScene");
         }
+        
+        public void RegisterUpgrade(UpgradeType type)
+        {
+            if (!PurchasedUpgrades.ContainsKey(type))
+            {
+                PurchasedUpgrades[type] = 0;
+            }
+            PurchasedUpgrades[type]++;
+        }
+
     }
 }
