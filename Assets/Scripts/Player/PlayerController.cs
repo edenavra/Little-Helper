@@ -10,86 +10,75 @@ namespace Player
         [SerializeField] private GameObject foxSide;
         [SerializeField] private GameObject foxBack;
         
-        private Rigidbody2D rb;
-        private Animator animFront, animSide, animBack;
+        private Rigidbody2D _rb;
+        private Animator _animFront, _animSide, _animBack;
         
-        private GameObject  activeModel;
-        private Animator    activeAnim;
+        private GameObject  _activeModel;
+        private Animator    _activeAnim;
         
-        private Vector2 movement;
+        private Vector2 _movement;
         //private string currentDirection = "";
 
-        void Awake()
+        private void Awake()
         {
-            rb        = GetComponentInParent<Rigidbody2D>();
-            animFront = foxFront.GetComponent<Animator>();
-            animSide  = foxSide .GetComponent<Animator>();
-            animBack  = foxBack .GetComponent<Animator>();
-            animFront.speed = 5;
-            animSide.speed = 5;
-            animBack.speed = 5;
+            _rb        = GetComponentInParent<Rigidbody2D>();
+            _animFront = foxFront.GetComponent<Animator>();
+            _animSide  = foxSide .GetComponent<Animator>();
+            _animBack  = foxBack .GetComponent<Animator>();
 
-            ActivateModel(foxFront, animFront);
+            ActivateModel(foxFront, _animFront);
         }
 
-        void Update()
+        private void Update()
         {
-            movement.x = Input.GetAxisRaw("Horizontal");
-            movement.y = Input.GetAxisRaw("Vertical");
+            _movement.x = Input.GetAxisRaw("Horizontal");
+            _movement.y = Input.GetAxisRaw("Vertical");
 
             // pick which model to show
-            if (movement.magnitude < 0.1f)
+            if (_movement.magnitude < 0.1f)
             {
                 // no movement, keep whatever was active (or default to front)
             }
-            else if (Mathf.Abs(movement.x) > Mathf.Abs(movement.y))
+            else if (Mathf.Abs(_movement.x) > Mathf.Abs(_movement.y))
             {
                 // horizontal → side
-                ActivateModel(foxSide, animSide);
+                ActivateModel(foxSide, _animSide);
                 // flip left/right
                 foxSide.transform.localScale = new Vector3(
-                    movement.x < 0 ? -0.4f : 0.4f,
+                    _movement.x < 0 ? -0.4f : 0.4f,
                     0.4f, 0.4f);
             }
             else
             {
                 // vertical → up or down
-                if (movement.y > 0)
-                    ActivateModel(foxBack, animBack);
+                if (_movement.y > 0)
+                    ActivateModel(foxBack, _animBack);
                 else
-                    ActivateModel(foxFront, animFront);
+                    ActivateModel(foxFront, _animFront);
             }
 
-            // drive the Blend Tree on the active Animator
-            float speed = movement.magnitude;
-            activeAnim.SetFloat("MoveX", movement.x);
-            activeAnim.SetFloat("MoveY", movement.y);
-            activeAnim.SetFloat("Speed", speed);
-            activeAnim.speed = speed > 0.01f ? 1 : 0;
+            var speed = _movement.magnitude;
+            _activeAnim.speed = speed > 0.01f ? 1 : 0;
         }
 
 
         private void FixedUpdate()
         {
-            rb.linearVelocity = movement.normalized * stats.moveSpeed;
+            _rb.linearVelocity = _movement.normalized * stats.moveSpeed;
         }
         
         
-        /// <summary>
-        /// Enables one model and disables the others, and updates activeAnim.
-        /// </summary>
         private void ActivateModel(GameObject model, Animator anim)
         {
-            if (activeModel == model) return;
+            if (_activeModel == model) return;
 
             // turn off old
-            if (activeModel != null) activeModel.SetActive(false);
+            if (_activeModel != null) _activeModel.SetActive(false);
 
             // turn on new
-                
-                model.SetActive(true);
-            activeModel = model;
-            activeAnim  = anim;
+            model.SetActive(true);
+            _activeModel = model;
+            _activeAnim  = anim;
         }
         
         public void IncreaseMaxHealth(int amount)
