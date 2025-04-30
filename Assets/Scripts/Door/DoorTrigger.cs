@@ -18,7 +18,7 @@ namespace Door
         {
             if (!_playerInside && other.CompareTag("Player"))
             {
-                other.transform.position = targetPosition.position;
+                other.transform.parent.position = targetPosition.position;
                 _transition.SwitchCamera();
                 _playerInside = true;
             }

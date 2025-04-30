@@ -29,7 +29,7 @@ public class RatEnemy : MonoBehaviour, IEnemy
 
     private void MoveRandomly()
     {
-        transform.Translate(randomDirection * moveSpeed * Time.deltaTime);
+        transform.Translate(randomDirection * (moveSpeed * Time.deltaTime));
     }
 
     private void PickNewDirection()
@@ -52,9 +52,17 @@ public class RatEnemy : MonoBehaviour, IEnemy
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            AttackPlayer(other.gameObject);
+        }
+    }
+
     public void AttackPlayer(GameObject player)
     {
-        var health = player.GetComponent<PlayerHealth>();
+        var health = player.GetComponentInParent<PlayerHealth>();
         if (health != null)
         {
             health.TakeDamage(1); 

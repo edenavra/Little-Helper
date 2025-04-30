@@ -21,7 +21,7 @@ namespace Player
 
         void Awake()
         {
-            rb        = GetComponent<Rigidbody2D>();
+            rb        = GetComponentInParent<Rigidbody2D>();
             animFront = foxFront.GetComponent<Animator>();
             animSide  = foxSide .GetComponent<Animator>();
             animBack  = foxBack .GetComponent<Animator>();
