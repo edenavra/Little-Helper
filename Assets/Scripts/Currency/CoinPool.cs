@@ -5,9 +5,6 @@ namespace Currency
     using System.Collections.Generic;
     using UnityEngine;
 
-    using System.Collections.Generic;
-    using UnityEngine;
-
     public class CoinPool : MonoSingleton<CoinPool>
     {
         public GameObject coinPrefab;

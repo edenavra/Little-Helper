@@ -16,7 +16,7 @@ namespace UI
         private void Start()
         {
             buyButton = GetComponent<Button>();
-            upgradeManager = FindObjectOfType<UpgradeManager>();
+            upgradeManager = FindFirstObjectByType<UpgradeManager>();
 
             buyButton.onClick.AddListener(BuyUpgrade);
         }

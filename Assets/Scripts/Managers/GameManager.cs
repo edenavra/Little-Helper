@@ -18,6 +18,8 @@ namespace Managers
         [SerializeField] private List<ItemDefinition> trashItems;
         [SerializeField] private WorldGenerator worldGenerator;
         [SerializeField] internal GameObject playerObject;
+        [SerializeField] private CurrencyManager currencyManager;
+        
         public  List<Room> Rooms { get; private set;}
         
         public List<ItemDefinition> RecipeItems => recipeItems;
@@ -72,6 +74,7 @@ namespace Managers
             _currentRound = 1;
             print("generating world");
             GenerateWorld();
+            currencyManager.GetCoinSpawner().InitialSpawn();
             print("starting next round");
             StartNextRound();
         }

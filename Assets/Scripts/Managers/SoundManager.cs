@@ -5,7 +5,7 @@ namespace Managers
 {
     public class SoundManager : MonoSingleton<SoundManager>
     {
-        public static SoundManager Instance;
+        //public static SoundManager Instance;
 
         [Header("Audio Sources")]
         public AudioSource musicSource;
@@ -18,16 +18,16 @@ namespace Managers
         
         private void Awake()
         {
-            // Singleton – ensures only one SoundManager exists
-            if (Instance == null)
-            {
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
+        //     // Singleton – ensures only one SoundManager exists
+        //     if (Instance == null)
+        //     {
+        //         Instance = this;
+        //         DontDestroyOnLoad(gameObject);
+        //     }
+        //     else
+        //     {
+        //         Destroy(gameObject);
+        //     }
         }
 
         private void Start()

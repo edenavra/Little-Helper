@@ -17,7 +17,7 @@ namespace Utils
                 if (_instance != null)
                     return _instance;
 
-                _instance = FindObjectOfType<T>();
+                _instance = FindFirstObjectByType<T>();
                 if (_instance == null)
                 {
                     var singletonObject = new GameObject(typeof(T).Name);

@@ -13,7 +13,7 @@ namespace Managers
         {
             if (playerStats == null)
             {
-                playerStats = FindObjectOfType<PlayerController>().stats;
+                playerStats = FindFirstObjectByType<PlayerController>().stats;
             }
             ReapplyAllUpgrades();
         }

@@ -12,7 +12,7 @@ public class HealthBar : MonoBehaviour
     {
         if (playerHealth == null)
         {
-            playerHealth = FindObjectOfType<PlayerHealth>();
+            playerHealth = FindFirstObjectByType<PlayerHealth>();
         }
 
         healthSlider.maxValue = playerHealth.maxHealth;

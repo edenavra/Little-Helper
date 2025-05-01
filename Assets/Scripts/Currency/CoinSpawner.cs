@@ -18,8 +18,8 @@ namespace Currency
         
         private void Start()
         {
-            _rooms = GameManager.Instance.Rooms;
-            InitialSpawn();
+            // _rooms = GameManager.Instance.Rooms;
+            // InitialSpawn();
         }
 
         private void OnEnable()
@@ -37,15 +37,16 @@ namespace Currency
             print("not implemented");
         }
 
-        private void InitialSpawn()
+        public void InitialSpawn()
         {
+            _rooms = GameManager.Instance.Rooms;
             for (int i = 0; i < totalCoinsToSpawn; i++)
             {
                 SpawnSingleCoin();
             }
         }
 
-        public void SpawnSingleCoin()
+        private void SpawnSingleCoin()
         {
             if (_rooms.Count == 0) return;
 
