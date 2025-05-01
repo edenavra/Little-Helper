@@ -1,6 +1,7 @@
 using Managers;
 using System;
 using UnityEngine;
+using Player;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -8,13 +9,19 @@ public class PlayerHealth : MonoBehaviour
     private int currentHealth;
     public event Action<int, int> OnHealthChanged;
 
+    [SerializeField] private PlayerStats stats;
+
     private void Start()
     {
+        if (stats != null)
+        {
+            maxHealth = stats.maxHealth;
+        }
+
         currentHealth = maxHealth;
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
-        // אפשר לעדכן UI כאן בהמשך
     }
-
+    
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
@@ -45,4 +52,14 @@ public class PlayerHealth : MonoBehaviour
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
         // גם פה אפשר לעדכן UI
     }
+    
+    public void IncreaseMaxHealth(int amount)
+    {
+        maxHealth += amount;
+        currentHealth += amount;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        OnHealthChanged?.Invoke(currentHealth, maxHealth);
+        Debug.Log($"[Health] Extra health purchased! MaxHealth: {maxHealth}, CurrentHealth: {currentHealth}");
+    }
+
 }

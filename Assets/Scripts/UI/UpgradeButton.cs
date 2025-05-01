@@ -24,6 +24,9 @@ namespace UI
         
         private void BuyUpgrade()
         {
+            Debug.Log(">>> BuyUpgrade called!");
+
+            if (!buyButton.interactable) return;
             if (upgradeData == null)
             {
                 Debug.LogWarning("No upgrade data assigned!");

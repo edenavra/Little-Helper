@@ -7,27 +7,40 @@ namespace Managers
     public class UpgradeManager : MonoBehaviour
     {
         public PlayerStats playerStats;
-        public int currentCoins = 999;
-
+        //public int currentCoins = 999;
+        
         private void Start()
         {
             if (playerStats == null)
             {
                 playerStats = FindFirstObjectByType<PlayerController>().stats;
             }
-            ReapplyAllUpgrades();
+
+            if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "GameScene")
+            {
+                ReapplyAllUpgrades();
+            }
         }
+
 
         public bool TryBuyUpgrade(Upgrade upgrade)
         {
-            if (currentCoins >= upgrade.cost)
+            // if (currentCoins >= upgrade.cost)
+            // {
+            //     currentCoins -= upgrade.cost;
+            //     ApplyUpgrade(upgrade);
+            //
+            //     GameManager.Instance.RegisterUpgrade(upgrade.type);
+            //
+            //     Debug.Log($"Purchased {upgrade.upgradeName}! Remaining coins: {currentCoins}");
+            //     return true;
+            // }
+            if (CurrencyManager.Instance.GetMoney() >= upgrade.cost)
             {
-                currentCoins -= upgrade.cost;
+                CurrencyManager.Instance.SpendMoney(upgrade.cost);
                 ApplyUpgrade(upgrade);
-
                 GameManager.Instance.RegisterUpgrade(upgrade.type);
-
-                Debug.Log($"Purchased {upgrade.upgradeName}! Remaining coins: {currentCoins}");
+                Debug.Log($"Purchased {upgrade.upgradeName}! Remaining coins: {CurrencyManager.Instance.GetMoney()}");
                 return true;
             }
             else
@@ -42,7 +55,8 @@ namespace Managers
             switch (upgrade.type)
             {
                 case UpgradeType.ExtraHealth:
-                    playerStats.maxHealth += 1;
+                    // playerStats.maxHealth += 1;
+                    FindObjectOfType<PlayerHealth>().IncreaseMaxHealth(1);
                     break;
                 case UpgradeType.SpeedBoost:
                     playerStats.moveSpeed += 2f;

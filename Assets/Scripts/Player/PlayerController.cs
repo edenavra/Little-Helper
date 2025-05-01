@@ -81,12 +81,6 @@ namespace Player
             _activeAnim  = anim;
         }
         
-        public void IncreaseMaxHealth(int amount)
-        {
-            stats.maxHealth += amount;
-            Debug.Log($"Max Health increased by {amount}. New max health: {stats.maxHealth}");
-        }
-
         public void IncreaseMoveSpeed(float amount)
         {
             stats.moveSpeed += amount;
