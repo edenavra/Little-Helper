@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Item;
 using Rooms;
@@ -28,28 +29,50 @@ namespace Managers
         public int CurrentRound => _currentRound;
         
         public Dictionary<UpgradeType, int> PurchasedUpgrades { get; private set; } = new();
+       
+        private bool isTutorialCompleted = true; //TODO: change the default to false after creating tutorial
 
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                GameEvents.RestartLevel.Invoke();
+                RestartLevel();
+            }
+        }
+
+        private void RestartLevel()
+        {
+            
+            //delete current rooms 
+            foreach (Room room in Rooms)
+            {
+                Destroy(room);
+            }
+            GenerateWorld();
+            
+        }
 
         private void Awake()
         {
             Rooms = new List<Room>();
-            Rooms = worldGenerator.GenerateWorld();
-            ItemPlacer.PopulateContainers(recipeItems);
-            ItemPlacer.PopulateContainers(TrashItems);
         }
 
         private void Start()
         {
-            if (SceneManager.GetActiveScene().name == "GameScene")
+            if (SceneManager.GetActiveScene().name == "SandBox")
             {
                 StartRun();
             }
         }
         
-        public void StartRun()
+        private void StartRun()
         {
             _currentRound = 1;
+            print("generating world");
             GenerateWorld();
+            print("starting next round");
             StartNextRound();
         }
         
@@ -60,7 +83,7 @@ namespace Managers
             ItemPlacer.PopulateContainers(trashItems);
         }
         
-        public void StartNextRound()
+        private void StartNextRound()
         {
             _currentRound++;
             foreach (var room in Rooms)
@@ -73,7 +96,6 @@ namespace Managers
         {
             Debug.Log("Player Failed!");
             //SoundManager.Instance.PlayGameOver();
-            SceneManager.LoadScene("UpgradeScene");
         }
         
         public void PlayerSucceeded()
@@ -101,6 +123,12 @@ namespace Managers
             }
             PurchasedUpgrades[type]++;
         }
-
+        
+        public void OnStartGameButtonPressed()
+        {
+            if (isTutorialCompleted)
+                SceneManager.LoadScene("GameScene");
+        }
+        
     }
 }

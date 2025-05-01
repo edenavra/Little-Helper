@@ -1,7 +1,10 @@
+using System;
 using Managers;
 using Rooms;
 using System.Collections.Generic;
 using UnityEngine;
+using Utils;
+using Random = UnityEngine.Random;
 
 namespace Currency
 {
@@ -12,11 +15,26 @@ namespace Currency
         [SerializeField] private float spawnRadius = 0.3f;
 
         private List<Room> _rooms = new List<Room>();
-
+        
         private void Start()
         {
             _rooms = GameManager.Instance.Rooms;
             InitialSpawn();
+        }
+
+        private void OnEnable()
+        {
+            GameEvents.RestartLevel += HandleRestart;
+        }
+        
+        private void OnDisable()
+        {
+            GameEvents.RestartLevel -= HandleRestart;
+        }
+
+        private void HandleRestart()
+        {
+            print("not implemented");
         }
 
         private void InitialSpawn()

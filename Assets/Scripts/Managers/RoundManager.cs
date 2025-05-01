@@ -37,5 +37,10 @@ namespace Managers
             //notify all rooms about next round (to increase difficultly)
             foreach (var room in GameManager.Instance.Rooms) room.OnRoundStarted(_currentRound);
         }
+
+        private void RestartLevel()
+        {
+            _currentRound = GameManager.Instance.CurrentRound;
+        }
     }
 }

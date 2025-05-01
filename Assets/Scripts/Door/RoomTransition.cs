@@ -1,19 +1,20 @@
-using System;
-using UnityEngine;
 using Unity.Cinemachine;
+using UnityEngine;
 
-
-public class RoomTransition : MonoBehaviour
+namespace Door
 {
-    public CinemachineCamera previousCamera;
-    public CinemachineCamera newCamera;
-    
-    public void SwitchCamera()
+    public class RoomTransition : MonoBehaviour
     {
-        if (previousCamera != null)
-            previousCamera.Priority = 0;
+        public CinemachineCamera previousCamera;
+        public CinemachineCamera newCamera;
+    
+        public void SwitchCamera()
+        {
+            if (previousCamera != null)
+                previousCamera.Priority = 0;
 
-        if (newCamera != null)
-            newCamera.Priority = 1;
+            if (newCamera != null)
+                newCamera.Priority = 1;
+        }
     }
 }
