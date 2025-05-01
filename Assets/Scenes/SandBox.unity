@@ -1480,11 +1480,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07e4d6ec9f7bd2741b84c71a1f45be62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats:
-    maxHealth: 3
-    moveSpeed: 5
-    dashForce: 10
-    hideDuration: 2
 --- !u!114 &1343560589 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4949421948781170977, guid: dc606d5febcbe43f8968e679d02a1386, type: 3}

@@ -6,14 +6,16 @@ namespace Managers
 {
     public class UpgradeManager : MonoBehaviour
     {
-        public PlayerStats playerStats;
-        //public int currentCoins = 999;
+        private  PlayerStats playerStats;
         
         private void Start()
         {
             if (playerStats == null)
             {
-                playerStats = FindFirstObjectByType<PlayerController>().stats;
+                var controller = FindFirstObjectByType<PlayerController>();
+                playerStats = controller.stats;
+
+                Debug.Log($"[UpgradeManager] Linked to actual PlayerStats. Initial moveSpeed: {playerStats.moveSpeed}");
             }
 
             if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "GameScene")
@@ -23,18 +25,9 @@ namespace Managers
         }
 
 
+
         public bool TryBuyUpgrade(Upgrade upgrade)
         {
-            // if (currentCoins >= upgrade.cost)
-            // {
-            //     currentCoins -= upgrade.cost;
-            //     ApplyUpgrade(upgrade);
-            //
-            //     GameManager.Instance.RegisterUpgrade(upgrade.type);
-            //
-            //     Debug.Log($"Purchased {upgrade.upgradeName}! Remaining coins: {currentCoins}");
-            //     return true;
-            // }
             if (CurrencyManager.Instance.GetMoney() >= upgrade.cost)
             {
                 CurrencyManager.Instance.SpendMoney(upgrade.cost);
@@ -55,12 +48,20 @@ namespace Managers
             switch (upgrade.type)
             {
                 case UpgradeType.ExtraHealth:
-                    // playerStats.maxHealth += 1;
                     FindObjectOfType<PlayerHealth>().IncreaseMaxHealth(1);
                     break;
                 case UpgradeType.SpeedBoost:
-                    playerStats.moveSpeed += 2f;
+                    //playerStats.moveSpeed += 2f;
+                    int level = GameManager.Instance.PurchasedUpgrades.ContainsKey(UpgradeType.SpeedBoost)
+                        ? GameManager.Instance.PurchasedUpgrades[UpgradeType.SpeedBoost]
+                        : 0;
+
+                    float bonus = Mathf.Max(0.5f, 2f - level * 0.3f); // הולך וקטן, אבל לא יורד מ־0.5
+                    playerStats.moveSpeed += bonus;
+
+                    Debug.Log($"[UpgradeManager] Speed Boost applied, level {level}, bonus {bonus}, new speed {playerStats.moveSpeed}");
                     break;
+                    
                 case UpgradeType.Dash:
                     playerStats.dashForce += 5f;
                     break;

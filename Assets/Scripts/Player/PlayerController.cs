@@ -21,7 +21,8 @@ namespace Player
 
         private void Awake()
         {
-            _rb        = GetComponentInParent<Rigidbody2D>();
+            //_rb        = GetComponentInParent<Rigidbody2D>();
+            _rb = GetComponent<Rigidbody2D>();
             _animFront = foxFront.GetComponent<Animator>();
             _animSide  = foxSide .GetComponent<Animator>();
             _animBack  = foxBack .GetComponent<Animator>();
@@ -65,6 +66,7 @@ namespace Player
         private void FixedUpdate()
         {
             _rb.linearVelocity = _movement.normalized * stats.moveSpeed;
+            Debug.Log($"[PlayerController] MoveSpeed: {stats.moveSpeed}, Velocity: {_rb.linearVelocity}");
         }
         
         
