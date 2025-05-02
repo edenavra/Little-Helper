@@ -19,8 +19,8 @@ namespace Managers
         [SerializeField] private WorldGenerator worldGenerator;
         [SerializeField] internal GameObject playerObject;
         [SerializeField] private CurrencyManager currencyManager;
-        
-        public  List<Room> Rooms { get; private set;}
+        //[SerializeField] private GameObject upgradePanel;
+        public List<Room> Rooms { get; private set;}
         
         [SerializeField] private WorldConfig worldConfig;
         
@@ -35,10 +35,32 @@ namespace Managers
         public int CurrentRound => _currentRound;
         
         public Dictionary<UpgradeType, int> PurchasedUpgrades { get; private set; } = new();
+        
        
         private bool isTutorialCompleted = true; //TODO: change the default to false after creating tutorial
 
+        private void OnEnable()
+        {
+            GameEvents.PlayerDied += HandlePlayerDied;
+        }
+        private void OnDisable()
+        {
+            GameEvents.PlayerDied -= HandlePlayerDied;
+        }
 
+        private void Awake()
+        {
+            //Rooms = new List<Room>();
+        }
+
+        private void Start()
+        {
+            if (SceneManager.GetActiveScene().name == "SandBox")
+            {
+                StartRun();
+            }
+        }
+        
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.R))
@@ -50,44 +72,33 @@ namespace Managers
 
         private void RestartLevel()
         {
-            
             //delete current rooms 
             foreach (Room room in Rooms)
             {
-                Destroy(room);
+                if (room != null)
+                    Destroy(room.gameObject);
             }
+            Rooms.Clear();
             GenerateWorld();
             
-        }
-
-        private void Awake()
-        {
-            Rooms = new List<Room>();
-        }
-
-        private void Start()
-        {
-            if (SceneManager.GetActiveScene().name == "SandBox")
-            {
-                StartRun();
-            }
         }
         
         private void StartRun()
         {
-            _currentRound = 1;
+            _currentRound = 0;
             print("generating world");
             GenerateWorld();
-            currencyManager.GetCoinSpawner().InitialSpawn();
-            print("starting next round");
+            GameEvents.StartQuest.Invoke();
             StartNextRound();
         }
         
         private void GenerateWorld()
-        {
+        { 
             Rooms = worldGenerator.GenerateWorld();
             ItemPlacer.PopulateContainers(worldConfig.recipeItems, Rooms);
             ItemPlacer.PopulateContainers(worldConfig.trashItems, Rooms);
+            //currencyManager.GetCoinSpawner().SetRooms(Rooms);
+            currencyManager.GetCoinSpawner().InitialSpawn();
         }
         
         private void StartNextRound()
@@ -99,9 +110,10 @@ namespace Managers
             }
         }
         
-        public void PlayerFailed()
+        public void HandlePlayerDied()
         {
             Debug.Log("Player Failed!");
+            //upgradePanel.SetActive(true);
             //SoundManager.Instance.PlayGameOver();
         }
         

@@ -17,24 +17,33 @@ namespace Managers
         
         private void Start()
         {
-            _currentRound = GameManager.Instance.CurrentRound;
-            StartNextRound();
+            //_currentRound = GameManager.Instance.CurrentRound;
+            //StartNextRound();
         }
 
         private void OnEnable()
         {
             questGiver.OnItemDelivered += StartNextRound;
+            GameEvents.StartQuest += StartRounds;
         }
 
         private void OnDisable()
         {
             questGiver.OnItemDelivered -= StartNextRound;
+            GameEvents.StartQuest -= StartRounds;
+        }
+        
+        private void StartRounds()
+        {
+            _currentRound = GameManager.Instance.CurrentRound;
+            StartNextRound();
         }
 
         private void StartNextRound()
         {
             _currentRound++;
             //notify all rooms about next round (to increase difficultly)
+            //foreach (var room in _rooms) room.OnRoundStarted(_currentRound);
             foreach (var room in GameManager.Instance.Rooms) room.OnRoundStarted(_currentRound);
         }
 

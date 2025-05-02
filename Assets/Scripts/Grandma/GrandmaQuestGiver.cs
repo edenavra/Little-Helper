@@ -5,7 +5,9 @@ using Managers;
 using Player;
 using Rooms;
 using Scriptable_Objects;
+using Unity.VisualScripting;
 using UnityEngine;
+using Utils;
 
 namespace Grandma
 {
@@ -26,6 +28,20 @@ namespace Grandma
         
         private void Start()
         {
+          
+        }
+
+        private void OnEnable()
+        {
+            GameEvents.StartQuest += StartQuest;
+        }
+        private void OnDisable()
+        {
+            GameEvents.StartQuest -= StartQuest;
+        }
+        private void StartQuest()
+        {
+            _currentItemIndex = 0;
             SetNextItemGoal();
         }
         

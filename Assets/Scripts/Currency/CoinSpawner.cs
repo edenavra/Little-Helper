@@ -14,7 +14,7 @@ namespace Currency
         [SerializeField] private int totalCoinsToSpawn = 10;
         [SerializeField] private float spawnRadius = 0.3f;
 
-        private List<Room> _rooms = new List<Room>();
+        private List<Room> _rooms;
         
         private void Start()
         {
@@ -25,21 +25,29 @@ namespace Currency
         private void OnEnable()
         {
             GameEvents.RestartLevel += HandleRestart;
+            GameEvents.OnCoinCollected += OnCoinCollected;
         }
         
         private void OnDisable()
         {
             GameEvents.RestartLevel -= HandleRestart;
+            GameEvents.OnCoinCollected -= OnCoinCollected;
         }
 
         private void HandleRestart()
         {
             print("not implemented");
         }
+        
+        public void SetRooms(List<Room> rooms)
+        {
+            this._rooms = rooms;
+        }
 
         public void InitialSpawn()
         {
-            _rooms = GameManager.Instance.Rooms;
+            this._rooms = GameManager.Instance.Rooms;
+
             for (int i = 0; i < totalCoinsToSpawn; i++)
             {
                 SpawnSingleCoin();
@@ -48,8 +56,8 @@ namespace Currency
 
         private void SpawnSingleCoin()
         {
+            
             if (_rooms.Count == 0) return;
-
             Room randomRoom = _rooms[Random.Range(0, _rooms.Count)];
             Vector2 spawnPosition = FindValidPositionInRoom(randomRoom);
 

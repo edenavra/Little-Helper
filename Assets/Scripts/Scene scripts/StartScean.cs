@@ -18,7 +18,8 @@ namespace UI
 
         private void LoadGameScene()
         {
-            GameManager.Instance.OnStartGameButtonPressed();
+            SceneManager.LoadScene("SandBox");
+            //GameManager.Instance.OnStartGameButtonPressed();
         }
         
     }
