@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using DG.Tweening;
 using Managers;
 using Player;
+using Rooms;
 using Scriptable_Objects;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Grandma
 {
@@ -13,6 +13,8 @@ namespace Grandma
     {
         [SerializeField] private GameManager gameManager;
         [SerializeField] private PlayerInventory playerInventory;
+        
+        [SerializeField] private WorldConfig worldConfig;
         
         private List<ItemDefinition> _remainingItems;
         private ItemDefinition _currentItem;
@@ -58,14 +60,14 @@ namespace Grandma
                 .DOPunchPosition(Vector3.up * 0.5f, 0.2f, vibrato: 1, elasticity: 0.5f)
                 .SetEase(Ease.OutQuad);
             
-            if(_currentItemIndex != GameManager.Instance.RecipeItems.Count) SetNextItemGoal();
+            if(_currentItemIndex != worldConfig.recipeItems.Count) SetNextItemGoal();
             else print("All Items Delivered");
         }
-        
+
 
         private void SetNextItemGoal()
         {
-            _currentItem = GameManager.Instance.RecipeItems[_currentItemIndex++];
+            _currentItem = worldConfig.recipeItems[_currentItemIndex++];
             print($"current Item is {_currentItem.itemName}");
         }
         
