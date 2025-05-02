@@ -130,7 +130,7 @@ namespace Managers
         public void OnStartGameButtonPressed()
         {
             if (isTutorialCompleted)
-                SceneManager.LoadScene("GameScene");
+                SceneManager.LoadScene("SandBox");
         }
         
     }

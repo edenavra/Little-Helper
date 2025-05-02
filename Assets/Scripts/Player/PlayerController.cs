@@ -1,3 +1,4 @@
+using Managers;
 using UnityEngine;
 
 namespace Player
@@ -21,6 +22,7 @@ namespace Player
 
         private void Awake()
         {
+            GameManager.Instance.playerObject = gameObject;
             //_rb        = GetComponentInParent<Rigidbody2D>();
             _rb = GetComponent<Rigidbody2D>();
             _animFront = foxFront.GetComponent<Animator>();
