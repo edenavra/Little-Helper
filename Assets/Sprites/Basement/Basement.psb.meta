@@ -1,0 +1,916 @@
+fileFormatVersion: 2
+guid: d4a40fb25f18f964ba9f5417cd6f88bc
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 0c2ade96a3984c94ca04f4a8ee80ed8b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
+  multiSpriteImportData: []
+  layeredSpriteImportData:
+  - name: Paper Effect
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 6508
+      width: 4096
+      height: 2150
+    spriteID: b7c208ae5fde44c499453eff7f61e01a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 6498}
+    spritePosition: {x: 0, y: 10}
+  - name: Vinegette
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 4096
+      height: 2160
+    spriteID: 7c6f11391358e2d44ab4e24930850b13
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 0, y: 0}
+  - name: Tail
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 8035
+      y: 7104
+      width: 84
+      height: 39
+    spriteID: f532771267f1f804f818afa7d69bd39c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 6459, y: 6544}
+    spritePosition: {x: 1576, y: 560}
+  - name: Pipes
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 6656
+      y: 6508
+      width: 728
+      height: 528
+    spriteID: d6583716af690904b9ba6d5b8d84831d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 6656, y: 6508}
+    spritePosition: {x: 3368, y: 1632}
+  - name: Broom
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 7894
+      y: 6508
+      width: 170
+      height: 508
+    spriteID: e59e38a13d0b27f469d15d36399de403
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 7894, y: 6508}
+    spritePosition: {x: 2277, y: 688}
+  - name: Box Int Open
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 7168
+      y: 7044
+      width: 412
+      height: 325
+    spriteID: 48b79f2f5c34fa8428e6f7688aa459e5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 7168, y: 7044}
+    spritePosition: {x: 2316, y: 306}
+  - name: Box Int
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4929
+      y: 4
+      width: 356
+      height: 271
+    spriteID: 6ba3c24be1abf3f4390e33052b692173
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4929, y: 4}
+    spritePosition: {x: 1903, y: 178}
+  - name: Box
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 5293
+      y: 4
+      width: 355
+      height: 271
+    spriteID: f5f37aefcc4c44f4db64c31e2b080ae8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 5293, y: 4}
+    spritePosition: {x: 2827, y: 128}
+  - name: Box 2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 5656
+      y: 4
+      width: 315
+      height: 293
+    spriteID: 5c230ac1f8bac85499506e8079055135
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 5656, y: 4}
+    spritePosition: {x: 971, y: 186}
+  - name: Box 2 Int
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4590
+      y: 4
+      width: 331
+      height: 307
+    spriteID: 33282fdb4d2992c4b9a2da131fe57963
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4590, y: 4}
+    spritePosition: {x: 551, y: 179}
+  - name: Box 2 Int Open
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 7392
+      y: 6508
+      width: 494
+      height: 314
+    spriteID: 38b039e10ac33e646824cc032937cf82
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 7392, y: 6508}
+    spritePosition: {x: 1312, y: 187}
+  - name: Drain
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 8035
+      y: 7044
+      width: 132
+      height: 52
+    spriteID: bd694b99bbe2ee4468dd0500428830a0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 8035, y: 7044}
+    spritePosition: {x: 3039, y: 588}
+  - name: Fuse Box
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4108
+      y: 1308
+      width: 206
+      height: 277
+    spriteID: 7442b19c76ae14c4c995664340ceae8c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4108, y: 1308}
+    spritePosition: {x: 2386, y: 1758}
+  - name: Vent
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 7392
+      y: 6830
+      width: 359
+      height: 181
+    spriteID: be1ef89f8551e74419de5ba06617a242
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 7392, y: 6830}
+    spritePosition: {x: 2840, y: 1861}
+  - name: Curtain
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 6656
+      y: 7044
+      width: 504
+      height: 275
+    spriteID: eff8e756da0aba74aa1447a9bb17cd2a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 6656, y: 7044}
+    spritePosition: {x: 1601, y: 1803}
+  - name: Window
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 7588
+      y: 7044
+      width: 439
+      height: 235
+    spriteID: 0ad3f01cd2cac6440894ba6fe17e372f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 7588, y: 7044}
+    spritePosition: {x: 1020, y: 1861}
+  - name: Door Closed
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4108
+      y: 4
+      width: 233
+      height: 1296
+    spriteID: 65294526ff343214b9e47e2291813952
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4108, y: 4}
+    spritePosition: {x: 139, y: 303}
+  - name: Door Open
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4349
+      y: 4
+      width: 233
+      height: 1296
+    spriteID: bce9cd9eecaefe443973c672f8a78185
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4349, y: 4}
+    spritePosition: {x: 3801, y: 119}
+  - name: Closet Int Open
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 5180
+      y: 6508
+      width: 518
+      height: 899
+    spriteID: 25b81aebc0e63c842ad1fad2e8b87085
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 5180, y: 6508}
+    spritePosition: {x: 479, y: 546}
+  - name: Closet Int
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 5706
+      y: 6508
+      width: 468
+      height: 888
+    spriteID: 5d3d01d5d33ccec47ae85819e79a76b4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 5706, y: 6508}
+    spritePosition: {x: 1655, y: 559}
+  - name: 'Closet '
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 6182
+      y: 6508
+      width: 466
+      height: 887
+    spriteID: f6b03e40dc6732148b1559e93dc1a697
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 6182, y: 6508}
+    spritePosition: {x: 1096, y: 579}
+  - name: Shleves
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4108
+      y: 6508
+      width: 1064
+      height: 926
+    spriteID: 0e7fdffaa1f21e54995383b616ffcbfb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4108, y: 6508}
+    spritePosition: {x: 2305, y: 781}
+  - name: Walls
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2172
+      width: 4096
+      height: 2160
+    spriteID: a6bec6adebb3e324d8e66bcfa8a82c2e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 2172}
+    spritePosition: {x: 0, y: 0}
+  - name: Floor
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4340
+      width: 4096
+      height: 2160
+    spriteID: 777a38e0544216f4098ef7a2a2f6137f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4340}
+    spritePosition: {x: 0, y: 0}
+  spriteImportData: []
+  rigSpriteImportData: []
+  sharedRigSpriteImportData: []
+  mosaicSpriteImportData: []
+  sharedRigCharacterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    pivot: {x: 0, y: 0}
+    boneReadOnly: 0
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    pivot: {x: 0, y: 0}
+    boneReadOnly: 0
+  platformSettings: []
+  mosaicLayers: 1
+  characterMode: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  layerMappingOption: 2
+  generatePhysicsShape: 0
+  paperDollMode: 0
+  keepDupilcateSpriteName: 1
+  padding: 4
+  spriteSizeExpand: 0
+  skeletonAssetReferenceID: 
+  pipeline: {instanceID: 0}
+  pipelineVersion: 
+  spriteCategoryList:
+    categories: []
+  spritePackingTag: 
+  resliceFromLayer: 0
+  pSDLayerImportSetting: []
+  psdLayers:
+  - name: Paper Effect
+    spriteName: Paper Effect
+    isGroup: 0
+    parentIndex: -1
+    spriteID: b7c208ae5fde44c499453eff7f61e01a
+    layerID: 92
+    mosaicPosition: {x: 4, y: 6508}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Vinegette
+    spriteName: Vinegette
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 7c6f11391358e2d44ab4e24930850b13
+    layerID: 91
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Tail
+    spriteName: Tail
+    isGroup: 0
+    parentIndex: -1
+    spriteID: f532771267f1f804f818afa7d69bd39c
+    layerID: 90
+    mosaicPosition: {x: 8035, y: 7104}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Pipes
+    spriteName: Pipes
+    isGroup: 0
+    parentIndex: -1
+    spriteID: d6583716af690904b9ba6d5b8d84831d
+    layerID: 89
+    mosaicPosition: {x: 6656, y: 6508}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Broom
+    spriteName: Broom
+    isGroup: 0
+    parentIndex: -1
+    spriteID: e59e38a13d0b27f469d15d36399de403
+    layerID: 83
+    mosaicPosition: {x: 7894, y: 6508}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Box Int Open
+    spriteName: Box Int Open
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 48b79f2f5c34fa8428e6f7688aa459e5
+    layerID: 76
+    mosaicPosition: {x: 7168, y: 7044}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Box Int
+    spriteName: Box Int
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 6ba3c24be1abf3f4390e33052b692173
+    layerID: 60
+    mosaicPosition: {x: 4929, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Box
+    spriteName: Box
+    isGroup: 0
+    parentIndex: -1
+    spriteID: f5f37aefcc4c44f4db64c31e2b080ae8
+    layerID: 46
+    mosaicPosition: {x: 5293, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Box 2
+    spriteName: Box 2
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 5c230ac1f8bac85499506e8079055135
+    layerID: 49
+    mosaicPosition: {x: 5656, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Box 2 Int
+    spriteName: Box 2 Int
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 33282fdb4d2992c4b9a2da131fe57963
+    layerID: 48
+    mosaicPosition: {x: 4590, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Box 2 Int Open
+    spriteName: Box 2 Int Open
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 38b039e10ac33e646824cc032937cf82
+    layerID: 47
+    mosaicPosition: {x: 7392, y: 6508}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Drain
+    spriteName: Drain
+    isGroup: 0
+    parentIndex: -1
+    spriteID: bd694b99bbe2ee4468dd0500428830a0
+    layerID: 36
+    mosaicPosition: {x: 8035, y: 7044}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Fuse Box
+    spriteName: Fuse Box
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 7442b19c76ae14c4c995664340ceae8c
+    layerID: 35
+    mosaicPosition: {x: 4108, y: 1308}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Vent
+    spriteName: Vent
+    isGroup: 0
+    parentIndex: -1
+    spriteID: be1ef89f8551e74419de5ba06617a242
+    layerID: 26
+    mosaicPosition: {x: 7392, y: 6830}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Curtain
+    spriteName: Curtain
+    isGroup: 0
+    parentIndex: -1
+    spriteID: eff8e756da0aba74aa1447a9bb17cd2a
+    layerID: 18
+    mosaicPosition: {x: 6656, y: 7044}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Window
+    spriteName: Window
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 0ad3f01cd2cac6440894ba6fe17e372f
+    layerID: 17
+    mosaicPosition: {x: 7588, y: 7044}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Door Closed
+    spriteName: Door Closed
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 65294526ff343214b9e47e2291813952
+    layerID: 11
+    mosaicPosition: {x: 4108, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Door Open
+    spriteName: Door Open
+    isGroup: 0
+    parentIndex: -1
+    spriteID: bce9cd9eecaefe443973c672f8a78185
+    layerID: 10
+    mosaicPosition: {x: 4349, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Closet Int Open
+    spriteName: Closet Int Open
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 25b81aebc0e63c842ad1fad2e8b87085
+    layerID: 9
+    mosaicPosition: {x: 5180, y: 6508}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Closet Int
+    spriteName: Closet Int
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 5d3d01d5d33ccec47ae85819e79a76b4
+    layerID: 8
+    mosaicPosition: {x: 5706, y: 6508}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: 'Closet '
+    spriteName: 'Closet '
+    isGroup: 0
+    parentIndex: -1
+    spriteID: f6b03e40dc6732148b1559e93dc1a697
+    layerID: 7
+    mosaicPosition: {x: 6182, y: 6508}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Shleves
+    spriteName: Shleves
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 0e7fdffaa1f21e54995383b616ffcbfb
+    layerID: 6
+    mosaicPosition: {x: 4108, y: 6508}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Walls
+    spriteName: Walls
+    isGroup: 0
+    parentIndex: -1
+    spriteID: a6bec6adebb3e324d8e66bcfa8a82c2e
+    layerID: 5
+    mosaicPosition: {x: 4, y: 2172}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Floor
+    spriteName: Floor
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 777a38e0544216f4098ef7a2a2f6137f
+    layerID: 4
+    mosaicPosition: {x: 4, y: 4340}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  mosaicPSDLayers: []
+  rigPSDLayers: []
+  sharedRigPSDLayers: []
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  spriteSizeExpandChanged: 0
+  generateGOHierarchy: 0
+  textureAssetName: 
+  prefabAssetName: 
+  spriteLibAssetName: 
+  skeletonAssetName: 
+  secondarySpriteTextures: []
