@@ -19,7 +19,7 @@ namespace Managers
         [SerializeField] private WorldGenerator worldGenerator;
         [SerializeField] internal GameObject playerObject;
         [SerializeField] private CurrencyManager currencyManager;
-        //[SerializeField] private GameObject upgradePanel;
+        [SerializeField] private GameObject upgradePanel;
         public List<Room> Rooms { get; private set;}
         
         [SerializeField] private WorldConfig worldConfig;
@@ -42,10 +42,12 @@ namespace Managers
         private void OnEnable()
         {
             GameEvents.PlayerDied += HandlePlayerDied;
+            GameEvents.RestartLevel += RestartLevel;
         }
         private void OnDisable()
         {
             GameEvents.PlayerDied -= HandlePlayerDied;
+            GameEvents.RestartLevel -= RestartLevel;
         }
 
         private void Awake()
@@ -79,8 +81,7 @@ namespace Managers
                     Destroy(room.gameObject);
             }
             Rooms.Clear();
-            GenerateWorld();
-            
+            StartRun();
         }
         
         private void StartRun()
@@ -113,7 +114,8 @@ namespace Managers
         public void HandlePlayerDied()
         {
             Debug.Log("Player Failed!");
-            //upgradePanel.SetActive(true);
+            Time.timeScale = 0;
+            upgradePanel.SetActive(true);
             //SoundManager.Instance.PlayGameOver();
         }
         

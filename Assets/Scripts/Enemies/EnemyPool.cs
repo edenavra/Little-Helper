@@ -9,14 +9,16 @@ namespace Enemies
         [SerializeField] private EnemyType enemyType;
         public EnemyType Type => enemyType;
         private Queue<GameObject> availableEnemies = new Queue<GameObject>();
+        private readonly List<GameObject> activeEnemies = new List<GameObject>();
 
+        
         public GameObject GetEnemy(Vector2 position)
         {
             GameObject enemy;
             if (availableEnemies.Count > 0)
             {
                 enemy = availableEnemies.Dequeue();
-                enemy.SetActive(true);
+                //enemy.SetActive(true);
             }
             else
             {
@@ -24,14 +26,28 @@ namespace Enemies
             }
 
             enemy.transform.position = position;
+            enemy.SetActive(true);
+            activeEnemies.Add(enemy);
             return enemy;
         }
 
         public void ReturnEnemy(GameObject enemy)
         {
             enemy.SetActive(false);
-            availableEnemies.Enqueue(enemy);
+            if (!availableEnemies.Contains(enemy))
+                availableEnemies.Enqueue(enemy);
+            activeEnemies.Remove(enemy);
         }
+        
+        public void ResetPool()
+        {
+            foreach (var enemy in activeEnemies.ToArray())
+            {
+                ReturnEnemy(enemy);
+            }
+            activeEnemies.Clear();
+        }
+
     }
 
 }
