@@ -17,7 +17,7 @@ namespace Managers
             {
                 playerStats = controller.stats;
 
-                // עדכון ידני של ערכים מהקוד (ולא מהאינספקטור)
+                // Set default values for player stats !!
                 playerStats.hideDuration = 20f;
                 playerStats.hideCooldown = 20f;
 
