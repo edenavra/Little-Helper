@@ -2,6 +2,7 @@ using Managers;
 using System;
 using UnityEngine;
 using Player;
+using Utils;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -44,6 +45,7 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("Player died!");
         // כאן אפשר לקרוא לפונקציית Game Over או להפעיל אנימציה וכו'
         //SoundManager.Instance?.PlayGameOver();
+        GameEvents.PlayerDied?.Invoke();
     }
 
     public void Heal(int amount)

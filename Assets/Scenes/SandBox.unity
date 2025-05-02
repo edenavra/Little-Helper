@@ -1914,6 +1914,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37732eacdad45544da9d2729242e790e, type: 3}
+--- !u!114 &3829736385038036052 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6544346739743202861, guid: 37732eacdad45544da9d2729242e790e, type: 3}
+  m_PrefabInstance: {fileID: 3829736385038036051}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422595812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d90ee9bb9249fbd4c9d21c9842f2d2b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8574466559107118699
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1962,6 +1973,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3160014039804254337, guid: 3e6674a353e1f3445a9b2cf87c3226cd, type: 3}
+      propertyPath: playerInventory
+      value: 
+      objectReference: {fileID: 3829736385038036052}
     - target: {fileID: 8794774209833433885, guid: 3e6674a353e1f3445a9b2cf87c3226cd, type: 3}
       propertyPath: m_Name
       value: 'Grandma '
