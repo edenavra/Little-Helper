@@ -210,6 +210,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 2
+--- !u!1 &261911794 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 800354339900920590, guid: ef38540cd35058f489e8d4525ffb416f, type: 3}
+  m_PrefabInstance: {fileID: 1124443228535083914}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &261911798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 261911794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07e4d6ec9f7bd2741b84c71a1f45be62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &372379026
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,6 +412,10 @@ PrefabInstance:
     - target: {fileID: 370262930375401987, guid: 2a054759962b22944b085713ec2d1652, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 555174832721880862, guid: 2a054759962b22944b085713ec2d1652, type: 3}
+      propertyPath: m_text
+      value: Upgrade Time Freezer
       objectReference: {fileID: 0}
     - target: {fileID: 609252311038704967, guid: 2a054759962b22944b085713ec2d1652, type: 3}
       propertyPath: m_AnchorMax.y
@@ -758,7 +779,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3040248355386899646, guid: 2a054759962b22944b085713ec2d1652, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3040248355386899646, guid: 2a054759962b22944b085713ec2d1652, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -822,7 +843,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3453117039810539040, guid: 2a054759962b22944b085713ec2d1652, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3453117039810539040, guid: 2a054759962b22944b085713ec2d1652, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -1025,6 +1046,10 @@ PrefabInstance:
       value: -142.688
       objectReference: {fileID: 0}
     - target: {fileID: 6374668144027497551, guid: 2a054759962b22944b085713ec2d1652, type: 3}
+      propertyPath: m_Name
+      value: UpgradeCardFreezer
+      objectReference: {fileID: 0}
+    - target: {fileID: 6374668144027497551, guid: 2a054759962b22944b085713ec2d1652, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -1054,7 +1079,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6938275007850336951, guid: 2a054759962b22944b085713ec2d1652, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6938275007850336951, guid: 2a054759962b22944b085713ec2d1652, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -1104,9 +1129,13 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 7310968627440783242, guid: 2a054759962b22944b085713ec2d1652, type: 3}
+      propertyPath: m_text
+      value: 'Price: 160'
+      objectReference: {fileID: 0}
     - target: {fileID: 7500633110499251737, guid: 2a054759962b22944b085713ec2d1652, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7500633110499251737, guid: 2a054759962b22944b085713ec2d1652, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -1789,7 +1818,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 800354339900920590, guid: ef38540cd35058f489e8d4525ffb416f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 261911798}
   m_SourcePrefab: {fileID: 100100000, guid: ef38540cd35058f489e8d4525ffb416f, type: 3}
 --- !u!1001 &2833813120323628543
 PrefabInstance:

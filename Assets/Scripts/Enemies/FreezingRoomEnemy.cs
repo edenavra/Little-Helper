@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using Player;
 
 public class FreezingRoomEnemy : MonoBehaviour, IEnemy
 {
@@ -11,14 +12,25 @@ public class FreezingRoomEnemy : MonoBehaviour, IEnemy
     private bool hasAttacked = false;
     private GameObject player;
 
+    // private void Start()
+    // {
+    //     var go = GameObject.FindWithTag("FreezeTimer");
+    //     timerText = go.GetComponent<TextMeshProUGUI>();
+    //     timerText.gameObject.SetActive(false);
+    //     currentTime = freezeTime;
+    //     player = GameObject.FindGameObjectWithTag("Player");
+    // }
+    
     private void Start()
     {
         var go = GameObject.FindWithTag("FreezeTimer");
         timerText = go.GetComponent<TextMeshProUGUI>();
         timerText.gameObject.SetActive(false);
+
+        // אל תנסי לגשת לשחקן כאן – הוא אולי עדיין לא נטען
         currentTime = freezeTime;
-        player = GameObject.FindGameObjectWithTag("Player");
     }
+
 
     private void Update()
     {
@@ -50,22 +62,35 @@ public class FreezingRoomEnemy : MonoBehaviour, IEnemy
     {
         if (other.CompareTag("Player"))
         {
-            playerInside = true;
-            currentTime = freezeTime;
+            //var stats = other.GetComponent<PlayerController>()?.stats;
+            var stats = other.GetComponentInParent<PlayerController>()?.stats;
+
+            if (stats == null)
+            {
+                Debug.LogError("Missing stats!");
+                return;
+            }
+
+            currentTime = stats.TotalFreezeTime;
             hasAttacked = false;
+            playerInside = true;
+            player = other.gameObject;
             timerText.gameObject.SetActive(true);
         }
     }
-
+    
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             playerInside = false;
             timerText.gameObject.SetActive(false);
-            currentTime = freezeTime;
+
+            var stats = other.GetComponent<PlayerController>()?.stats;
+            currentTime = stats != null ? stats.TotalFreezeTime : freezeTime;
         }
     }
+
 
     public void AttackPlayer(GameObject player)
     {

@@ -11,6 +11,9 @@ public class PlayerHealth : MonoBehaviour
     public event Action<int, int> OnHealthChanged;
 
     [SerializeField] private PlayerStats stats;
+    
+    private bool isInvincible = false;
+
 
     private void Start()
     {
@@ -25,6 +28,7 @@ public class PlayerHealth : MonoBehaviour
     
     public void TakeDamage(int amount)
     {
+        if (isInvincible) return;
         currentHealth -= amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         Debug.Log($"Player took {amount} damage. Current health: {currentHealth}");
@@ -43,7 +47,6 @@ public class PlayerHealth : MonoBehaviour
     private void Die()
     {
         Debug.Log("Player died!");
-        // כאן אפשר לקרוא לפונקציית Game Over או להפעיל אנימציה וכו'
         //SoundManager.Instance?.PlayGameOver();
         GameEvents.PlayerDied?.Invoke();
     }
@@ -62,6 +65,11 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
         Debug.Log($"[Health] Extra health purchased! MaxHealth: {maxHealth}, CurrentHealth: {currentHealth}");
+    }
+    
+    public void SetInvincible(bool value)
+    {
+        isInvincible = value;
     }
 
 }
