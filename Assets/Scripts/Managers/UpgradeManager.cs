@@ -71,9 +71,11 @@ namespace Managers
                     Debug.Log($"[UpgradeManager] Speed Boost applied, level {level}, bonus {bonus}, new speed {playerStats.moveSpeed}");
                     break;
 
-                case UpgradeType.Dash:
-                    playerStats.dashForce += 5f;
+                case UpgradeType.FreezerTime:
+                    playerStats.extraFreezeTime += 5f; // או כל ערך שתרצי
+                    Debug.Log($"[UpgradeManager] Freezer time increased! Bonus: {playerStats.extraFreezeTime} seconds");
                     break;
+
 
                 case UpgradeType.Hide:
                     int hideLevel = GameManager.Instance.PurchasedUpgrades.ContainsKey(UpgradeType.Hide)

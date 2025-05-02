@@ -11,12 +11,15 @@ namespace Player
         [Header("Movement Settings")]
         public float moveSpeed = 5f;
 
-        [Header("Dash Settings")]
-        public float dashForce = 10f;
-
         [Header("Hide Settings")]
         public float hideDuration = 20f;
         public float hideCooldown = 20f;
+
+        [Header("Freezer Upgrade Settings")]
+        public float baseFreezeTime = 10f;
+        public float extraFreezeTime = 0f;
+
+        public float TotalFreezeTime => baseFreezeTime + extraFreezeTime;
 
     }
 }

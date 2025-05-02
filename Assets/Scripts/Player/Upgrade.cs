@@ -6,7 +6,7 @@ namespace Player
     {
         ExtraHealth,
         SpeedBoost,
-        Dash,
+        FreezerTime,
         Hide
     }
 
