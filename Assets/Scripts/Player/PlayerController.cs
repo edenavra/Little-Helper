@@ -1,3 +1,4 @@
+using Managers;
 using UnityEngine;
 using System.Collections;
 using System.Linq;
@@ -31,6 +32,8 @@ namespace Player
 
         private void Awake()
         {
+            GameManager.Instance.playerObject = gameObject;
+            //_rb        = GetComponentInParent<Rigidbody2D>();
             _rb = GetComponent<Rigidbody2D>();
             _animFront = foxFront.GetComponent<Animator>();
             _animSide = foxSide.GetComponent<Animator>();

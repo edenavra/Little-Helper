@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Scriptable_Objects;
 using UnityEngine;
 
 namespace Rooms
@@ -14,5 +15,9 @@ namespace Rooms
         
         [Header("Generation Settings")]
         public float roomSpacing = 20f;
+        
+        [Header("Recipe list")]
+        public List<ItemDefinition> recipeItems;
+        public List<ItemDefinition> trashItems;
     }
 }
