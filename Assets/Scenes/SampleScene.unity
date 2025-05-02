@@ -706,6 +706,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 800354339900920590, guid: ef38540cd35058f489e8d4525ffb416f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5000684653302741527, guid: ef38540cd35058f489e8d4525ffb416f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.5481534
@@ -2980,7 +2984,7 @@ PrefabInstance:
     - target: {fileID: 3160014039804254337, guid: 3e6674a353e1f3445a9b2cf87c3226cd, type: 3}
       propertyPath: playerInventory
       value: 
-      objectReference: {fileID: 3846784090942993556}
+      objectReference: {fileID: 0}
     - target: {fileID: 8794774209833433885, guid: 3e6674a353e1f3445a9b2cf87c3226cd, type: 3}
       propertyPath: m_Name
       value: 'Grandma '
@@ -3884,7 +3888,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d481ac3a2874ebdba8be172f2e5ed4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 5793066981831633996, guid: ee2012383d7d94a57abf2d9b1402f397, type: 3}
   spawnPoints:
   - {fileID: 393497990}
   - {fileID: 1610534764}
@@ -3905,7 +3908,9 @@ MonoBehaviour:
   - {fileID: 987496000}
   - {fileID: 228864819}
   - {fileID: 58014684}
+  hasEnemies: 0
   enemySpawner: {fileID: 1020491201}
+  enemyTypeNeededForThisRoom: 0
 --- !u!1 &1067202578
 GameObject:
   m_ObjectHideFlags: 0
@@ -5561,7 +5566,9 @@ MonoBehaviour:
   - {fileID: 843949910}
   - {fileID: 1491392690}
   - {fileID: 793192817}
+  hasEnemies: 0
   enemySpawner: {fileID: 0}
+  enemyTypeNeededForThisRoom: 0
 --- !u!1 &1599696007
 GameObject:
   m_ObjectHideFlags: 0
@@ -5819,7 +5826,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 1669483182}
-  playerHealth: {fileID: 3846784090942993557}
+  playerHealth: {fileID: 0}
 --- !u!114 &1669483182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6802,7 +6809,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d481ac3a2874ebdba8be172f2e5ed4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 5798508817191216985, guid: 6a15a8c31a6fd4e00aaf115911886cf0, type: 3}
   spawnPoints:
   - {fileID: 1740311061}
   - {fileID: 454164252}
@@ -6824,7 +6830,9 @@ MonoBehaviour:
   - {fileID: 957749954}
   - {fileID: 376200283}
   - {fileID: 47583685}
+  hasEnemies: 0
   enemySpawner: {fileID: 0}
+  enemyTypeNeededForThisRoom: 0
 --- !u!1001 &1826592924
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7781,28 +7789,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37732eacdad45544da9d2729242e790e, type: 3}
---- !u!114 &3846784090942993556 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7529970559262438414, guid: 37732eacdad45544da9d2729242e790e, type: 3}
-  m_PrefabInstance: {fileID: 3846784090942993555}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 826784072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d90ee9bb9249fbd4c9d21c9842f2d2b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3846784090942993557 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7093391270695510186, guid: 37732eacdad45544da9d2729242e790e, type: 3}
-  m_PrefabInstance: {fileID: 3846784090942993555}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 826784072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3af113190f748af81e262eb74c317f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

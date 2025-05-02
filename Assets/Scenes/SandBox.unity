@@ -1775,6 +1775,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1422595812}
     - target: {fileID: 6440198090329449163, guid: ef38540cd35058f489e8d4525ffb416f, type: 3}
+      propertyPath: upgradePanel
+      value: 
+      objectReference: {fileID: 186338324}
+    - target: {fileID: 6440198090329449163, guid: ef38540cd35058f489e8d4525ffb416f, type: 3}
       propertyPath: worldGenerator
       value: 
       objectReference: {fileID: 180007299}
