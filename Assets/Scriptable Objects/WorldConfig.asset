@@ -26,3 +26,10 @@ MonoBehaviour:
   - {fileID: 1737035277805924819, guid: 39cee6c2052c8ee4084720d71c2c87f8, type: 3}
   - {fileID: 1737035277805924819, guid: 5357de8ee1699db45a0fff1a865649c8, type: 3}
   roomSpacing: 50
+  recipeItems:
+  - {fileID: 11400000, guid: bacd280d8e90b0a4a930dd5a338e9538, type: 2}
+  - {fileID: 11400000, guid: 9f307ca39ef199e4684bcbe99f928815, type: 2}
+  - {fileID: 11400000, guid: b167c7b4468b04143ba16de661a5e2be, type: 2}
+  - {fileID: 11400000, guid: a4f9f8c2b0cc2fc4e956c3e950239427, type: 2}
+  - {fileID: 11400000, guid: 30777d23b73295744ad810dc1ec21898, type: 2}
+  trashItems: []

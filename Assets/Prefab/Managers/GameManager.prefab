@@ -46,15 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rounds: 5
-  recipeItems:
-  - {fileID: 11400000, guid: bacd280d8e90b0a4a930dd5a338e9538, type: 2}
-  - {fileID: 11400000, guid: 9f307ca39ef199e4684bcbe99f928815, type: 2}
-  - {fileID: 11400000, guid: b167c7b4468b04143ba16de661a5e2be, type: 2}
-  - {fileID: 11400000, guid: a4f9f8c2b0cc2fc4e956c3e950239427, type: 2}
-  - {fileID: 11400000, guid: 30777d23b73295744ad810dc1ec21898, type: 2}
-  trashItems: []
+  worldConfig: {fileID: 11400000, guid: 9c60ef8f5b4ece74fba69485ab4549a3, type: 2}
   worldGenerator: {fileID: 0}
   playerObject: {fileID: 0}
+  currencyManager: {fileID: 0}
 --- !u!114 &3012659822278708347
 MonoBehaviour:
   m_ObjectHideFlags: 0
