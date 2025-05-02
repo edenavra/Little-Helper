@@ -6,24 +6,35 @@ namespace Managers
 {
     public class UpgradeManager : MonoBehaviour
     {
-        private  PlayerStats playerStats;
-        
+        private PlayerStats playerStats;
+
         private void Start()
         {
-            if (playerStats == null)
+            // Grab PlayerController to access stats
+            var controller = FindFirstObjectByType<PlayerController>();
+
+            if (controller != null)
             {
-                var controller = FindFirstObjectByType<PlayerController>();
                 playerStats = controller.stats;
 
-                Debug.Log($"[UpgradeManager] Linked to actual PlayerStats. Initial moveSpeed: {playerStats.moveSpeed}");
+                // עדכון ידני של ערכים מהקוד (ולא מהאינספקטור)
+                playerStats.hideDuration = 20f;
+                playerStats.hideCooldown = 20f;
+
+                Debug.Log($"[UpgradeManager] Linked to actual PlayerStats. HideDuration: {playerStats.hideDuration}");
+            }
+            else
+            {
+                Debug.LogError("[UpgradeManager] PlayerController not found! Cannot link stats.");
+                return;
             }
 
+            // Apply saved upgrades
             if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "GameScene")
             {
                 ReapplyAllUpgrades();
             }
         }
-
 
 
         public bool TryBuyUpgrade(Upgrade upgrade)
@@ -48,26 +59,33 @@ namespace Managers
             switch (upgrade.type)
             {
                 case UpgradeType.ExtraHealth:
-                    FindObjectOfType<PlayerHealth>().IncreaseMaxHealth(1);
+                    FindObjectOfType<PlayerHealth>()?.IncreaseMaxHealth(1);
                     break;
+
                 case UpgradeType.SpeedBoost:
-                    //playerStats.moveSpeed += 2f;
                     int level = GameManager.Instance.PurchasedUpgrades.ContainsKey(UpgradeType.SpeedBoost)
                         ? GameManager.Instance.PurchasedUpgrades[UpgradeType.SpeedBoost]
                         : 0;
-
-                    float bonus = Mathf.Max(0.5f, 2f - level * 0.3f); // הולך וקטן, אבל לא יורד מ־0.5
+                    float bonus = Mathf.Max(0.5f, 2f - level * 0.3f);
                     playerStats.moveSpeed += bonus;
-
                     Debug.Log($"[UpgradeManager] Speed Boost applied, level {level}, bonus {bonus}, new speed {playerStats.moveSpeed}");
                     break;
-                    
+
                 case UpgradeType.Dash:
                     playerStats.dashForce += 5f;
                     break;
+
                 case UpgradeType.Hide:
-                    playerStats.hideDuration += 1f;
+                    int hideLevel = GameManager.Instance.PurchasedUpgrades.ContainsKey(UpgradeType.Hide)
+                        ? GameManager.Instance.PurchasedUpgrades[UpgradeType.Hide]
+                        : 0;
+
+                    float newCooldown = Mathf.Max(5f, 20f - hideLevel * 3f);
+                    playerStats.hideCooldown = newCooldown;
+
+                    Debug.Log($"[UpgradeManager] Hide upgraded to level {hideLevel + 1}. New cooldown is {newCooldown} seconds.");
                     break;
+
             }
 
             Debug.Log($"Applied upgrade: {upgrade.upgradeName}");
@@ -84,6 +102,7 @@ namespace Managers
                     ApplyUpgrade(new Upgrade { type = pair.Key });
                 }
             }
+
             Debug.Log("All saved upgrades reapplied.");
         }
     }
