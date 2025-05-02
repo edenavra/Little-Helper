@@ -46,7 +46,7 @@ namespace Currency
 
         public void InitialSpawn()
         {
-            //this._rooms = GameManager.Instance.GetRooms();
+            this._rooms = GameManager.Instance.Rooms;
 
             for (int i = 0; i < totalCoinsToSpawn; i++)
             {

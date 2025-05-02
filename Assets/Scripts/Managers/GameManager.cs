@@ -88,17 +88,16 @@ namespace Managers
             _currentRound = 0;
             print("generating world");
             GenerateWorld();
-            RoundManager.Instance.SetRooms(Rooms);
             GameEvents.StartQuest.Invoke();
             StartNextRound();
         }
         
         private void GenerateWorld()
         { 
-            this.Rooms = worldGenerator.GenerateWorld();
+            Rooms = worldGenerator.GenerateWorld();
             ItemPlacer.PopulateContainers(worldConfig.recipeItems, Rooms);
             ItemPlacer.PopulateContainers(worldConfig.trashItems, Rooms);
-            currencyManager.GetCoinSpawner().SetRooms(Rooms);
+            //currencyManager.GetCoinSpawner().SetRooms(Rooms);
             currencyManager.GetCoinSpawner().InitialSpawn();
         }
         

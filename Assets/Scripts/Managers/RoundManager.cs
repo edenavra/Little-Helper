@@ -13,7 +13,6 @@ namespace Managers
         [SerializeField] private GrandmaQuestGiver questGiver;
 
         private int _currentRound;
-        private List<Room> _rooms;
 
         
         private void Start()
@@ -39,17 +38,13 @@ namespace Managers
             _currentRound = GameManager.Instance.CurrentRound;
             StartNextRound();
         }
-        
-        public void SetRooms(List<Room> rooms)
-        {
-            this._rooms = rooms;
-        }
 
         private void StartNextRound()
         {
             _currentRound++;
             //notify all rooms about next round (to increase difficultly)
-            foreach (var room in _rooms) room.OnRoundStarted(_currentRound);
+            //foreach (var room in _rooms) room.OnRoundStarted(_currentRound);
+            foreach (var room in GameManager.Instance.Rooms) room.OnRoundStarted(_currentRound);
         }
 
         private void RestartLevel()
