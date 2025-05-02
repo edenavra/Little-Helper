@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Item;
 using Rooms;
@@ -20,6 +21,10 @@ namespace Managers
         [SerializeField] internal GameObject playerObject;
         [SerializeField] private CurrencyManager currencyManager;
         [SerializeField] private GameObject upgradePanel;
+        [SerializeField] private GameObject winPanel;
+        private bool _isUpgradePanelOpen = false;
+        private bool _isWinPanelOpen = false;
+
         public List<Room> Rooms { get; private set;}
         
         [SerializeField] private WorldConfig worldConfig;
@@ -43,16 +48,13 @@ namespace Managers
         {
             GameEvents.PlayerDied += HandlePlayerDied;
             GameEvents.RestartLevel += RestartLevel;
+            GameEvents.PlayerWon += PlayerWon;
         }
         private void OnDisable()
         {
             GameEvents.PlayerDied -= HandlePlayerDied;
             GameEvents.RestartLevel -= RestartLevel;
-        }
-
-        private void Awake()
-        {
-            //Rooms = new List<Room>();
+            GameEvents.PlayerWon -= PlayerWon;
         }
 
         private void Start()
@@ -68,12 +70,22 @@ namespace Managers
             if (Input.GetKeyDown(KeyCode.R))
             {
                 GameEvents.RestartLevel.Invoke();
-                RestartLevel();
+                //RestartLevel();
+            }
+            if(Input.GetKeyDown((KeyCode.W)))
+            {
+                GameEvents.PlayerWon.Invoke();
+                //PlayerWon();
             }
         }
 
         private void RestartLevel()
         {
+            if (_isUpgradePanelOpen)
+            {
+                upgradePanel.SetActive(false);
+                _isUpgradePanelOpen = false;
+            }
             //delete current rooms 
             foreach (Room room in Rooms)
             {
@@ -82,6 +94,16 @@ namespace Managers
             }
             Rooms.Clear();
             StartRun();
+            Time.timeScale = 1;
+        }
+        
+        private void ResetEntireGame()
+        {
+            if(_isWinPanelOpen)
+                winPanel.SetActive(false);
+            //TODO: ADD RESET TO THE UPGRADES
+            currencyManager.ResetMoney();
+            RestartLevel();
         }
         
         private void StartRun()
@@ -116,24 +138,26 @@ namespace Managers
             Debug.Log("Player Failed!");
             Time.timeScale = 0;
             upgradePanel.SetActive(true);
+            _isUpgradePanelOpen = true;
             //SoundManager.Instance.PlayGameOver();
         }
         
-        public void PlayerSucceeded()
+        public void PlayerWon()
         {
+            Time.timeScale = 0;
+            winPanel.SetActive(true);
+            _isWinPanelOpen = true;
             Debug.Log("Player Won!");
-            CurrencyManager.Instance.ResetMoney();
-            SceneManager.LoadScene("VictoryScene");
+            StartCoroutine(ResetAfterDelay());
+            //CurrencyManager.Instance.ResetMoney();
         }
         
-        public void FinishRun()
+        private IEnumerator ResetAfterDelay()
         {
+            yield return new WaitForSecondsRealtime(2f); // מחכה 2 שניות אמיתיות, לא לפי Time.timeScale
+            //ResetEntireGame();
+            Time.timeScale = 1;
             SceneManager.LoadScene("Start");
-        }
-        
-        public void ContinueAfterUpgrade()
-        {
-            SceneManager.LoadScene("GameScene");
         }
         
         public void RegisterUpgrade(UpgradeType type)
