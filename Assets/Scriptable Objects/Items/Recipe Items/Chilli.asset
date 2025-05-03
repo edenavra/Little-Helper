@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Chilli
   icon: {fileID: 0}
-  prefab: {fileID: 0}
+  prefab: {fileID: 2919956888657709315, guid: d3a73c2894e09374d863ca1243716805, type: 3}
   roomType: 2
+  DeliveryPosition: {x: 0, y: -7.2, z: 0}

@@ -14,20 +14,13 @@ namespace Managers
     {
         [Header("Run Setup")] 
         [SerializeField] private int rounds = 7;
-        // [SerializeField] private List<ItemDefinition> recipeItems;
-        // [SerializeField] private List<ItemDefinition> trashItems;
         [SerializeField] private WorldGenerator worldGenerator;
         [SerializeField] internal GameObject playerObject;
         [SerializeField] private CurrencyManager currencyManager;
-        //[SerializeField] private GameObject upgradePanel;
         public List<Room> Rooms { get; private set;}
         
         [SerializeField] private WorldConfig worldConfig;
         
-        // public List<ItemDefinition> RecipeItems => recipeItems;
-        // public List<ItemDefinition> TrashItems => trashItems;
-        
-      //  public List<ItemDefinition> RecipeItems => worldConfig.
         public GameObject PlayerObject => playerObject; 
     
         private int _currentRound;
@@ -47,11 +40,7 @@ namespace Managers
         {
             GameEvents.PlayerDied -= HandlePlayerDied;
         }
-
-        private void Awake()
-        {
-            //Rooms = new List<Room>();
-        }
+        
 
         private void Start()
         {
@@ -95,8 +84,8 @@ namespace Managers
         private void GenerateWorld()
         { 
             Rooms = worldGenerator.GenerateWorld();
-            ItemPlacer.PopulateContainers(worldConfig.recipeItems, Rooms);
-            ItemPlacer.PopulateContainers(worldConfig.trashItems, Rooms);
+            ItemPlacer.PopulateContainers(worldConfig.recipeItems,worldConfig.trashItems, Rooms);
+            //ItemPlacer.PopulateContainers(worldConfig.trashItems, Rooms);
             //currencyManager.GetCoinSpawner().SetRooms(Rooms);
             currencyManager.GetCoinSpawner().InitialSpawn();
         }

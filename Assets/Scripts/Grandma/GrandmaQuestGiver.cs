@@ -25,11 +25,6 @@ namespace Grandma
         
         public event Action OnItemDelivered;
         
-        
-        private void Start()
-        {
-          
-        }
 
         private void OnEnable()
         {
@@ -63,17 +58,25 @@ namespace Grandma
             if (other.CompareTag("Player")) _isPlayerInRange = false;
         }
 
-        private void ItemDelivered(ItemDefinition delivered)
+        private void ItemDelivered(ItemDefinition itemDelivered)
         {
-            if (delivered != _currentItem) return;
+            if (itemDelivered != _currentItem) return;
             
             playerInventory.DropItem();
             
             OnItemDelivered?.Invoke();
             
             //TODO: REMOVE THIS SHIT ONCE WE HAVE PROPER ANIMATIONS 
+            //grandma jump
             transform
                 .DOPunchPosition(Vector3.up * 0.5f, 0.2f, vibrato: 1, elasticity: 0.5f)
+                .SetEase(Ease.OutQuad);
+            
+            //item animation
+            var item = Instantiate(itemDelivered.prefab, playerInventory.transform.position, Quaternion.identity);
+
+            item.transform
+                .DOJump(itemDelivered.DeliveryPosition, 3, 1, 2)
                 .SetEase(Ease.OutQuad);
             
             if(_currentItemIndex != worldConfig.recipeItems.Count) SetNextItemGoal();
