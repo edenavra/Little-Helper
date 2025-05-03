@@ -80,7 +80,11 @@ namespace Grandma
                 .SetEase(Ease.OutQuad);
             
             if(_currentItemIndex != worldConfig.recipeItems.Count) SetNextItemGoal();
-            else print("All Items Delivered");
+            else
+            {
+                print("All Items Delivered");
+                GameEvents.PlayerWon?.Invoke();
+            }
         }
 
 

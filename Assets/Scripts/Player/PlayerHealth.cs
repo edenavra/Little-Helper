@@ -25,7 +25,22 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
     }
-    
+    private void OnEnable()
+    {
+        GameEvents.RestartLevel += HandleRestart;
+    }
+
+    private void OnDisable()
+    {
+        GameEvents.RestartLevel -= HandleRestart;
+    }
+
+    private void HandleRestart()
+    {
+        currentHealth = maxHealth;
+        OnHealthChanged?.Invoke(currentHealth, maxHealth);
+        isInvincible = false;
+    }
     public void TakeDamage(int amount)
     {
         if (isInvincible) return;

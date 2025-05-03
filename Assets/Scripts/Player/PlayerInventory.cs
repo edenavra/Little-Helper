@@ -1,11 +1,27 @@
 using Scriptable_Objects;
 using UnityEngine;
+using Utils;
 
 namespace Player
 {
     public class PlayerInventory : MonoBehaviour
     {
         public ItemDefinition CurrentItem { get; private set; }
+        
+        private void OnEnable()
+        {
+            GameEvents.RestartLevel += HandleRestart;
+        }
+
+        private void OnDisable()
+        {
+            GameEvents.RestartLevel -= HandleRestart;
+        }
+
+        private void HandleRestart()
+        {
+            DropItem();
+        }
         
         public bool PickUp(ItemDefinition item)
         {

@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using Managers;
 using Player;
+using Utils;
 
 namespace UI
 {
@@ -38,6 +39,7 @@ namespace UI
             if (success)
             {
                 Debug.Log($"Purchased upgrade: {upgradeData.upgradeName}");
+                GameEvents.RestartLevel?.Invoke();
                 // buyButton.interactable = false;
             }
             else
