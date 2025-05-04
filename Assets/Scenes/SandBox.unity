@@ -1692,6 +1692,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.030039668
       objectReference: {fileID: 0}
+    - target: {fileID: 5524361568597300055, guid: 2fc94fc84478a4048968e74250e55ae2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5766601447704500738, guid: 2fc94fc84478a4048968e74250e55ae2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.66
@@ -1755,7 +1759,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: [{targetCorrespondingSourceObject: {fileID: 3284964184826190324, guid: 2fc94fc84478a4048968e74250e55ae2, type: 3}, insertIndex: -1, addedObject: {fileID: 1302989138}}]
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3284964184826190324, guid: 2fc94fc84478a4048968e74250e55ae2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1302989138}
   m_SourcePrefab: {fileID: 100100000, guid: 2fc94fc84478a4048968e74250e55ae2, type: 3}
 --- !u!1 &1765648567 stripped
 GameObject:
@@ -2058,6 +2065,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 943122071827317455, guid: 37732eacdad45544da9d2729242e790e, type: 3}
+      propertyPath: maxHealth
+      value: 51515
+      objectReference: {fileID: 0}
     - target: {fileID: 943122071827317455, guid: 37732eacdad45544da9d2729242e790e, type: 3}
       propertyPath: stats.maxHealth
       value: 3
