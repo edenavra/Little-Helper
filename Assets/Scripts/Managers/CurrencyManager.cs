@@ -7,6 +7,7 @@ namespace Managers
     public class CurrencyManager : MonoSingleton<CurrencyManager>
     {
         [SerializeField] private CoinSpawner coinSpawner; 
+        [SerializeField] private CurrencyUI currencyUI;
         
         private int _currentMoney;
         
@@ -15,7 +16,8 @@ namespace Managers
             _currentMoney += amount;
             Debug.Log("Money: " + _currentMoney);
             
-            //TODO: add money to UI
+            //add money to UI
+            currencyUI?.UpdateMoneyUI(_currentMoney);
         }
 
         public int GetMoney()
