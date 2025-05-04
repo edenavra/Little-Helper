@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Item;
 using Rooms;
@@ -14,20 +15,18 @@ namespace Managers
     {
         [Header("Run Setup")] 
         [SerializeField] private int rounds = 7;
-        // [SerializeField] private List<ItemDefinition> recipeItems;
-        // [SerializeField] private List<ItemDefinition> trashItems;
         [SerializeField] private WorldGenerator worldGenerator;
         [SerializeField] internal GameObject playerObject;
         [SerializeField] private CurrencyManager currencyManager;
-        
-        public  List<Room> Rooms { get; private set;}
+        [SerializeField] private GameObject upgradePanel;
+        [SerializeField] private GameObject winPanel;
+        private bool _isUpgradePanelOpen = false;
+        private bool _isWinPanelOpen = false;
+
+        public List<Room> Rooms { get; private set;}
         
         [SerializeField] private WorldConfig worldConfig;
         
-        // public List<ItemDefinition> RecipeItems => recipeItems;
-        // public List<ItemDefinition> TrashItems => trashItems;
-        
-      //  public List<ItemDefinition> RecipeItems => worldConfig.
         public GameObject PlayerObject => playerObject; 
     
         private int _currentRound;
@@ -35,34 +34,21 @@ namespace Managers
         public int CurrentRound => _currentRound;
         
         public Dictionary<UpgradeType, int> PurchasedUpgrades { get; private set; } = new();
+        
        
         private bool isTutorialCompleted = true; //TODO: change the default to false after creating tutorial
 
-
-        private void Update()
+        private void OnEnable()
         {
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                GameEvents.RestartLevel.Invoke();
-                RestartLevel();
-            }
+            GameEvents.PlayerDied += HandlePlayerDied;
+            GameEvents.RestartLevel += RestartLevel;
+            GameEvents.PlayerWon += PlayerWon;
         }
-
-        private void RestartLevel()
+        private void OnDisable()
         {
-            
-            //delete current rooms 
-            foreach (Room room in Rooms)
-            {
-                Destroy(room);
-            }
-            GenerateWorld();
-            
-        }
-
-        private void Awake()
-        {
-            Rooms = new List<Room>();
+            GameEvents.PlayerDied -= HandlePlayerDied;
+            GameEvents.RestartLevel -= RestartLevel;
+            GameEvents.PlayerWon -= PlayerWon;
         }
 
         private void Start()
@@ -73,21 +59,63 @@ namespace Managers
             }
         }
         
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                GameEvents.RestartLevel.Invoke();
+                //RestartLevel();
+            }
+            if(Input.GetKeyDown((KeyCode.W)))
+            {
+                GameEvents.PlayerWon.Invoke();
+                //PlayerWon();
+            }
+        }
+
+        private void RestartLevel()
+        {
+            if (_isUpgradePanelOpen)
+            {
+                upgradePanel.SetActive(false);
+                _isUpgradePanelOpen = false;
+            }
+            //delete current rooms 
+            foreach (Room room in Rooms)
+            {
+                if (room != null)
+                    Destroy(room.gameObject);
+            }
+            Rooms.Clear();
+            StartRun();
+            Time.timeScale = 1;
+        }
+        
+        private void ResetEntireGame()
+        {
+            if(_isWinPanelOpen)
+                winPanel.SetActive(false);
+            //TODO: ADD RESET TO THE UPGRADES
+            currencyManager.ResetMoney();
+            RestartLevel();
+        }
+        
         private void StartRun()
         {
-            _currentRound = 1;
+            _currentRound = 0;
             print("generating world");
             GenerateWorld();
-            currencyManager.GetCoinSpawner().InitialSpawn();
-            print("starting next round");
+            GameEvents.StartQuest.Invoke();
             StartNextRound();
         }
         
         private void GenerateWorld()
-        {
+        { 
             Rooms = worldGenerator.GenerateWorld();
-            ItemPlacer.PopulateContainers(worldConfig.recipeItems, Rooms);
-            ItemPlacer.PopulateContainers(worldConfig.trashItems, Rooms);
+            ItemPlacer.PopulateContainers(worldConfig.recipeItems,worldConfig.trashItems, Rooms);
+            //ItemPlacer.PopulateContainers(worldConfig.trashItems, Rooms);
+            //currencyManager.GetCoinSpawner().SetRooms(Rooms);
+            currencyManager.GetCoinSpawner().InitialSpawn();
         }
         
         private void StartNextRound()
@@ -99,27 +127,31 @@ namespace Managers
             }
         }
         
-        public void PlayerFailed()
+        public void HandlePlayerDied()
         {
             Debug.Log("Player Failed!");
+            Time.timeScale = 0;
+            upgradePanel.SetActive(true);
+            _isUpgradePanelOpen = true;
             //SoundManager.Instance.PlayGameOver();
         }
         
-        public void PlayerSucceeded()
+        public void PlayerWon()
         {
+            Time.timeScale = 0;
+            winPanel.SetActive(true);
+            _isWinPanelOpen = true;
             Debug.Log("Player Won!");
-            CurrencyManager.Instance.ResetMoney();
-            SceneManager.LoadScene("VictoryScene");
+            StartCoroutine(ResetAfterDelay());
+            //CurrencyManager.Instance.ResetMoney();
         }
         
-        public void FinishRun()
+        private IEnumerator ResetAfterDelay()
         {
+            yield return new WaitForSecondsRealtime(2f); // מחכה 2 שניות אמיתיות, לא לפי Time.timeScale
+            //ResetEntireGame();
+            Time.timeScale = 1;
             SceneManager.LoadScene("Start");
-        }
-        
-        public void ContinueAfterUpgrade()
-        {
-            SceneManager.LoadScene("GameScene");
         }
         
         public void RegisterUpgrade(UpgradeType type)

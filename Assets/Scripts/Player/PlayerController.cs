@@ -2,6 +2,8 @@ using Managers;
 using UnityEngine;
 using System.Collections;
 using System.Linq;
+using UnityEngine.UIElements;
+using Utils;
 
 namespace Player
 {
@@ -28,11 +30,13 @@ namespace Player
         private PlayerHealth playerHealth;
         
         private SpriteRenderer[] allRenderers;
+        private Vector3 _firstLocation;
 
 
         private void Awake()
         {
             GameManager.Instance.playerObject = gameObject;
+            _firstLocation = gameObject.transform.position;
             //_rb        = GetComponentInParent<Rigidbody2D>();
             _rb = GetComponent<Rigidbody2D>();
             _animFront = foxFront.GetComponent<Animator>();
@@ -53,6 +57,21 @@ namespace Player
             {
                 Debug.LogError("[PlayerController] PlayerHealth not found in children!");
             }
+        }
+        
+        private void OnEnable()
+        {
+            GameEvents.RestartLevel += HandleRestart;
+        }
+
+        private void OnDisable()
+        {
+            GameEvents.RestartLevel -= HandleRestart;
+        }
+
+        private void HandleRestart()
+        {
+            gameObject.transform.position = _firstLocation;
         }
 
         private void Update()

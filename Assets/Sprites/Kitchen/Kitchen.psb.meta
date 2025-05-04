@@ -117,6 +117,116 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4330}
     spritePosition: {x: 0, y: 10}
+  - name: Book
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 7985
+      y: 4996
+      width: 151
+      height: 134
+    spriteID: 86666a5fac6ed1b42853cbd409ffff7f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 7985, y: 4996}
+    spritePosition: {x: 2929, y: 1083}
+  - name: Cabin 2 Open
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 6555
+      y: 4755
+      width: 404
+      height: 416
+    spriteID: ad2a7b793c1b8d64fbed8363b62c4736
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 6555, y: 4755}
+    spritePosition: {x: 3293, y: 744}
+  - name: Cabin 2 Int
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 6967
+      y: 4755
+      width: 404
+      height: 412
+    spriteID: e17ec5d5deaad60499105bfe95628828
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 6967, y: 4755}
+    spritePosition: {x: 2844, y: 743}
+  - name: Cabin 1 Open
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 5111
+      y: 4755
+      width: 515
+      height: 444
+    spriteID: 6746a4efec9381c4081ac90e8aec32bb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 5111, y: 4755}
+    spritePosition: {x: 578, y: 704}
+  - name: Cabin 1 Int
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4108
+      y: 6055
+      width: 468
+      height: 415
+    spriteID: dd93e787e82b06640b68cbd6f194f5c4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4108, y: 6055}
+    spritePosition: {x: 1247, y: 748}
   - name: Curtain
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -183,28 +293,6 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 8144, y: 4996}
     spritePosition: {x: 2171, y: 465}
-  - name: Book
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 7985
-      y: 4996
-      width: 151
-      height: 134
-    spriteID: 86666a5fac6ed1b42853cbd409ffff7f
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 7985, y: 4996}
-    spritePosition: {x: 2929, y: 1083}
   - name: Door Closed
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -336,7 +424,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 7790, y: 4755}
-    spritePosition: {x: 1959, y: 1031}
+    spritePosition: {x: 1905, y: 1000}
   - name: Fridge
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -381,50 +469,6 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4108, y: 4340}
     spritePosition: {x: 1479, y: 157}
-  - name: Cabin 2 Open
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 6555
-      y: 4755
-      width: 404
-      height: 416
-    spriteID: 7153d97942cdc6445ad82d101c6ede41
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 6555, y: 4755}
-    spritePosition: {x: 3294, y: 805}
-  - name: Cabin 2 Int
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 6967
-      y: 4755
-      width: 404
-      height: 412
-    spriteID: d954f6f96813a0844ac2508ce4f3cb14
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 6967, y: 4755}
-    spritePosition: {x: 2857, y: 809}
   - name: cabin 2
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -446,51 +490,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 7379, y: 4755}
-    spritePosition: {x: 2399, y: 805}
-  - name: Cabin 1 Open
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 5111
-      y: 4755
-      width: 515
-      height: 444
-    spriteID: 569ed690fcfb3f24ca014b99910ca0dc
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 5111, y: 4755}
-    spritePosition: {x: 727, y: 773}
-  - name: Cabin 1 Int
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 4108
-      y: 6055
-      width: 468
-      height: 415
-    spriteID: 1ff55c324baa8e84bb6950f157c03dce
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4108, y: 6055}
-    spritePosition: {x: 1326, y: 802}
+    spritePosition: {x: 2382, y: 744}
   - name: Cabin 1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -512,7 +512,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 6081, y: 4755}
-    spritePosition: {x: 1864, y: 805}
+    spritePosition: {x: 1812, y: 765}
   - name: Walls
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -606,6 +606,56 @@ ScriptedImporter:
     flatten: 0
     isImported: 1
     isVisible: 1
+  - name: Book
+    spriteName: Book
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 86666a5fac6ed1b42853cbd409ffff7f
+    layerID: 51
+    mosaicPosition: {x: 7985, y: 4996}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cabin 2 Open
+    spriteName: Cabin 2 Open
+    isGroup: 0
+    parentIndex: -1
+    spriteID: ad2a7b793c1b8d64fbed8363b62c4736
+    layerID: 80
+    mosaicPosition: {x: 6555, y: 4755}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cabin 2 Int
+    spriteName: Cabin 2 Int
+    isGroup: 0
+    parentIndex: -1
+    spriteID: e17ec5d5deaad60499105bfe95628828
+    layerID: 79
+    mosaicPosition: {x: 6967, y: 4755}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cabin 1 Open
+    spriteName: Cabin 1 Open
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 6746a4efec9381c4081ac90e8aec32bb
+    layerID: 78
+    mosaicPosition: {x: 5111, y: 4755}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Cabin 1 Int
+    spriteName: Cabin 1 Int
+    isGroup: 0
+    parentIndex: -1
+    spriteID: dd93e787e82b06640b68cbd6f194f5c4
+    layerID: 77
+    mosaicPosition: {x: 4108, y: 6055}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   - name: Curtain
     spriteName: Curtain
     isGroup: 0
@@ -633,16 +683,6 @@ ScriptedImporter:
     spriteID: b0699b8f5b1b6bb41b9be3b4febae5a6
     layerID: 60
     mosaicPosition: {x: 8144, y: 4996}
-    flatten: 0
-    isImported: 1
-    isVisible: 1
-  - name: Book
-    spriteName: Book
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 86666a5fac6ed1b42853cbd409ffff7f
-    layerID: 51
-    mosaicPosition: {x: 7985, y: 4996}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -726,26 +766,6 @@ ScriptedImporter:
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: Cabin 2 Open
-    spriteName: Cabin 2 Open
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 7153d97942cdc6445ad82d101c6ede41
-    layerID: 14
-    mosaicPosition: {x: 6555, y: 4755}
-    flatten: 0
-    isImported: 1
-    isVisible: 1
-  - name: Cabin 2 Int
-    spriteName: Cabin 2 Int
-    isGroup: 0
-    parentIndex: -1
-    spriteID: d954f6f96813a0844ac2508ce4f3cb14
-    layerID: 13
-    mosaicPosition: {x: 6967, y: 4755}
-    flatten: 0
-    isImported: 1
-    isVisible: 1
   - name: cabin 2
     spriteName: cabin 2
     isGroup: 0
@@ -753,26 +773,6 @@ ScriptedImporter:
     spriteID: ad47d795bf3d411448e3a0719cc7fa1c
     layerID: 11
     mosaicPosition: {x: 7379, y: 4755}
-    flatten: 0
-    isImported: 1
-    isVisible: 1
-  - name: Cabin 1 Open
-    spriteName: Cabin 1 Open
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 569ed690fcfb3f24ca014b99910ca0dc
-    layerID: 10
-    mosaicPosition: {x: 5111, y: 4755}
-    flatten: 0
-    isImported: 1
-    isVisible: 1
-  - name: Cabin 1 Int
-    spriteName: Cabin 1 Int
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 1ff55c324baa8e84bb6950f157c03dce
-    layerID: 9
-    mosaicPosition: {x: 4108, y: 6055}
     flatten: 0
     isImported: 1
     isVisible: 1

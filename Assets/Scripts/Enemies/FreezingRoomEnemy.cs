@@ -1,109 +1,165 @@
-using UnityEngine;
-using TMPro;
+using System.Collections;
+using Managers;
 using Player;
+using UnityEngine;
+using Utils;
 
 public class FreezingRoomEnemy : MonoBehaviour, IEnemy
 {
-    [SerializeField] private float freezeTime = 10f; 
-    private TextMeshProUGUI timerText;
+    [SerializeField] private float freezeTime = 10f;
 
-    private float currentTime;
-    private bool playerInside = false;
-    private bool hasAttacked = false;
-    private GameObject player;
+    private float _currentTime;
+    private bool _playerInside = false;
+    private bool _hasAttacked = false;
+    private GameObject _player;
+    private Coroutine _freezeCoroutine;
+    private int _damage = 1;
+    private int _attackInterval = 2;
 
-    // private void Start()
-    // {
-    //     var go = GameObject.FindWithTag("FreezeTimer");
-    //     timerText = go.GetComponent<TextMeshProUGUI>();
-    //     timerText.gameObject.SetActive(false);
-    //     currentTime = freezeTime;
-    //     player = GameObject.FindGameObjectWithTag("Player");
-    // }
-    
-    private void Start()
+    private void OnEnable()
     {
-        var go = GameObject.FindWithTag("FreezeTimer");
-        timerText = go.GetComponent<TextMeshProUGUI>();
-        timerText.gameObject.SetActive(false);
-
-        // אל תנסי לגשת לשחקן כאן – הוא אולי עדיין לא נטען
-        currentTime = freezeTime;
+        GameEvents.RestartLevel += HandleRestart;
     }
 
-
-    private void Update()
+    private void OnDisable()
     {
-        if (playerInside && !hasAttacked)
-        {
-            currentTime -= Time.deltaTime;
-            UpdateTimerUI();
-
-            if (currentTime <= 0f)
-            {
-                currentTime = 0f;
-                UpdateTimerUI();
-                AttackPlayer(player);
-                hasAttacked = true;
-            }
-        }
+        GameEvents.RestartLevel -= HandleRestart;
     }
 
-    private void UpdateTimerUI()
+    private void HandleRestart()
     {
-        int minutes = Mathf.FloorToInt(currentTime / 60f);
-        int seconds = Mathf.FloorToInt(currentTime % 60f);
-        int hundredths = Mathf.FloorToInt((currentTime * 100f) % 100f);
-
-        timerText.text = $"{minutes:00}:{seconds:00}:{hundredths:00}";
+        OnRoundStarted(1);
+        GameEvents.OnTimerVisibilityChanged?.Invoke(false);
+        StopFreezeCoroutine();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (!other.CompareTag("Player")) return;
+
+        var stats = other.GetComponentInParent<PlayerController>()?.stats;
+        if (stats == null)
         {
-            //var stats = other.GetComponent<PlayerController>()?.stats;
-            var stats = other.GetComponentInParent<PlayerController>()?.stats;
-
-            if (stats == null)
-            {
-                Debug.LogError("Missing stats!");
-                return;
-            }
-
-            currentTime = stats.TotalFreezeTime;
-            hasAttacked = false;
-            playerInside = true;
-            player = other.gameObject;
-            timerText.gameObject.SetActive(true);
+            Debug.LogError("Missing stats!");
+            return;
         }
+
+        //_player = other.gameObject;
+        _currentTime = stats.TotalFreezeTime;
+        _hasAttacked = false;
+        _playerInside = true;
+
+        GameEvents.OnTimerVisibilityChanged?.Invoke(true);
+        GameEvents.OnTimerUpdated?.Invoke(_currentTime);
+
+        StopFreezeCoroutine();
+        _freezeCoroutine = StartCoroutine(FreezeCountdown(other.gameObject));
     }
-    
+
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
-        {
-            playerInside = false;
-            timerText.gameObject.SetActive(false);
+        if (!other.CompareTag("Player")) return;
 
-            var stats = other.GetComponent<PlayerController>()?.stats;
-            currentTime = stats != null ? stats.TotalFreezeTime : freezeTime;
+        _playerInside = false;
+        GameEvents.OnTimerVisibilityChanged?.Invoke(false);
+
+        StopFreezeCoroutine();
+
+        var stats = other.GetComponent<PlayerController>()?.stats;
+        _currentTime = stats != null ? stats.TotalFreezeTime : freezeTime;
+    }
+    
+    
+    /*private IEnumerator FreezeCountdown(GameObject player)
+    {
+        while (_currentTime > 0f)
+        {
+            _currentTime -= Time.deltaTime;
+            GameEvents.OnTimerUpdated?.Invoke(_currentTime);
+            yield return null; 
         }
+
+        _currentTime = 0f;
+        GameEvents.OnTimerUpdated?.Invoke(_currentTime);
+        GameEvents.OnTimerVisibilityChanged?.Invoke(false);
+
+        if (!_hasAttacked)
+        {
+            _hasAttacked = true;
+            AttackPlayer(player);
+        }
+
+        _freezeCoroutine = null;
+    }*/
+    
+
+
+    private IEnumerator FreezeCountdown(GameObject player)
+    {
+        float attackTimer = 0f;
+
+        while (_playerInside)
+        {
+            _currentTime -= Time.deltaTime;
+            GameEvents.OnTimerUpdated?.Invoke(_currentTime);
+            if(_currentTime <= 0f)
+            {
+                if (!_hasAttacked)
+                {
+                    _hasAttacked = true;
+                    AttackPlayer(player);
+                }
+                attackTimer += Time.deltaTime;
+                if (attackTimer >= _attackInterval)
+                {
+                    attackTimer = 0f;
+
+                    if (player.GetComponentInParent<PlayerHealth>().getHealth() > 0)
+                    {
+                        AttackPlayer(player);
+                    }
+                    else
+                    {
+                        GameEvents.OnTimerVisibilityChanged?.Invoke(false);
+                        break;
+                    }
+                }
+            
+            }
+
+            yield return null;
+        }
+
+        _freezeCoroutine = null;
     }
 
+
+    private void StopFreezeCoroutine()
+    {
+        if (_freezeCoroutine != null)
+        {
+            StopCoroutine(_freezeCoroutine);
+            _freezeCoroutine = null;
+        }
+    }
 
     public void AttackPlayer(GameObject player)
     {
-        var health = player.GetComponent<PlayerHealth>();
+        var health = player.GetComponentInParent<PlayerHealth>();
         if (health != null)
         {
-            health.TakeDamage(health.getHealth()); 
+            //health.TakeDamage(health.getHealth()); // הורג את השחקן
+            health.TakeDamage(_damage); 
+        }
+        else
+        {
+            Debug.LogWarning("Player has no PlayerHealth!");
         }
     }
 
     public void OnRoundStarted(int level)
     {
         float newFreezeTime = Mathf.Max(3f, freezeTime - level * 1f);
-        currentTime = newFreezeTime;
+        _currentTime = newFreezeTime;
     }
 }

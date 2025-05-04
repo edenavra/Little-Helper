@@ -15,10 +15,11 @@ namespace Rooms
         [SerializeField] private bool hasEnemies = false;
         [SerializeField] private EnemySpawner enemySpawner;
         [SerializeField] private EnemyType enemyTypeNeededForThisRoom;
-        //[SerializeField] private EnemyPool enemyPool;
         public RoomType RoomType {get; set;}
 
         private int _fullContainers;
+        public int TotalContainers  => containers.Count;
+        public int FilledContainers => _fullContainers;
         private bool AllContainersFull => _fullContainers == containers.Count;
         private bool playerInside;
         private int currentRound = 1;
@@ -82,11 +83,10 @@ namespace Rooms
             }
         }
 
-        public bool AddItemToRandomContainer(ItemDefinition item)
+        public void AddItemToRandomContainer(ItemDefinition item)
         {
-            if (AllContainersFull) return false;
+            if (AllContainersFull) return;
             GetRandomEmptyContainer()?.AddItem(item);
-            return true;
         }
 
         private Interactable GetRandomEmptyContainer()

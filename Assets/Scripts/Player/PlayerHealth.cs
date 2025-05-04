@@ -2,6 +2,7 @@ using Managers;
 using System;
 using UnityEngine;
 using Player;
+using Utils;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -24,7 +25,22 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
     }
-    
+    private void OnEnable()
+    {
+        GameEvents.RestartLevel += HandleRestart;
+    }
+
+    private void OnDisable()
+    {
+        GameEvents.RestartLevel -= HandleRestart;
+    }
+
+    private void HandleRestart()
+    {
+        currentHealth = maxHealth;
+        OnHealthChanged?.Invoke(currentHealth, maxHealth);
+        isInvincible = false;
+    }
     public void TakeDamage(int amount)
     {
         if (isInvincible) return;
@@ -47,6 +63,7 @@ public class PlayerHealth : MonoBehaviour
     {
         Debug.Log("Player died!");
         //SoundManager.Instance?.PlayGameOver();
+        GameEvents.PlayerDied?.Invoke();
     }
 
     public void Heal(int amount)

@@ -23,6 +23,24 @@ namespace Managers
                 }
             }
         }
+        
+        private void OnEnable()
+        {
+            GameEvents.RestartLevel += HandleRestart;
+        }
+
+        private void OnDisable()
+        {
+            GameEvents.RestartLevel -= HandleRestart;
+        }
+
+        private void HandleRestart()
+        {
+            foreach (var pool in pools.Values)
+            {
+                pool.ResetPool();
+            }
+        }
 
         public EnemyPool GetPool(EnemyType type)
         {

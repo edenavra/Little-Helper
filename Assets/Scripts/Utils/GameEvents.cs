@@ -10,5 +10,10 @@ namespace Utils
         public static Action GameOver;
         public static Action<int,int> PlayerHealthChanged;
         public static Action<int> WaveChanged;
+        public static Action OnCoinCollected;
+        public static Action StartQuest;
+        public static Action<float> OnTimerUpdated;
+        public static Action<bool> OnTimerVisibilityChanged;
+
     }
 }

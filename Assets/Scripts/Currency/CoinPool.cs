@@ -16,6 +16,15 @@ namespace Currency
         {
             CreatePool();
         }
+        
+        private void OnEnable()
+        {
+            GameEvents.RestartLevel += ResetPool;
+        }
+        private void OnDisable()
+        {
+            GameEvents.RestartLevel -= ResetPool;
+        }
 
         private void CreatePool()
         {
