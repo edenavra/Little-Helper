@@ -27,11 +27,23 @@ public class FreezingRoomTimerUI : MonoBehaviour
 
     private void UpdateTimer(float time)
     {
-        int minutes = Mathf.FloorToInt(time / 60f);
-        int seconds = Mathf.FloorToInt(time % 60f);
-        int hundredths = Mathf.FloorToInt((time * 100f) % 100f);
-
-        timerText.text = $"{minutes:00}:{seconds:00}:{hundredths:00}";
+        bool isNegative = time < 0f;
+        float displayTime = Mathf.Abs(time);
+        
+        int minutes = Mathf.FloorToInt(displayTime / 60f);
+        int seconds = Mathf.FloorToInt(displayTime % 60f);
+        int hundredths = Mathf.FloorToInt((displayTime * 100f) % 100f);
+        
+        string prefix = isNegative ? "-" : "";
+        timerText.text = $"{prefix}{minutes:00}:{seconds:00}:{hundredths:00}";
+        if (isNegative)
+        {
+            timerText.color = Color.red;
+        }
+        else
+        {
+            timerText.color = Color.white; 
+        }
     }
 
     private void ToggleTimerUI(bool isVisible)
