@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Potato
   icon: {fileID: 0}
-  prefab: {fileID: 0}
+  prefab: {fileID: 5099568906777854915, guid: 12a3d2b7937dae841a94a3814e25c621, type: 3}
   roomType: 2
+  DeliveryPosition: {x: 0.75, y: -7.2, z: 0}

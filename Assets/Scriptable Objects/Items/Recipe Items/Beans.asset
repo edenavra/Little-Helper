@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31c0f32c1bd9bd942801ac25b42dd079, type: 3}
   m_Name: Beans
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Beans
   icon: {fileID: 0}
-  prefab: {fileID: 0}
+  prefab: {fileID: 8726432328519932769, guid: f9b665a14abea3a44bd0b58c860434d1, type: 3}
   roomType: 0
+  DeliveryPosition: {x: 1.839, y: -4.8, z: 0}

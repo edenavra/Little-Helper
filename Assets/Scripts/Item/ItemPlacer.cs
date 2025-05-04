@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Managers;
 using Rooms;
 using Scriptable_Objects;
@@ -9,19 +10,37 @@ namespace Item
 {
     public static class ItemPlacer
     {
-        public static void PopulateContainers(List<ItemDefinition> items, List<Room> rooms)
+        private static float FILL_EMPTY_CHANCE = 0.7f; 
+        public static void PopulateContainers(List<ItemDefinition> recipeItems,List<ItemDefinition> trashItems, List<Room> rooms)
         {
-            foreach (var item in items)
+            // foreach (var item in items)
+            // {
+            //     foreach (var room in rooms.Where(room => item.roomType == room.RoomType))
+            //     {
+            //         room.AddItemToRandomContainer(item);
+            //     }
+            // }
+
+            foreach (var item in recipeItems)
             {
-                Debug.Log($"placing item {item.itemName} in room {item.roomType}");
-                foreach (var room in rooms)
+                foreach (var room in rooms.Where(room => item.roomType == room.RoomType))
                 {
-                    Debug.Log(room.RoomType);
-                    if (item.roomType == room.RoomType)
+                    room.AddItemToRandomContainer(item);
+                }
+            }
+
+            foreach (var room in rooms)
+            {
+                var emptyContainersAmount = room.TotalContainers - room.FilledContainers;
+                for (var i = 0; i < emptyContainersAmount; i++)
+                {
+                    if (Random.value < FILL_EMPTY_CHANCE)
                     {
-                        room.AddItemToRandomContainer(item);
+                        var trashItemsForRoom = trashItems.Where(trashItem => trashItem.roomType == room.RoomType).ToList();
+                        room.AddItemToRandomContainer(trashItemsForRoom[Random.Range(0, trashItemsForRoom.Count)]);
                     }
                 }
+
             }
         }
     }

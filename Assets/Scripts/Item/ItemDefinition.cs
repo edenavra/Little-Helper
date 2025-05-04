@@ -16,5 +16,8 @@ namespace Scriptable_Objects
         public GameObject prefab;
         [Tooltip("Room where the item will be spawned")]
         public RoomType roomType;
+
+        [Tooltip("Position where the item will be placed on delivery (leave empty if trash item")]
+        public Vector3 DeliveryPosition;
     }
 }

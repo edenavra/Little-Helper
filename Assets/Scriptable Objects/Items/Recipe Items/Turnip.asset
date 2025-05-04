@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Turnip
   icon: {fileID: 0}
-  prefab: {fileID: 0}
+  prefab: {fileID: 1535856785358727730, guid: 016d2e648e8e3b34ca83be78fe6e6d44, type: 3}
   roomType: 2
+  DeliveryPosition: {x: -3, y: -7.15, z: 0}
