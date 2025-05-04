@@ -13,10 +13,12 @@ namespace Currency
         {
             if (collision.CompareTag("Player"))
             {
-                CurrencyManager.Instance.AddMoney(1);
-                CoinPool.Instance.ReturnCoin(gameObject);
+                CurrencyManager.Instance.AddMoney(20);
                 GameEvents.OnCoinCollected?.Invoke();
                 //CurrencyManager.Instance.GetCoinSpawner().OnCoinCollected();
+                
+                FindObjectOfType<AnimatedCoinPickup>()?.AnimateCoin(transform.position);
+                CoinPool.Instance.ReturnCoin(gameObject);
             }
         }
     }
