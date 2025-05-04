@@ -66,7 +66,7 @@ namespace Managers
                 GameEvents.RestartLevel.Invoke();
                 //RestartLevel();
             }
-            if(Input.GetKeyDown((KeyCode.W)))
+            if(Input.GetKeyDown((KeyCode.F1)))
             {
                 GameEvents.PlayerWon.Invoke();
                 //PlayerWon();
