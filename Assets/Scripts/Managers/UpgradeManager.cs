@@ -1,6 +1,7 @@
 using UnityEngine;
 using Player;
 using Managers;
+using Utils;
 
 namespace Managers
 {
@@ -114,6 +115,7 @@ namespace Managers
             if (upgradePanel != null)
             {
                 upgradePanel.SetActive(false);
+                GameEvents.RestartLevel?.Invoke();
             }
             else
             {
