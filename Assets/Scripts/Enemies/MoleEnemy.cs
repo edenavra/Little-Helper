@@ -9,27 +9,37 @@ namespace Enemies
 {
     public class MoleEnemy : MonoBehaviour, IEnemy
     {
+        private static readonly int MoleUp = Animator.StringToHash("MoleUp");
+        private static readonly int MoleDown = Animator.StringToHash("MoleDown");
+        private static readonly int MoleHide = Animator.StringToHash("MoleHide");
         [SerializeField] private float moveRadius = 2f;
         [SerializeField] private float followSpeed = 2f;
         [SerializeField] private float attackInterval = 5f;
-        [SerializeField] private float visibleDuration = 2f;
+        [SerializeField] private float visibleDuration = 1.5f;
         [SerializeField] private LayerMask obstacleLayer;
 
-        [Header("Visual References")]
-        [SerializeField] private GameObject moundVisual; 
-        [SerializeField] private SpriteRenderer moleSprite;
-        [SerializeField] private Collider2D moleCollider;
+        //[Header("Visual References")]
+        //[SerializeField] private GameObject moundVisual; 
+        //[SerializeField] private SpriteRenderer moleSprite;
+        private Collider2D moleCollider;
 
         private float _attackTimer = 0f;
         private bool _isAttacking = false;
         private GameObject _player;
         private float _currentAttackInterval;
+        public float pauseDuration = 0.5f;
+        private Animator _animator;
+        private bool _isMoleOut = false;
+        private bool _waitingForContinue = false;
+        private string _lastFinishedAnimation;
 
         private void Start()
         {
             _player = GameManager.Instance.playerObject;
-            if (moundVisual != null)
-                moundVisual.SetActive(false);
+            _animator = GetComponentInChildren<Animator>();
+            moleCollider = GetComponent<Collider2D>();
+            /*if (moundVisual != null)
+                moundVisual.SetActive(false);*/
 
             HideMole();
         }
@@ -76,41 +86,38 @@ namespace Enemies
         {
             _isAttacking = true;
 
-            //TODO: ADD ANIMATION INSTEAD OF ENABLE MOUND
-            if (moundVisual != null)
-                moundVisual.SetActive(true);
-
-            yield return new WaitForSeconds(0.5f);
-
+            _animator.SetTrigger(MoleUp);
+            yield return new WaitUntil(() => _waitingForContinue);
+            _waitingForContinue = false;
+            yield return new WaitForSeconds(pauseDuration);
             ShowMole();
+            _animator.speed = 1f;
+            yield return WaitForAnimationToEnd("MoleUp");
 
             yield return new WaitForSeconds(visibleDuration);
 
+            _animator.SetTrigger(MoleDown);
+            yield return new WaitUntil(() => _waitingForContinue);
+            _waitingForContinue = false;
             HideMole();
+            yield return new WaitForSeconds(pauseDuration);
+            _animator.speed = 1f;
+            yield return WaitForAnimationToEnd("MoleDown");
 
-            yield return new WaitForSeconds(0.5f); 
-
-            //TODO: ADD ANIMATION INSTEAD OF DISABLE MOUND
-            if (moundVisual != null)
-                moundVisual.SetActive(false);
+            _animator.SetTrigger(MoleHide);
 
             _isAttacking = false;
         }
 
+
         private void HideMole()
         {
-            //TODO: ADD ANIMATION INSTEAD OF DISABLE SPRITE
-            if (moleSprite != null)
-                moleSprite.enabled = false;
             if (moleCollider != null)
                 moleCollider.enabled = false;
         }
 
         private void ShowMole()
         {
-            //TODO: ADD ANIMATION INSTEAD OF ENABLE SPRITE
-            if (moleSprite != null)
-                moleSprite.enabled = true;
             if (moleCollider != null)
                 moleCollider.enabled = true;
         }
@@ -149,5 +156,25 @@ namespace Enemies
         {
             _currentAttackInterval = Mathf.Max(1f, attackInterval - level * 0.3f);
         }
+        
+        public IEnumerator PauseAnimation()
+        {
+            _animator.speed = 0f;
+            _waitingForContinue = true;
+            yield break; 
+        }
+        
+        private IEnumerator WaitForAnimationToEnd(string stateName)
+        {
+            _lastFinishedAnimation = null;
+
+            yield return new WaitUntil(() => _lastFinishedAnimation == stateName);
+        }
+        
+        public void NotifyAnimationEnded(string animationName)
+        {
+            _lastFinishedAnimation = animationName;
+        }
+
     }
 }
