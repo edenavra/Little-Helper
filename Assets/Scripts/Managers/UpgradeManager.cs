@@ -7,6 +7,7 @@ namespace Managers
     public class UpgradeManager : MonoBehaviour
     {
         private PlayerStats playerStats;
+        [SerializeField] private GameObject upgradePanel;
 
         private void Start()
         {
@@ -107,5 +108,18 @@ namespace Managers
 
             Debug.Log("All saved upgrades reapplied.");
         }
+        
+        public void CloseUpgradePanel()
+        {
+            if (upgradePanel != null)
+            {
+                upgradePanel.SetActive(false);
+            }
+            else
+            {
+                Debug.LogWarning("Upgrade panel is not assigned in the inspector.");
+            }
+        }
+
     }
 }
