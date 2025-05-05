@@ -2,6 +2,7 @@ using System;
 using Player;
 using UnityEngine;
 using UnityEngine.UI;
+using Utils;
 
 public class HealthBar : MonoBehaviour
 {
@@ -19,7 +20,8 @@ public class HealthBar : MonoBehaviour
         healthSlider.value = playerHealth.getHealth();
 
         // מאזינים לאירוע
-        playerHealth.OnHealthChanged += UpdateHealthUI;
+        //playerHealth.OnHealthChanged += UpdateHealthUI;
+        GameEvents.PlayerHealthChanged += UpdateHealthUI;
     }
 
     private void UpdateHealthUI(int current, int max)
@@ -32,6 +34,7 @@ public class HealthBar : MonoBehaviour
     {
         // נוודא שמסירים את ההאזנה כשמתאים (כדי למנוע באגים)
         if (playerHealth != null)
-            playerHealth.OnHealthChanged -= UpdateHealthUI;
+            //playerHealth.OnHealthChanged -= UpdateHealthUI;
+            GameEvents.PlayerHealthChanged -= UpdateHealthUI;
     }
 }

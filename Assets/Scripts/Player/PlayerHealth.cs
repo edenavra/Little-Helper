@@ -8,7 +8,7 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] internal int maxHealth = 3;
     private int currentHealth;
-    public event Action<int, int> OnHealthChanged;
+    //public event Action<int, int> OnHealthChanged;
 
     [SerializeField] private PlayerStats stats;
     
@@ -23,7 +23,8 @@ public class PlayerHealth : MonoBehaviour
         }
 
         currentHealth = maxHealth;
-        OnHealthChanged?.Invoke(currentHealth, maxHealth);
+        //OnHealthChanged?.Invoke(currentHealth, maxHealth);
+        GameEvents.PlayerHealthChanged?.Invoke(currentHealth, maxHealth);
     }
     private void OnEnable()
     {
@@ -38,7 +39,8 @@ public class PlayerHealth : MonoBehaviour
     private void HandleRestart()
     {
         currentHealth = maxHealth;
-        OnHealthChanged?.Invoke(currentHealth, maxHealth);
+        //OnHealthChanged?.Invoke(currentHealth, maxHealth);
+        GameEvents.PlayerHealthChanged?.Invoke(currentHealth, maxHealth);
         isInvincible = false;
     }
     public void TakeDamage(int amount)
@@ -47,7 +49,8 @@ public class PlayerHealth : MonoBehaviour
         currentHealth -= amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         Debug.Log($"Player took {amount} damage. Current health: {currentHealth}");
-        OnHealthChanged?.Invoke(currentHealth, maxHealth);
+        //OnHealthChanged?.Invoke(currentHealth, maxHealth);
+        GameEvents.PlayerHealthChanged?.Invoke(currentHealth, maxHealth);
         if (currentHealth <= 0)
         {
             Die();
@@ -69,7 +72,8 @@ public class PlayerHealth : MonoBehaviour
     public void Heal(int amount)
     {
         currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
-        OnHealthChanged?.Invoke(currentHealth, maxHealth);
+        //OnHealthChanged?.Invoke(currentHealth, maxHealth);
+        GameEvents.PlayerHealthChanged?.Invoke(currentHealth, maxHealth);
         // גם פה אפשר לעדכן UI
     }
     
@@ -78,7 +82,8 @@ public class PlayerHealth : MonoBehaviour
         maxHealth += amount;
         currentHealth += amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-        OnHealthChanged?.Invoke(currentHealth, maxHealth);
+        //OnHealthChanged?.Invoke(currentHealth, maxHealth);
+        GameEvents.PlayerHealthChanged?.Invoke(currentHealth, maxHealth);
         Debug.Log($"[Health] Extra health purchased! MaxHealth: {maxHealth}, CurrentHealth: {currentHealth}");
     }
     
