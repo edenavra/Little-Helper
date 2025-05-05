@@ -39,7 +39,7 @@ namespace UI
             if (success)
             {
                 Debug.Log($"Purchased upgrade: {upgradeData.upgradeName}");
-                GameEvents.RestartLevel?.Invoke();
+                //GameEvents.RestartLevel?.Invoke();
                 // buyButton.interactable = false;
             }
             else

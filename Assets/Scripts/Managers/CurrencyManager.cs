@@ -43,6 +43,7 @@ namespace Managers
         public void SpendMoney(int amount)
         {
             _currentMoney -= amount;
+            currencyUI.UpdateMoneyUI(_currentMoney);
         }
 
     }
