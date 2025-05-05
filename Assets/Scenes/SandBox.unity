@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07e4d6ec9f7bd2741b84c71a1f45be62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradePanel: {fileID: 0}
+  upgradePanel: {fileID: 186338324}
 --- !u!1 &372379026
 GameObject:
   m_ObjectHideFlags: 0
@@ -1314,6 +1314,10 @@ PrefabInstance:
     - target: {fileID: 8414787215448899326, guid: 2a054759962b22944b085713ec2d1652, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429918282702078360, guid: 2a054759962b22944b085713ec2d1652, type: 3}
+      propertyPath: m_Spacing
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8676979791708594608, guid: 2a054759962b22944b085713ec2d1652, type: 3}
       propertyPath: m_StaticEditorFlags
