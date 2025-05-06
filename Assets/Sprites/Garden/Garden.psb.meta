@@ -339,8 +339,8 @@ ScriptedImporter:
     spritePosition: {x: 3345, y: 788}
   - name: Bush 3 Int
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.48889086, y: 0.036108397}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -427,8 +427,8 @@ ScriptedImporter:
     spritePosition: {x: 3413, y: 117}
   - name: Bush 2 Int
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5028109, y: 0.017878715}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
