@@ -139,6 +139,28 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 6325, y: 4340}
     spritePosition: {x: 1083, y: 1276}
+  - name: Layer 112
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 5157
+      y: 6355
+      width: 0
+      height: 0
+    spriteID: 164ab1d7e0786d34497e654e13182ec1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 5157, y: 6355}
+    spritePosition: {x: 0, y: 2160}
   - name: Tree Int
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -160,7 +182,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4108, y: 4340}
-    spritePosition: {x: 59, y: 659}
+    spritePosition: {x: 49, y: 649}
   - name: Tree
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -616,6 +638,16 @@ ScriptedImporter:
     flatten: 0
     isImported: 1
     isVisible: 1
+  - name: Layer 112
+    spriteName: Layer 112
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 164ab1d7e0786d34497e654e13182ec1
+    layerID: 131
+    mosaicPosition: {x: 5157, y: 6355}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   - name: Tree Int
     spriteName: Tree Int
     isGroup: 0
@@ -679,7 +711,7 @@ ScriptedImporter:
   - name: Front Dirt
     spriteName: Front Dirt
     isGroup: 0
-    parentIndex: 7
+    parentIndex: 8
     spriteID: bdb1c5bf3d380e042a69c5eea52f9263
     layerID: 127
     mosaicPosition: {x: 4795, y: 6202}
@@ -689,7 +721,7 @@ ScriptedImporter:
   - name: Mole
     spriteName: Mole
     isGroup: 0
-    parentIndex: 7
+    parentIndex: 8
     spriteID: 8e05bf487be83df43bd4f64b5d9be6ec
     layerID: 126
     mosaicPosition: {x: 5217, y: 6271}
@@ -699,7 +731,7 @@ ScriptedImporter:
   - name: Back Dirt
     spriteName: Back Dirt
     isGroup: 0
-    parentIndex: 7
+    parentIndex: 8
     spriteID: 8ca613a05b030b04fb0ed9f1f5ab6355
     layerID: 125
     mosaicPosition: {x: 4795, y: 6369}
