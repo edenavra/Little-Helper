@@ -256,6 +256,10 @@ PrefabInstance:
       value: Mole
       objectReference: {fileID: 0}
     - target: {fileID: -8453737382654885991, guid: ef62c2ef9b3107f4c99188aa1bfd3ee5, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8453737382654885991, guid: ef62c2ef9b3107f4c99188aa1bfd3ee5, type: 3}
       propertyPath: m_MaskInteraction
       value: 2
       objectReference: {fileID: 0}
@@ -293,10 +297,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: ef62c2ef9b3107f4c99188aa1bfd3ee5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -7552582706839291426, guid: ef62c2ef9b3107f4c99188aa1bfd3ee5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: ef62c2ef9b3107f4c99188aa1bfd3ee5, type: 3}
