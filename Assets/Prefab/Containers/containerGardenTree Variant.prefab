@@ -8,6 +8,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1975486273350021545, guid: 41a4fa9f29930c147aa622228704073c, type: 3}
+      propertyPath: m_Size.x
+      value: 10.639046
+      objectReference: {fileID: 0}
+    - target: {fileID: 1975486273350021545, guid: 41a4fa9f29930c147aa622228704073c, type: 3}
+      propertyPath: m_Size.y
+      value: 9.94323
+      objectReference: {fileID: 0}
+    - target: {fileID: 1975486273350021545, guid: 41a4fa9f29930c147aa622228704073c, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.138479
+      objectReference: {fileID: 0}
+    - target: {fileID: 1975486273350021545, guid: 41a4fa9f29930c147aa622228704073c, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.105454445
+      objectReference: {fileID: 0}
     - target: {fileID: 2843448291939266019, guid: 41a4fa9f29930c147aa622228704073c, type: 3}
       propertyPath: m_Sprite
       value: 
