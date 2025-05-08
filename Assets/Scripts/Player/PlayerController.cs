@@ -9,17 +9,20 @@ namespace Player
 {
     public class PlayerController : MonoBehaviour
     {
+        private PlayerAnimatorController _animatorController;
+        
+        // private static readonly int IsWalking = Animator.StringToHash("isWalking");
         public PlayerStats stats;
 
-        [SerializeField] private GameObject foxFront;
-        [SerializeField] private GameObject foxSide;
-        [SerializeField] private GameObject foxBack;
+        // [SerializeField] private GameObject foxFront;
+        // [SerializeField] private GameObject foxSide;
+        // [SerializeField] private GameObject foxBack;
 
         private Rigidbody2D _rb;
-        private Animator _animFront, _animSide, _animBack;
+        // private Animator _animFront, _animSide, _animBack;
 
-        private GameObject _activeModel;
-        private Animator _activeAnim;
+        // private GameObject _activeModel;
+        // private Animator _activeAnim;
         private Vector2 _movement;
 
         // Hide upgrade variables
@@ -29,7 +32,7 @@ namespace Player
         //private SpriteRenderer spriteRenderer;
         private PlayerHealth playerHealth;
         
-        private SpriteRenderer[] allRenderers;
+        // private SpriteRenderer[] allRenderers;
         private Vector3 _firstLocation;
 
 
@@ -39,24 +42,26 @@ namespace Player
             _firstLocation = gameObject.transform.position;
             //_rb        = GetComponentInParent<Rigidbody2D>();
             _rb = GetComponent<Rigidbody2D>();
-            _animFront = foxFront.GetComponent<Animator>();
-            _animSide = foxSide.GetComponent<Animator>();
-            _animBack = foxBack.GetComponent<Animator>();
+            // _animFront = foxFront.GetComponent<Animator>();
+            // _animSide = foxSide.GetComponent<Animator>();
+            // _animBack = foxBack.GetComponent<Animator>();
 
-            ActivateModel(foxFront, _animFront);
+            // ActivateModel(foxFront, _animFront);
 
             //spriteRenderer = GetComponentInChildren<SpriteRenderer>();
             playerHealth = GetComponentInChildren<PlayerHealth>();
             
-            allRenderers = foxFront.GetComponentsInChildren<SpriteRenderer>(true)
-                .Concat(foxBack.GetComponentsInChildren<SpriteRenderer>(true))
-                .Concat(foxSide.GetComponentsInChildren<SpriteRenderer>(true))
-                .ToArray();
-
-            if (playerHealth == null)
-            {
-                Debug.LogError("[PlayerController] PlayerHealth not found in children!");
-            }
+            // allRenderers = foxFront.GetComponentsInChildren<SpriteRenderer>(true)
+            //     .Concat(foxBack.GetComponentsInChildren<SpriteRenderer>(true))
+            //     .Concat(foxSide.GetComponentsInChildren<SpriteRenderer>(true))
+            //     .ToArray();
+            //
+            // if (playerHealth == null)
+            // {
+            //     Debug.LogError("[PlayerController] PlayerHealth not found in children!");
+            // }
+            
+            _animatorController = GetComponent<PlayerAnimatorController>();
         }
         
         private void OnEnable()
@@ -81,21 +86,27 @@ namespace Player
 
             if (_movement.magnitude > 0.1f)
             {
+                _animatorController.SetWalking(true);
+               // _activeAnim.SetBool(IsWalking, true);
                 if (Mathf.Abs(_movement.x) > Mathf.Abs(_movement.y))
                 {
-                    ActivateModel(foxSide, _animSide);
-                    foxSide.transform.localScale = new Vector3(
-                        _movement.x < 0 ? -0.4f : 0.4f,
-                        0.4f, 0.4f);
+                    _animatorController.ActivateModel(ModelType.Side);
+                    var isMovingRight = _movement.x > 0;
+                    _animatorController.SetSideDirectionRight(isMovingRight);
+                    // foxSide.transform.localScale = new Vector3(
+                    //     _movement.x < 0 ? -0.4f : 0.4f,
+                    //     0.4f, 0.4f);
                 }
                 else
                 {
-                    ActivateModel(_movement.y > 0 ? foxBack : foxFront,
-                                  _movement.y > 0 ? _animBack : _animFront);
+                    var isMovingUp = _movement.y > 0;
+                    _animatorController.ActivateModel(isMovingUp ? ModelType.Back: ModelType.Front);
+                    // _animatorController.ActivateModel(_movement.y > 0 ? foxBack : foxFront,
+                    //               _movement.y > 0 ? _animBack : _animFront);
                 }
             }
-
-            _activeAnim.speed = _movement.magnitude > 0.01f ? 1 : 0;
+            else _animatorController.SetWalking(false);
+            // _activeAnim.speed = _movement.magnitude > 0.01f ? 1 : 0;
 
             // HIDE input
             if (Input.GetKeyDown(KeyCode.H))
@@ -129,15 +140,15 @@ namespace Player
             _rb.linearVelocity = _movement.normalized * stats.moveSpeed;
         }
 
-        private void ActivateModel(GameObject model, Animator anim)
-        {
-            if (_activeModel == model) return;
-
-            if (_activeModel != null) _activeModel.SetActive(false);
-            model.SetActive(true);
-            _activeModel = model;
-            _activeAnim = anim;
-        }
+        // private void ActivateModel(GameObject model, Animator anim)
+        // {
+        //     if (_activeModel == model) return;
+        //
+        //     if (_activeModel != null) _activeModel.SetActive(false);
+        //     model.SetActive(true);
+        //     _activeModel = model;
+        //     _activeAnim = anim;
+        // }
 
         public void IncreaseMoveSpeed(float amount)
         {
@@ -159,7 +170,7 @@ namespace Player
 
             Debug.Log($"[{Time.time:F2}] Hide activated for {stats.hideDuration} seconds!");
 
-            SetTransparency(0.4f);
+            _animatorController.SetTransparency(0.4f);
 
             // Set invincibility
             if (playerHealth != null)
@@ -173,7 +184,7 @@ namespace Player
 
             yield return new WaitForSeconds(stats.hideDuration);
             
-            SetTransparency(1f);
+            _animatorController.SetTransparency(1f);
 
             if (playerHealth != null)
             {
@@ -188,15 +199,15 @@ namespace Player
             isHiding = false;
         }
         
-        private void SetTransparency(float alpha)
-        {
-            foreach (var sr in allRenderers)
-            {
-                var color = sr.color;
-                color.a = alpha;
-                sr.color = color;
-            }
-        }
+        // private void SetTransparency(float alpha)
+        // {
+        //     foreach (var sr in allRenderers)
+        //     {
+        //         var color = sr.color;
+        //         color.a = alpha;
+        //         sr.color = color;
+        //     }
+        // }
         
     }
 }
