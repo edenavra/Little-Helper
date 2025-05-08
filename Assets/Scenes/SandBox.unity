@@ -136,6 +136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe5e7f589d94c798e0dd65114d3f1d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minDeltaY: 0.1
+  layerOffset: 100
 --- !u!114 &110829970 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3160014039804254337, guid: 3e6674a353e1f3445a9b2cf87c3226cd, type: 3}
@@ -498,6 +500,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 261911798}
+    - target: {fileID: 6864403375296757344, guid: 2a054759962b22944b085713ec2d1652, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7500633110499251737, guid: 2a054759962b22944b085713ec2d1652, type: 3}
       propertyPath: m_Interactable
       value: 1

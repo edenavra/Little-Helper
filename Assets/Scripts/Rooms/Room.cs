@@ -91,7 +91,10 @@ namespace Rooms
 
         private Interactable GetRandomEmptyContainer()
         {
-            var emptyContainers = containers.Where(c => c.IsEmpty).ToList();
+            // var emptyContainers = containers.Where(c => c.IsEmpty).ToList();
+            var emptyContainers = containers
+                .Where(c => c != null && c.IsEmpty)
+                .ToList();
             if (emptyContainers.Count == 0) return null;
             int index = Random.Range(0, emptyContainers.Count);
             return emptyContainers[index];
