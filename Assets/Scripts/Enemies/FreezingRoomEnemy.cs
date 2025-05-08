@@ -2,11 +2,13 @@ using System.Collections;
 using Managers;
 using Player;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Utils;
 
 public class FreezingRoomEnemy : MonoBehaviour, IEnemy
 {
-    [SerializeField] private float freezeTime = 10f;
+    [Tooltip("Make sure that player stats has the same base time")]
+    [SerializeField] private float baseFreezeTime = 10f;
 
     private float _currentTime;
     private bool _playerInside = false;
@@ -51,6 +53,7 @@ public class FreezingRoomEnemy : MonoBehaviour, IEnemy
 
         GameEvents.OnTimerVisibilityChanged?.Invoke(true);
         GameEvents.OnTimerUpdated?.Invoke(_currentTime);
+        GameEvents.OnFreezeStarted?.Invoke(_currentTime);
 
         StopFreezeCoroutine();
         _freezeCoroutine = StartCoroutine(FreezeCountdown(other.gameObject));
@@ -66,7 +69,7 @@ public class FreezingRoomEnemy : MonoBehaviour, IEnemy
         StopFreezeCoroutine();
 
         var stats = other.GetComponent<PlayerController>()?.stats;
-        _currentTime = stats != null ? stats.TotalFreezeTime : freezeTime;
+        if (stats != null) _currentTime = stats.TotalFreezeTime;
     }
     
     
@@ -159,7 +162,7 @@ public class FreezingRoomEnemy : MonoBehaviour, IEnemy
 
     public void OnRoundStarted(int level)
     {
-        float newFreezeTime = Mathf.Max(3f, freezeTime - level * 1f);
+        float newFreezeTime = Mathf.Max(3f, baseFreezeTime - level * 1f);
         _currentTime = newFreezeTime;
     }
 }

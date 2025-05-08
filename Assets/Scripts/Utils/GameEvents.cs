@@ -14,6 +14,8 @@ namespace Utils
         public static Action StartQuest;
         public static Action<float> OnTimerUpdated;
         public static Action<bool> OnTimerVisibilityChanged;
+        public static Action<float> OnFreezeStarted;
+
 
     }
 }

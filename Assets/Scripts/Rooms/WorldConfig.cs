@@ -8,7 +8,6 @@ namespace Rooms
     public class WorldConfig : ScriptableObject
     {
         [Header("Room Prefabs")]
-        public GameObject kitchenPrefab;
         public List<GameObject> pantryLayouts;
         public List<GameObject> freezerLayouts;
         public List<GameObject> gardenLayouts;
