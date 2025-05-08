@@ -1,76 +1,94 @@
-using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class RatEnemy : MonoBehaviour, IEnemy
+namespace Enemies
 {
-    public float moveSpeed = 2f;
-    private Vector2 randomDirection;
-    private float changeDirectionTime = 2f;
-    private float timeUntilChange;
-
-    private void Start()
+    public class RatEnemy : MonoBehaviour, IEnemy
     {
-        GetComponent<Rigidbody2D>().gravityScale = 0;
-        GetComponent<Rigidbody2D>().freezeRotation = true;
-        PickNewDirection();
-    }
+        public float moveSpeed = 2f;
+        private Vector2 _randomDirection;
+        private float changeDirectionTime = 2f;
+        private float _timeUntilChange;
+        private Rigidbody2D _rb;
 
-    private void Update()
-    {
-        MoveRandomly();
-
-        timeUntilChange -= Time.deltaTime;
-        if (timeUntilChange <= 0f)
+        private void Start()
         {
+            _rb = GetComponent<Rigidbody2D>(); 
+            _rb.gravityScale = 0;
+            _rb.freezeRotation = true;
             PickNewDirection();
         }
-    }
 
-    private void MoveRandomly()
-    {
-        transform.Translate(randomDirection * (moveSpeed * Time.deltaTime));
-    }
-
-    private void PickNewDirection()
-    {
-        randomDirection = Random.insideUnitCircle.normalized;
-        timeUntilChange = changeDirectionTime;
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Player"))
+        private void Update()
         {
-            AttackPlayer(other.gameObject);
+            //MoveRandomly();
+
+            _timeUntilChange -= Time.deltaTime;
+            if (_timeUntilChange <= 0f)
+            {
+                PickNewDirection();
+            }
         }
 
-        if (other.gameObject.CompareTag("Wall") || other.gameObject.CompareTag("Door"))
-        {
-            randomDirection *= -1; 
-            timeUntilChange = changeDirectionTime;
-        }
-    }
+        // private void MoveRandomly()
+        // {
+        //     transform.Translate(randomDirection * (moveSpeed * Time.deltaTime));
+        // }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Player"))
+        private void FixedUpdate()
         {
-            AttackPlayer(other.gameObject);
+            _rb.linearVelocity = _randomDirection * moveSpeed;
         }
-    }
 
-    public void AttackPlayer(GameObject player)
-    {
-        var health = player.GetComponentInParent<PlayerHealth>();
-        if (health != null)
+        private void PickNewDirection()
         {
-            health.TakeDamage(1); 
+            _randomDirection = Random.insideUnitCircle.normalized;
+            _timeUntilChange = changeDirectionTime;
+            RotateToDirection(_randomDirection);
         }
-    }
 
-    public void OnRoundStarted(int level)
-    {
-        moveSpeed = 2f + level * 0.5f;
+        private void RotateToDirection(Vector2 direction)
+        {
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0f, 0f, angle);
+        }
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            if (other.gameObject.CompareTag("Player"))
+            {
+                AttackPlayer(other.gameObject);
+                _randomDirection *= -1; 
+                _timeUntilChange = changeDirectionTime;
+            }
+
+            if (other.gameObject.CompareTag("Wall") || other.gameObject.CompareTag("Door"))
+            {
+                _randomDirection *= -1; 
+                _timeUntilChange = changeDirectionTime;
+            }
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject.CompareTag("Player"))
+            {
+                AttackPlayer(other.gameObject);
+            }
+        }
+
+        public void AttackPlayer(GameObject player)
+        {
+            var health = player.GetComponentInParent<PlayerHealth>();
+            if (health != null)
+            {
+                health.TakeDamage(1); 
+            }
+        }
+
+        public void OnRoundStarted(int level)
+        {
+            moveSpeed = 2f + level * 0.5f;
+        }
     }
 }

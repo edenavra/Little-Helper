@@ -124,6 +124,9 @@ MonoBehaviour:
     moveSpeed: 5
     dashForce: 10
     hideDuration: 2
+    hideCooldown: 20
+    baseFreezeTime: 10
+    extraFreezeTime: 0
   foxFront: {fileID: 8240068045212839232}
   foxSide: {fileID: 6296064426923581206}
   foxBack: {fileID: 54077692950913841}
@@ -145,6 +148,9 @@ MonoBehaviour:
     moveSpeed: 5
     dashForce: 10
     hideDuration: 2
+    hideCooldown: 20
+    baseFreezeTime: 10
+    extraFreezeTime: 0
 --- !u!114 &6544346739743202861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -654,10 +660,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 72200e66408afa24c849a4c62fb8778e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3630722987265472419}
+    m_AddedComponents: [{targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 72200e66408afa24c849a4c62fb8778e, type: 3}, insertIndex: -1, addedObject: {fileID: 3630722987265472419}}]
   m_SourcePrefab: {fileID: 4843985084834002234, guid: 72200e66408afa24c849a4c62fb8778e, type: 3}
 --- !u!4 &7102884622211364131 stripped
 Transform:

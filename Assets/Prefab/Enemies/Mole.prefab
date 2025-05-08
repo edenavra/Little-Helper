@@ -138,7 +138,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5793066981831633996}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -256,6 +256,10 @@ PrefabInstance:
       value: Mole
       objectReference: {fileID: 0}
     - target: {fileID: -8453737382654885991, guid: ef62c2ef9b3107f4c99188aa1bfd3ee5, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8453737382654885991, guid: ef62c2ef9b3107f4c99188aa1bfd3ee5, type: 3}
       propertyPath: m_MaskInteraction
       value: 2
       objectReference: {fileID: 0}
@@ -297,6 +301,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: ef62c2ef9b3107f4c99188aa1bfd3ee5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1952145858926638442, guid: ef62c2ef9b3107f4c99188aa1bfd3ee5, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702731557421412236, guid: ef62c2ef9b3107f4c99188aa1bfd3ee5, type: 3}
+      propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

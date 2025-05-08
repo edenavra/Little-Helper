@@ -14,17 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   kitchenPrefab: {fileID: 3873903823610596011, guid: 89296150fcb79294581d3fd54cfe9696, type: 3}
   pantryLayouts:
-  - {fileID: 5218263085702582818, guid: 5a07c7d19f12dc14a83a2eb5ec4395d9, type: 3}
-  - {fileID: 5218263085702582818, guid: 5f78f53c38d1e784d8ef0023d93de11b, type: 3}
-  - {fileID: 5218263085702582818, guid: 5ec1761fa39f568458f80f31dbb45600, type: 3}
+  - {fileID: 8639120274756623656, guid: 8e7eb73a1e738434dbb52b6a757c3a26, type: 3}
   freezerLayouts:
-  - {fileID: 2485952175737267559, guid: a599ea9469616e0409c2bd7624927ea6, type: 3}
-  - {fileID: 2485952175737267559, guid: 1cf50fccecb52414aa3a86fac0bb4786, type: 3}
-  - {fileID: 2485952175737267559, guid: 03fb4a1635fd86549918dc792d93f673, type: 3}
+  - {fileID: 119600541965250502, guid: a2329f0a435efbd488592a042eecbfef, type: 3}
   gardenLayouts:
-  - {fileID: 1737035277805924819, guid: 1a7f954a8dedbbe46b674f2217fcb5e6, type: 3}
-  - {fileID: 1737035277805924819, guid: 39cee6c2052c8ee4084720d71c2c87f8, type: 3}
-  - {fileID: 1737035277805924819, guid: 5357de8ee1699db45a0fff1a865649c8, type: 3}
+  - {fileID: 3785531451033931214, guid: 6c7e4eadd8fe23e498a976659c9942fb, type: 3}
   roomSpacing: 50
   recipeItems:
   - {fileID: 11400000, guid: a3f9007261f3b8c408f9170e662334fa, type: 2}

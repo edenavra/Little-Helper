@@ -103,7 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 6440198090329449163, guid: ef38540cd35058f489e8d4525ffb416f, type: 3}
   playerInventory: {fileID: 0}
-  worldConfig: {fileID: 0}
+  worldConfig: {fileID: 11400000, guid: 9c60ef8f5b4ece74fba69485ab4549a3, type: 2}
 --- !u!61 &8505456001296104364
 BoxCollider2D:
   m_ObjectHideFlags: 0
