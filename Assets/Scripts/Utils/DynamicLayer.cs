@@ -1,33 +1,51 @@
-﻿using System;
+﻿using UnityEngine;
 using Managers;
-using UnityEngine;
 
 namespace Utils
 {
     public class DynamicLayer : MonoBehaviour
     {
-        private SpriteRenderer _sprite; 
+        [SerializeField] private float minDeltaY = 0.1f; 
+        [SerializeField] private int layerOffset = 100;  
+
+        private SpriteRenderer[] _sprites;
+        private int[] _originalOrders;
         private Transform _playerTransform;
+        private bool _isAbove;
 
         private void Awake()
         {
             _playerTransform = GameManager.Instance.playerObject.transform;
-            _sprite = GetComponent<SpriteRenderer>();
+
+            _sprites = GetComponentsInChildren<SpriteRenderer>(true);
+            _originalOrders = new int[_sprites.Length];
+
+            for (int i = 0; i < _sprites.Length; i++)
+            {
+                _originalOrders[i] = _sprites[i].sortingOrder;
+            }
+
+            _isAbove = false;
         }
 
         private void Update()
         {
-            if (_playerTransform.position.y > transform.position.y)
+            float deltaY = _playerTransform.position.y - transform.position.y;
+
+            if (Mathf.Abs(deltaY) < minDeltaY)
+                return;
+
+            bool shouldBeAbove = deltaY > 0;
+
+            if (shouldBeAbove == _isAbove)
+                return;
+
+            for (int i = 0; i < _sprites.Length; i++)
             {
-                if (_sprite.sortingOrder != 100)
-                {
-                    _sprite.sortingOrder = 100;
-                }
+                _sprites[i].sortingOrder = _originalOrders[i] + (shouldBeAbove ? layerOffset : 0);
             }
-            else if (_sprite.sortingOrder != 0)
-            {
-                _sprite.sortingOrder = 0;
-            }
+
+            _isAbove = shouldBeAbove;
         }
     }
 }

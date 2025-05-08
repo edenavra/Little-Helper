@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 49ac6022679cfcf43907a63fe9b7eeff
+guid: 174700e3ce0e7ae43bd3c92d4fffc448
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2885860366580892261
-    second: Freeze UI_0
+      213: 5238083170514754088
+    second: toppng.com-28-collection-of-white-snowflake-clipart-png-white-snowflake-png-transparent-2167x2445_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Freeze UI_0
+      name: toppng.com-28-collection-of-white-snowflake-clipart-png-white-snowflake-png-transparent-2167x2445_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 4096
-        height: 2160
+        width: 2167
+        height: 2445
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 562ce65a6b2ac0820800000000000000
-      internalID: 2885860366580892261
+      spriteID: 82adb7a14e861b840800000000000000
+      internalID: 5238083170514754088
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Freeze UI_0: 2885860366580892261
+      toppng.com-28-collection-of-white-snowflake-clipart-png-white-snowflake-png-transparent-2167x2445_0: 5238083170514754088
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
