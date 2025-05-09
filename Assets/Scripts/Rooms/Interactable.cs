@@ -4,6 +4,7 @@ using UnityEngine;
 using Grandma;
 using Item;
 using Player;
+using UnityEngine.Serialization;
 
 namespace Rooms
 {
@@ -12,7 +13,7 @@ namespace Rooms
         [Header("sprites")]
         [SerializeField] private Sprite closedSprite;
         [SerializeField] private Sprite openSprite;
-        private Animator _animator;
+        [SerializeField] private Animator animator;
         private bool _hasAnimator;
         private SpriteRenderer _sr;
         
@@ -37,8 +38,8 @@ namespace Rooms
             _inventory = FindFirstObjectByType<PlayerInventory>();
             _sr   = GetComponentInParent<SpriteRenderer>();
             _sr.sprite = closedSprite;
-            _animator = GetComponent<Animator>();
-            _hasAnimator = _animator != null;
+            //animator = GetComponentInParent<Animator>();
+            _hasAnimator = animator != null;
         }
 
         private void OnEnable()
@@ -73,6 +74,7 @@ namespace Rooms
         {
             print("box opened");
             _sr.sprite = openSprite;
+            if (_hasAnimator) animator.SetTrigger("Shake");
             // Todo: add some kind of feedback that the object is empty
             _isOpen = true;
             if (_storedItem == null)
