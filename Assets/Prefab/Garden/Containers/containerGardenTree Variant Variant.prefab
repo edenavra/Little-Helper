@@ -76,6 +76,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: containerGardenTree Variant Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7386147972453396329, guid: 2b27b830bcb799e458f0950b69bb5264, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 2699139186938114783}
     - target: {fileID: 8533374212431011466, guid: 2b27b830bcb799e458f0950b69bb5264, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7159715
@@ -104,6 +108,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 4749964058298976994}
   m_SourcePrefab: {fileID: 100100000, guid: 2b27b830bcb799e458f0950b69bb5264, type: 3}
+--- !u!95 &2699139186938114783 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1586258959224444775, guid: 2b27b830bcb799e458f0950b69bb5264, type: 3}
+  m_PrefabInstance: {fileID: 3708365560293287352}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5962962761546931886 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7040940263932558102, guid: 2b27b830bcb799e458f0950b69bb5264, type: 3}
