@@ -383,16 +383,16 @@ ScriptedImporter:
     spritePosition: {x: 626, y: 1171}
   - name: Freezer
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5000993, y: 0.47061446}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
       x: 4108
       y: 938
-      width: 756
-      height: 782
+      width: 762
+      height: 541
     spriteID: ca385312513fa9c4c8bf78361e1c783b
     spriteBone: []
     spriteOutline: []
