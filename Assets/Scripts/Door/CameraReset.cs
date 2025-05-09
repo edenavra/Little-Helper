@@ -1,3 +1,4 @@
+using Managers;
 using Unity.Cinemachine;
 using UnityEngine;
 using Utils;
@@ -26,6 +27,8 @@ namespace Door
         private void ResetCamera()
         {
             _kitchenCamera.Priority = 1;
+            _kitchenCamera.LookAt = GameManager.Instance.PlayerObject.transform;
+            _kitchenCamera.Follow = GameManager.Instance.PlayerObject.transform;
         }
 
         
