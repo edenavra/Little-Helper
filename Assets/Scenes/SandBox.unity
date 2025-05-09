@@ -1062,6 +1062,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4622595342867226670, guid: dc606d5febcbe43f8968e679d02a1386, type: 3}
+      propertyPath: forbiddenLayer.m_Bits
+      value: 2560
+      objectReference: {fileID: 0}
     - target: {fileID: 4949421948781170977, guid: dc606d5febcbe43f8968e679d02a1386, type: 3}
       propertyPath: currencyUI
       value: 
