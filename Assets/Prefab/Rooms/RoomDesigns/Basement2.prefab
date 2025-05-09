@@ -2933,9 +2933,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -8384618915258303926, guid: 881907db1b72a4d4daf7b36233bf6e63, type: 3}
+  m_Sprite: {fileID: -5238256723085803313, guid: 881907db1b72a4d4daf7b36233bf6e63, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -5057,7 +5057,7 @@ GameObject:
   m_Component:
   - component: {fileID: 517468668328241359}
   - component: {fileID: 2996221604673703436}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Vent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5515,7 +5515,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2820537178757768158}
   - component: {fileID: 2624505949794492065}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Vent (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7782,7 +7782,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8066642384470033101}
   - component: {fileID: 2412853017734155524}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Drain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
