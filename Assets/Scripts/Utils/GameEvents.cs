@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace Utils
 {
@@ -15,7 +16,7 @@ namespace Utils
         public static Action<float> OnTimerUpdated;
         public static Action<bool> OnTimerVisibilityChanged;
         public static Action<float> OnFreezeStarted;
-
+        public static Action<Color> OnTimerColorChanged;
 
     }
 }

@@ -8,7 +8,8 @@ using Utils;
 public class FreezingRoomEnemy : MonoBehaviour, IEnemy
 {
     [Tooltip("Make sure that player stats has the same base time")]
-    [SerializeField] private float baseFreezeTime = 10f;
+    [SerializeField] private float baseFreezeTime = 30f;
+    [SerializeField] private float reducedTime = 3f;
 
     private float _currentTime;
     private bool _playerInside = false;
@@ -39,7 +40,7 @@ public class FreezingRoomEnemy : MonoBehaviour, IEnemy
     {
         if (!other.CompareTag("Player")) return;
 
-        var stats = other.GetComponentInParent<PlayerController>()?.stats;
+        /*var stats = other.GetComponentInParent<PlayerController>()?.stats;
         if (stats == null)
         {
             Debug.LogError("Missing stats!");
@@ -47,7 +48,7 @@ public class FreezingRoomEnemy : MonoBehaviour, IEnemy
         }
 
         //_player = other.gameObject;
-        _currentTime = stats.TotalFreezeTime;
+        baseFreezeTime = stats.TotalFreezeTime;*/
         _hasAttacked = false;
         _playerInside = true;
 
@@ -72,54 +73,39 @@ public class FreezingRoomEnemy : MonoBehaviour, IEnemy
         if (stats != null) _currentTime = stats.TotalFreezeTime;
     }
     
-    
-    /*private IEnumerator FreezeCountdown(GameObject player)
-    {
-        while (_currentTime > 0f)
-        {
-            _currentTime -= Time.deltaTime;
-            GameEvents.OnTimerUpdated?.Invoke(_currentTime);
-            yield return null; 
-        }
-
-        _currentTime = 0f;
-        GameEvents.OnTimerUpdated?.Invoke(_currentTime);
-        GameEvents.OnTimerVisibilityChanged?.Invoke(false);
-
-        if (!_hasAttacked)
-        {
-            _hasAttacked = true;
-            AttackPlayer(player);
-        }
-
-        _freezeCoroutine = null;
-    }*/
-    
-
-
     private IEnumerator FreezeCountdown(GameObject player)
     {
-        float attackTimer = 0f;
-
+        bool inAttackLoop = false;
+        PlayerHealth playerHealth = player.GetComponentInParent<PlayerHealth>();
         while (_playerInside)
         {
+            if (playerHealth.getHealth() <= 0)
+            {
+                GameEvents.OnTimerVisibilityChanged?.Invoke(false);
+                break;
+            }
+            
             _currentTime -= Time.deltaTime;
             GameEvents.OnTimerUpdated?.Invoke(_currentTime);
-            if(_currentTime <= 0f)
-            {
-                if (!_hasAttacked)
-                {
-                    _hasAttacked = true;
-                    AttackPlayer(player);
-                }
-                attackTimer += Time.deltaTime;
-                if (attackTimer >= _attackInterval)
-                {
-                    attackTimer = 0f;
 
+            if (_currentTime <= 0f)
+            {
+                if (!inAttackLoop)
+                {
+                    AttackPlayer(player);
+                    inAttackLoop = true;
+
+                    GameEvents.OnTimerColorChanged?.Invoke(Color.red);
+
+                    _currentTime = _attackInterval;
+                }
+                else
+                {
                     if (player.GetComponentInParent<PlayerHealth>().getHealth() > 0)
                     {
                         AttackPlayer(player);
+
+                        _currentTime = _attackInterval;
                     }
                     else
                     {
@@ -127,7 +113,10 @@ public class FreezingRoomEnemy : MonoBehaviour, IEnemy
                         break;
                     }
                 }
-            
+            }
+            else if (!inAttackLoop)
+            {
+                GameEvents.OnTimerColorChanged?.Invoke(Color.white);
             }
 
             yield return null;
@@ -135,6 +124,7 @@ public class FreezingRoomEnemy : MonoBehaviour, IEnemy
 
         _freezeCoroutine = null;
     }
+
 
 
     private void StopFreezeCoroutine()
@@ -151,7 +141,6 @@ public class FreezingRoomEnemy : MonoBehaviour, IEnemy
         var health = player.GetComponentInParent<PlayerHealth>();
         if (health != null)
         {
-            //health.TakeDamage(health.getHealth()); // הורג את השחקן
             health.TakeDamage(_damage); 
         }
         else
@@ -162,7 +151,16 @@ public class FreezingRoomEnemy : MonoBehaviour, IEnemy
 
     public void OnRoundStarted(int level)
     {
-        float newFreezeTime = Mathf.Max(3f, baseFreezeTime - level * 1f);
-        _currentTime = newFreezeTime;
+        var player = GameManager.Instance.PlayerObject;
+        var stats = player?.GetComponent<PlayerController>()?.stats;
+        if (stats == null)
+        {
+            Debug.LogWarning("Player stats not found!");
+            return;
+        }
+
+        baseFreezeTime = stats.TotalFreezeTime;
+        _currentTime = Mathf.Max(3f, baseFreezeTime - (level - 1) * reducedTime);
     }
+
 }

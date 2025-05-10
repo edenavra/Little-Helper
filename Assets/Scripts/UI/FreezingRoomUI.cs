@@ -26,6 +26,7 @@ namespace UI
             GameEvents.OnFreezeStarted += t => _maxTime = t;
             GameEvents.OnTimerUpdated += UpdateTimer;
             GameEvents.OnTimerVisibilityChanged += ToggleTimerUI;
+            GameEvents.OnTimerColorChanged += ChangeTimerColor;
         }
 
         private void OnDisable()
@@ -33,6 +34,7 @@ namespace UI
             GameEvents.OnFreezeStarted -= t => _maxTime = t;
             GameEvents.OnTimerUpdated -= UpdateTimer;
             GameEvents.OnTimerVisibilityChanged -= ToggleTimerUI;
+            GameEvents.OnTimerColorChanged -= ChangeTimerColor;
         }
 
         private void UpdateTimer(float time)
@@ -47,14 +49,19 @@ namespace UI
         
             string prefix = isNegative ? "-" : "";
             timerText.text = $"{prefix}{minutes:00}:{seconds:00}:{hundredths:00}";
-            if (isNegative)
+            /*if (isNegative)
             {
                 timerText.color = Color.red;
             }
             else
             {
                 timerText.color = Color.white; 
-            }
+            }*/
+        }
+        
+        private void ChangeTimerColor(Color color)
+        {
+            timerText.color = color;
         }
 
         private void ToggleTimerUI(bool isVisible)
