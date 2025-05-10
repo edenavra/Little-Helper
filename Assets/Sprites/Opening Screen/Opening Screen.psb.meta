@@ -249,6 +249,28 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 380, y: 2940}
     spritePosition: {x: 1036, y: 302}
+  - name: Eyes Closed
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1932
+      y: 2296
+      width: 39
+      height: 11
+    spriteID: f9f9e63d2c0724c7887ec7b59d8bd02f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1932, y: 2296}
+    spritePosition: {x: 1035, y: 305}
   - name: Head
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -725,15 +747,15 @@ ScriptedImporter:
     isImported: 1
     isVisible: 1
   - name: Eyes Closed
-    spriteName: 
+    spriteName: Eyes Closed
     isGroup: 0
     parentIndex: 13
     spriteID: f9f9e63d2c0724c7887ec7b59d8bd02f
     layerID: 31
-    mosaicPosition: {x: 0, y: 0}
+    mosaicPosition: {x: 1932, y: 2296}
     flatten: 0
-    isImported: 0
-    isVisible: 0
+    isImported: 1
+    isVisible: 1
   - name: Head
     spriteName: Head
     isGroup: 0

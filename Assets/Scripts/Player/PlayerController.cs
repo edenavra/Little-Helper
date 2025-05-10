@@ -35,16 +35,27 @@ namespace Player
         private void OnEnable()
         {
             GameEvents.RestartLevel += HandleRestart;
+            GameEvents.SetUpDeath += DisableScript;
         }
 
-        private void OnDisable()
-        {
-            GameEvents.RestartLevel -= HandleRestart;
-        }
+        // private void OnDisable()
+        // {
+        //     GameEvents.RestartLevel -= HandleRestart;
+        //     GameEvents.RestartLevel -= DisableScript;
+        // }
 
         private void HandleRestart()
         {
+            enabled = true;
+            _rb.linearVelocity = Vector2.zero; 
             gameObject.transform.position = _firstLocation;
+        }
+        
+        private void DisableScript()
+        {
+            _movement = Vector2.zero;
+            _rb.linearVelocity = Vector2.zero; 
+            enabled = false;
         }
 
         private void Update()
