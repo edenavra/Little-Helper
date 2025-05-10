@@ -72,6 +72,11 @@ namespace Player
             // HIDE input
             if (Input.GetKeyDown(KeyCode.H))
             {
+                if (!stats.hasHideUpgrade)
+                {
+                    Debug.Log("[PlayerController] Tried to use Hide but upgrade not purchased!");
+                    return;
+                }
                 if (canHide)
                 {
                     Debug.Log($"[Time: {Time.time:F2}] Pressed H — starting HideRoutine (Duration: {stats.hideDuration} seconds)");

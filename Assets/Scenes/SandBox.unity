@@ -1356,6 +1356,14 @@ PrefabInstance:
       propertyPath: stats.maxHealth
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 943122071827317455, guid: 37732eacdad45544da9d2729242e790e, type: 3}
+      propertyPath: stats.hideCooldown
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 943122071827317455, guid: 37732eacdad45544da9d2729242e790e, type: 3}
+      propertyPath: stats.hideDuration
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1008244845920057381, guid: 37732eacdad45544da9d2729242e790e, type: 3}
       propertyPath: m_SortingOrder
       value: 42

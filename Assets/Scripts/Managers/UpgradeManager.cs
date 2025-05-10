@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using Player;
 using Managers;
@@ -10,6 +11,15 @@ namespace Managers
         private PlayerStats playerStats;
         [SerializeField] private GameObject upgradePanel;
 
+        // Limit per upgrade type
+        private readonly Dictionary<UpgradeType, int> upgradeLimits = new()
+        {
+            { UpgradeType.ExtraHealth, 5 },
+            { UpgradeType.SpeedBoost, 5 },
+            { UpgradeType.FreezerTime, 5 },
+            { UpgradeType.Hide, 1 }
+        };
+
         private void Start()
         {
             // Grab PlayerController to access stats
@@ -20,8 +30,8 @@ namespace Managers
                 playerStats = controller.stats;
 
                 // Set default values for player stats !!
-                playerStats.hideDuration = 20f;
-                playerStats.hideCooldown = 20f;
+                playerStats.hideDuration = 3f;
+                playerStats.hideCooldown = 3f;
 
                 Debug.Log($"[UpgradeManager] Linked to actual PlayerStats. HideDuration: {playerStats.hideDuration}");
             }
@@ -41,6 +51,18 @@ namespace Managers
 
         public bool TryBuyUpgrade(Upgrade upgrade)
         {
+            if (GameManager.Instance.PurchasedUpgrades.TryGetValue(upgrade.type, out int currentLevel))
+            {
+                if (upgradeLimits.TryGetValue(upgrade.type, out int maxLevel))
+                {
+                    if (currentLevel >= maxLevel)
+                    {
+                        Debug.Log($"[UpgradeManager] Cannot purchase {upgrade.upgradeName} — already at max level ({maxLevel})!");
+                        return false;
+                    }
+                }
+            }
+            
             if (CurrencyManager.Instance.GetMoney() >= upgrade.cost)
             {
                 CurrencyManager.Instance.SpendMoney(upgrade.cost);
@@ -74,22 +96,22 @@ namespace Managers
                     break;
 
                 case UpgradeType.FreezerTime:
-                    playerStats.extraFreezeTime += 5f; // או כל ערך שתרצי
+                    playerStats.extraFreezeTime += 5f;
                     Debug.Log($"[UpgradeManager] Freezer time increased! Bonus: {playerStats.extraFreezeTime} seconds");
                     break;
 
 
                 case UpgradeType.Hide:
-                    int hideLevel = GameManager.Instance.PurchasedUpgrades.ContainsKey(UpgradeType.Hide)
-                        ? GameManager.Instance.PurchasedUpgrades[UpgradeType.Hide]
-                        : 0;
-
-                    float newCooldown = Mathf.Max(5f, 20f - hideLevel * 3f);
-                    playerStats.hideCooldown = newCooldown;
-
-                    Debug.Log($"[UpgradeManager] Hide upgraded to level {hideLevel + 1}. New cooldown is {newCooldown} seconds.");
+                    // int hideLevel = GameManager.Instance.PurchasedUpgrades.ContainsKey(UpgradeType.Hide)
+                    //     ? GameManager.Instance.PurchasedUpgrades[UpgradeType.Hide]
+                    //     : 0;
+                    //
+                    // float newCooldown = Mathf.Max(5f, 20f - hideLevel * 3f);
+                    // playerStats.hideCooldown = newCooldown;
+                    // Debug.Log($"[UpgradeManager] Hide upgraded to level {hideLevel + 1}. New cooldown is {newCooldown} seconds.");
+                    playerStats.hasHideUpgrade = true;
+                    Debug.Log("[UpgradeManager] Hide upgrade purchased — cooldown remains as defined in Inspector.");
                     break;
-
             }
 
             Debug.Log($"Applied upgrade: {upgrade.upgradeName}");
