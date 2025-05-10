@@ -14,8 +14,8 @@ namespace Enemies
         private static readonly int MoleHide = Animator.StringToHash("MoleHide");
         [SerializeField] private float moveRadius = 2f;
         [SerializeField] private float followSpeed = 2f;
-        [SerializeField] private float attackInterval = 5f;
-        [SerializeField] private float visibleDuration = 1.5f;
+        [SerializeField] private float attackInterval = 4f;
+        [SerializeField] private float visibleDuration = 1f;
         [SerializeField] private LayerMask obstacleLayer;
 
         //[Header("Visual References")]
@@ -32,6 +32,22 @@ namespace Enemies
         private bool _isMoleOut = false;
         private bool _waitingForContinue = false;
         private string _lastFinishedAnimation;
+        
+        private void OnEnable()
+        {
+            _attackTimer = 0f;
+            _isAttacking = false;
+            _waitingForContinue = false;
+            _lastFinishedAnimation = null;
+
+            if (_animator != null)
+            {
+                _animator.Rebind(); 
+                _animator.Update(0f); 
+            }
+
+            HideMole(); 
+        }
 
         private void Start()
         {
