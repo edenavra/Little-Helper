@@ -24,20 +24,20 @@ namespace Currency
 
         private void OnEnable()
         {
-            GameEvents.RestartLevel += HandleRestart;
+            //GameEvents.RestartLevel += HandleRestart;
             GameEvents.OnCoinCollected += OnCoinCollected;
         }
         
         private void OnDisable()
         {
-            GameEvents.RestartLevel -= HandleRestart;
+            //GameEvents.RestartLevel -= HandleRestart;
             GameEvents.OnCoinCollected -= OnCoinCollected;
         }
 
-        private void HandleRestart()
+        /*private void HandleRestart()
         {
             print("not implemented");
-        }
+        }*/
         
         public void SetRooms(List<Room> rooms)
         {

@@ -68,10 +68,6 @@ namespace Enemies
                 _randomDirection = Vector2.Reflect(_randomDirection, other.contacts[0].normal);
                 RotateToDirection(_randomDirection);
             }
-            {
-                _randomDirection *= -1; 
-                _timeUntilChange = changeDirectionTime;
-            }
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -93,7 +89,7 @@ namespace Enemies
 
         public void OnRoundStarted(int level)
         {
-            moveSpeed = 2f + level * 0.5f;
+            moveSpeed = 3f + level * 0.5f;
         }
     }
 }

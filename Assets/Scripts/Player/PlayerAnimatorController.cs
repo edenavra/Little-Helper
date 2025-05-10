@@ -8,6 +8,7 @@ namespace Player
     public class PlayerAnimatorController : MonoBehaviour
     {
         private static readonly int IsWalking = Animator.StringToHash("isWalking");
+        private static readonly int IsDead = Animator.StringToHash("isDead");
         [SerializeField] private GameObject foxFront;
         [SerializeField] private GameObject foxSide;
         [SerializeField] private GameObject foxBack;
@@ -48,6 +49,11 @@ namespace Player
             _activeAnim.SetBool(IsWalking, isWalking);
         }
 
+        public void SetDead()
+        {
+            _activeAnim.SetTrigger(IsDead);
+        }
+
         public void SetSideDirectionRight(bool isRight)
         {
             foxSide.transform.localScale = new Vector3(isRight ? 0.4f : -0.4f, 0.4f, 0.4f);
@@ -79,9 +85,6 @@ namespace Player
             _activeModel = model;
             _activeAnim = anim;
         }
-        
-        
-        
     }
 
     public enum ModelType

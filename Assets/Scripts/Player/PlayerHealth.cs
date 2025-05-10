@@ -1,5 +1,6 @@
 using Managers;
 using System;
+using System.Collections;
 using UnityEngine;
 using Player;
 using Utils;
@@ -12,8 +13,13 @@ public class PlayerHealth : MonoBehaviour
 
     [SerializeField] private PlayerStats stats;
     
+    private PlayerAnimatorController _animatorController;
     private bool isInvincible = false;
 
+    private void Awake()
+    {
+        _animatorController = GetComponent<PlayerAnimatorController>();
+    }
 
     private void Start()
     {
@@ -66,7 +72,8 @@ public class PlayerHealth : MonoBehaviour
     {
         Debug.Log("Player died!");
         //SoundManager.Instance?.PlayGameOver();
-        GameEvents.PlayerDied?.Invoke();
+        _animatorController.SetDead();
+        StartCoroutine(InvokeDeath());
     }
 
     public void Heal(int amount)
@@ -90,6 +97,12 @@ public class PlayerHealth : MonoBehaviour
     public void SetInvincible(bool value)
     {
         isInvincible = value;
+    }
+
+    private IEnumerator InvokeDeath()
+    {
+        yield return new WaitForSeconds(3f);
+        GameEvents.PlayerDied?.Invoke();
     }
 
 }
