@@ -6886,7 +6886,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   containers:
   - {fileID: 1931787093002622265}
+  - {fileID: 7879297395035135526}
   - {fileID: 427867390241511881}
+  - {fileID: 1374541144075314784}
   - {fileID: 6582609269098305895}
   - {fileID: 7988654567185778409}
   hasEnemies: 1
@@ -8308,6 +8310,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
   layerOffset: 100
+--- !u!114 &7879297395035135526 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7634688389630397575, guid: f8c36b6ab6769d24b92be4ee0bc5b0b7, type: 3}
+  m_PrefabInstance: {fileID: 336432552992756385}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d659992688434686b0cde0a75fd44463, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &859489934015529888
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8404,6 +8417,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 424237750852810113}
   m_SourcePrefab: {fileID: 100100000, guid: bad5762b971577245bee2cd3f9749c75, type: 3}
+--- !u!114 &1374541144075314784 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1801119247758370240, guid: bad5762b971577245bee2cd3f9749c75, type: 3}
+  m_PrefabInstance: {fileID: 859489934015529888}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d659992688434686b0cde0a75fd44463, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1451837262604743199 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2290207708386570687, guid: bad5762b971577245bee2cd3f9749c75, type: 3}
