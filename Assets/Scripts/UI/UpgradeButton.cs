@@ -20,6 +20,7 @@ namespace UI
             upgradeManager = FindFirstObjectByType<UpgradeManager>();
 
             buyButton.onClick.AddListener(BuyUpgrade);
+            UpdateButtonState();
         }
         
         
@@ -39,6 +40,7 @@ namespace UI
             if (success)
             {
                 Debug.Log($"Purchased upgrade: {upgradeData.upgradeName}");
+                UpdateButtonState();
                 //GameEvents.RestartLevel?.Invoke();
                 // buyButton.interactable = false;
             }
@@ -47,6 +49,19 @@ namespace UI
                 Debug.Log("Could not purchase upgrade – not enough money?");
             }
         }
+        
+        private void UpdateButtonState()
+        {
+            if (upgradeManager.HasReachedLimit(upgradeData.type))
+            {
+                buyButton.interactable = false;
+
+                var colors = buyButton.colors;
+                colors.disabledColor = new Color(0.3f, 0.3f, 0.3f);
+                buyButton.colors = colors;
+            }
+        }
+
         
     }
 }

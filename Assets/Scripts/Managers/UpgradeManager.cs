@@ -144,6 +144,18 @@ namespace Managers
                 Debug.LogWarning("Upgrade panel is not assigned in the inspector.");
             }
         }
+        
+        public bool HasReachedLimit(UpgradeType type)
+        {
+            if (GameManager.Instance.PurchasedUpgrades.TryGetValue(type, out int currentLevel) &&
+                upgradeLimits.TryGetValue(type, out int maxLevel))
+            {
+                return currentLevel >= maxLevel;
+            }
+
+            return false;
+        }
+
 
     }
 }
