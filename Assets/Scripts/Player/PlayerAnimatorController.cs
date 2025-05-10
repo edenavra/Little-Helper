@@ -77,14 +77,14 @@ namespace Player
         {
             _activeAnim.SetTrigger(IsDead);
             //THIS IS TEMP FOR NOW!!!
-            StartCoroutine(InvokeDeath());
+            //StartCoroutine(InvokeDeath());
         }
 
-        private IEnumerator InvokeDeath()
-        {
-            yield return new WaitForSeconds(3f);
-            GameEvents.PlayerDied.Invoke();
-        }
+        // private IEnumerator InvokeDeath()
+        // {
+        //     yield return new WaitForSeconds(3f);
+        //     GameEvents.PlayerDied.Invoke();
+        // }
 
         public void SetSideDirectionRight(bool isRight)
         {
