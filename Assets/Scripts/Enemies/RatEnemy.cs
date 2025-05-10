@@ -62,7 +62,12 @@ namespace Enemies
                 _timeUntilChange = changeDirectionTime;
             }
 
-            if (other.gameObject.CompareTag("Wall") || other.gameObject.CompareTag("Door"))
+            if (other.gameObject.CompareTag("Wall") || other.gameObject.CompareTag("Door") || other.gameObject.layer == LayerMask.NameToLayer("Container") || other.gameObject.layer == LayerMask.NameToLayer("Decore"))
+            {
+                // Reflect the direction when hitting a wall
+                _randomDirection = Vector2.Reflect(_randomDirection, other.contacts[0].normal);
+                RotateToDirection(_randomDirection);
+            }
             {
                 _randomDirection *= -1; 
                 _timeUntilChange = changeDirectionTime;

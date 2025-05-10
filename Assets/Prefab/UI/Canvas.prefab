@@ -197,6 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 2841999160315871257}
+  uiFreeze: {fileID: 0}
 --- !u!1001 &2396506162544097269
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -428,6 +429,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: CurrencyUI
       objectReference: {fileID: 0}
+    - target: {fileID: 7561893996712088794, guid: c6f07b9e3c2504a3b8460f322da8fc7f, type: 3}
+      propertyPath: jar25
+      value: 
+      objectReference: {fileID: 8720420550748525606, guid: d0876bb9a39c0c14582743174025c74f, type: 3}
+    - target: {fileID: 7561893996712088794, guid: c6f07b9e3c2504a3b8460f322da8fc7f, type: 3}
+      propertyPath: jar50
+      value: 
+      objectReference: {fileID: 6228772045765983571, guid: aedab2761ec9dd443a507989a1a1f315, type: 3}
+    - target: {fileID: 7561893996712088794, guid: c6f07b9e3c2504a3b8460f322da8fc7f, type: 3}
+      propertyPath: jar75
+      value: 
+      objectReference: {fileID: -2114200609434998316, guid: 760d8cb336aa1324eb726062cc554ee6, type: 3}
+    - target: {fileID: 7561893996712088794, guid: c6f07b9e3c2504a3b8460f322da8fc7f, type: 3}
+      propertyPath: jarFull
+      value: 
+      objectReference: {fileID: -7821064703476981639, guid: 66e2b189d80e42e4bb2cbd8c123e578e, type: 3}
+    - target: {fileID: 7561893996712088794, guid: c6f07b9e3c2504a3b8460f322da8fc7f, type: 3}
+      propertyPath: jarEmpty
+      value: 
+      objectReference: {fileID: 8368291831606176573, guid: d4ed9015de2ee4a44b956f3f47c03d97, type: 3}
     - target: {fileID: 9110758779450200791, guid: c6f07b9e3c2504a3b8460f322da8fc7f, type: 3}
       propertyPath: m_Pivot.x
       value: 1
