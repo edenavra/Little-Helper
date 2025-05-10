@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2135379268001583448}
   - component: {fileID: 7325229157525653384}
   m_Layer: 0
-  m_Name: LeafGenerator
+  m_Name: SnowGenerator2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -287,8 +287,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.5
-      minScalar: 0.1
+      scalar: 0.3
+      minScalar: 0.05
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4780,7 +4780,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 86179412c0e53a64d816010e56185627, type: 2}
+  - {fileID: 2100000, guid: 2af0862af846f2d4abcb3a99d3a1a86d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
