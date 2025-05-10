@@ -51,5 +51,8 @@ TagManager:
   - name: Container
     uniqueID: 226687097
     locked: 0
+  - name: Foreground
+    uniqueID: 2478508605
+    locked: 0
   m_RenderingLayers:
   - Default
