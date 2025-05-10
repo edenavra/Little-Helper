@@ -11,7 +11,7 @@ namespace Currency
     public class CoinSpawner : MonoBehaviour
     {
         [SerializeField] private LayerMask forbiddenLayer; 
-        [SerializeField] private int totalCoinsToSpawn = 10;
+        [SerializeField] private int totalCoinsToSpawn = 20;
         [SerializeField] private float spawnRadius = 0.3f;
 
         private List<Room> _rooms;

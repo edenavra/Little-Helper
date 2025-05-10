@@ -8,7 +8,7 @@ namespace Currency
     public class CoinPool : MonoSingleton<CoinPool>
     {
         public GameObject coinPrefab;
-        public int poolSize = 20;
+        public int poolSize = 25;
 
         private List<GameObject> availableCoins = new List<GameObject>();
 
