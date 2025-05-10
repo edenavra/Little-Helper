@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: 1ff8c9653c1e3284e847d97e247c5091
+guid: cfb28a68dbfca40a0842b0ee6dda4b33
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3433483695964298455
-    second: Again_0
+      213: 5043649561258479521
+    second: Again Black_0
   - first:
-      213: -8298823271619526332
-    second: Again_1
+      213: -4932203515052362010
+    second: Again Black_1
   - first:
-      213: 3455831786078848105
-    second: Again_2
+      213: -2609383600861076789
+    second: Again Black_2
   - first:
-      213: 8379159623595941731
-    second: Again_3
+      213: 4690013552493866589
+    second: Again Black_3
   - first:
-      213: 155950335744681252
-    second: Again_4
+      213: -3941308786927181918
+    second: Again Black_4
   - first:
-      213: 8630508691311391216
-    second: Again_5
+      213: -2062487460707783525
+    second: Again Black_5
   - first:
-      213: 7698604380615412240
-    second: Again_6
+      213: 5324609575193259138
+    second: Again Black_6
   - first:
-      213: 6344180893424238232
-    second: Again_7
+      213: -1522034424224047683
+    second: Again Black_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -121,7 +121,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Again_0
+      name: Again Black_0
       rect:
         serializedVersion: 2
         x: 0
@@ -136,14 +136,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 923e3f715c0d950d0800000000000000
-      internalID: -3433483695964298455
+      spriteID: 1afcd56bd84aef540800000000000000
+      internalID: 5043649561258479521
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Again_1
+      name: Again Black_1
       rect:
         serializedVersion: 2
         x: 80
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4418f591438a4dc80800000000000000
-      internalID: -8298823271619526332
+      spriteID: 6e6fe55f80b4d8bb0800000000000000
+      internalID: -4932203515052362010
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Again_2
+      name: Again Black_2
       rect:
         serializedVersion: 2
         x: 145
@@ -180,14 +180,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 964cbbc13b495ff20800000000000000
-      internalID: 3455831786078848105
+      spriteID: bc222fba07b99cbd0800000000000000
+      internalID: -2609383600861076789
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Again_3
+      name: Again Black_3
       rect:
         serializedVersion: 2
         x: 210
@@ -202,14 +202,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 36f5bb07841c84470800000000000000
-      internalID: 8379159623595941731
+      spriteID: d5e2a2c2a76461140800000000000000
+      internalID: 4690013552493866589
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Again_4
+      name: Again Black_4
       rect:
         serializedVersion: 2
         x: 242
@@ -224,14 +224,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4252aac010c0a2200800000000000000
-      internalID: 155950335744681252
+      spriteID: 2af541d4a88ad49c0800000000000000
+      internalID: -3941308786927181918
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Again_5
+      name: Again Black_5
       rect:
         serializedVersion: 2
         x: 287
@@ -246,14 +246,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0f17988ade9b5c770800000000000000
-      internalID: 8630508691311391216
+      spriteID: b9ca0def4929063e0800000000000000
+      internalID: -2062487460707783525
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Again_6
+      name: Again Black_6
       rect:
         serializedVersion: 2
         x: 212
@@ -268,14 +268,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 01a09dc25efe6da60800000000000000
-      internalID: 7698604380615412240
+      spriteID: 28ca9099230d4e940800000000000000
+      internalID: 5324609575193259138
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Again_7
+      name: Again Black_7
       rect:
         serializedVersion: 2
         x: 302
@@ -290,8 +290,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 89e3f5fd8ee0b0850800000000000000
-      internalID: 6344180893424238232
+      spriteID: dbd953851c5a0eae0800000000000000
+      internalID: -1522034424224047683
       vertices: []
       indices: 
       edges: []
@@ -310,14 +310,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Again_0: -3433483695964298455
-      Again_1: -8298823271619526332
-      Again_2: 3455831786078848105
-      Again_3: 8379159623595941731
-      Again_4: 155950335744681252
-      Again_5: 8630508691311391216
-      Again_6: 7698604380615412240
-      Again_7: 6344180893424238232
+      Again Black_0: 5043649561258479521
+      Again Black_1: -4932203515052362010
+      Again Black_2: -2609383600861076789
+      Again Black_3: 4690013552493866589
+      Again Black_4: -3941308786927181918
+      Again Black_5: -2062487460707783525
+      Again Black_6: 5324609575193259138
+      Again Black_7: -1522034424224047683
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
