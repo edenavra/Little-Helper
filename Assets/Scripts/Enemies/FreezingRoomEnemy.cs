@@ -79,7 +79,7 @@ public class FreezingRoomEnemy : MonoBehaviour, IEnemy
         PlayerHealth playerHealth = player.GetComponentInParent<PlayerHealth>();
         while (_playerInside)
         {
-            if (playerHealth.getHealth() <= 0)
+            if (playerHealth.GetHealth() <= 0)
             {
                 GameEvents.OnTimerVisibilityChanged?.Invoke(false);
                 break;
@@ -101,7 +101,7 @@ public class FreezingRoomEnemy : MonoBehaviour, IEnemy
                 }
                 else
                 {
-                    if (player.GetComponentInParent<PlayerHealth>().getHealth() > 0)
+                    if (player.GetComponentInParent<PlayerHealth>().GetHealth() > 0)
                     {
                         AttackPlayer(player);
 
