@@ -2644,6 +2644,7 @@ GameObject:
   - component: {fileID: 1522493076445086118}
   - component: {fileID: 4014760002133123974}
   - component: {fileID: 8934717511400922517}
+  - component: {fileID: 285398863084030514}
   m_Layer: 0
   m_Name: Kitchen Camera
   m_TagString: Untagged
@@ -2729,6 +2730,18 @@ MonoBehaviour:
     MaxWindowSize: 0
     Padding: 0
   m_LegacyMaxWindowSize: -2
+--- !u!114 &285398863084030514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3048365076465631698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9243ea60ecfe47fa943e67bf737136af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3085534060414802866
 GameObject:
   m_ObjectHideFlags: 0
