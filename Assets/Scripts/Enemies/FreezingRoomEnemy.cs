@@ -117,7 +117,7 @@ public class FreezingRoomEnemy : MonoBehaviour, IEnemy
                 {
                     attackTimer = 0f;
 
-                    if (player.GetComponentInParent<PlayerHealth>().getHealth() > 0)
+                    if (player.GetComponentInParent<PlayerHealth>().GetHealth() > 0)
                     {
                         AttackPlayer(player);
                     }

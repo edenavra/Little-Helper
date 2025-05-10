@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Managers;
+using Player;
 using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
