@@ -5,7 +5,7 @@ public class EnemySpawner : MonoBehaviour
 {
     //[SerializeField] private GameObject enemyPrefab;     
     [SerializeField] private Transform[] spawnPoints;    
-    [SerializeField] private int baseAmount = 1;
+    //[SerializeField] private int baseAmount = 1;
     
     //private EnemyPool enemyPool; 
     private Rooms.Room parentRoom;
@@ -21,9 +21,9 @@ public class EnemySpawner : MonoBehaviour
         parentRoom = room;
     }
 
-    public void SpawnEnemies(int round, EnemyPool enemyPool)
+    public void SpawnEnemies(EnemyPool enemyPool,int round, int baseAmount = 1)
     {
-        int totalToSpawn = baseAmount + (round - 1);
+        int totalToSpawn = baseAmount * round;
 
         for (int i = 0; i < totalToSpawn; i++)
         {

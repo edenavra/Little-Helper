@@ -10,6 +10,20 @@ namespace Enemies
         private float changeDirectionTime = 2f;
         private float _timeUntilChange;
         private Rigidbody2D _rb;
+        
+        private void OnEnable()
+        {
+            _timeUntilChange = 0f; 
+            _randomDirection = Vector2.zero;
+            transform.rotation = Quaternion.identity;
+
+            if (_rb == null)
+                _rb = GetComponent<Rigidbody2D>();
+    
+            _rb.linearVelocity = Vector2.zero;
+            _rb.angularVelocity = 0f;
+        }
+
 
         private void Start()
         {
