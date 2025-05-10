@@ -12,8 +12,10 @@ namespace Player
         public float moveSpeed = 5f;
 
         [Header("Hide Settings")]
-        public float hideDuration = 20f;
-        public float hideCooldown = 20f;
+        public float hideDuration = 3f;
+        public float hideCooldown = 3f;
+        public bool hasHideUpgrade = false;
+
 
         [Header("Freezer Upgrade Settings")]
         public float baseFreezeTime = 10f;
