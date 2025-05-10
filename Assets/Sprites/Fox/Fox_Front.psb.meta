@@ -103,8 +103,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 132
-      y: 444
+      x: 294
+      y: 124
       width: 16
       height: 7
     spriteID: 6cb5449cd86d9574b9702da99bbf094a
@@ -223,7 +223,7 @@ ScriptedImporter:
     - {x: 6, y: 7}
     - {x: 7, y: 8}
     tessellationDetail: 0
-    uvTransform: {x: 132, y: 444}
+    uvTransform: {x: 294, y: 124}
     spritePosition: {x: 154, y: 455}
   - name: Eyebrow_L
     originalName: 
@@ -233,8 +233,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 156
-      y: 444
+      x: 318
+      y: 124
       width: 16
       height: 7
     spriteID: f1264be0d7d023146be1d555aafeb360
@@ -364,7 +364,7 @@ ScriptedImporter:
     - {x: 7, y: 8}
     - {x: 8, y: 9}
     tessellationDetail: 0
-    uvTransform: {x: 156, y: 444}
+    uvTransform: {x: 318, y: 124}
     spritePosition: {x: 78, y: 454}
   - name: Whisks
     originalName: 
@@ -725,6 +725,28 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 207, y: 85}
     spritePosition: {x: 49, y: 407}
+  - name: Eyes_Closed
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 207
+      y: 147
+      width: 86
+      height: 5
+    spriteID: 863f9099157f8d441b5fc4caf6e479b9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 207, y: 147}
+    spritePosition: {x: 80, y: 433}
   - name: Eyes_Open
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -5866,7 +5888,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 6cb5449cd86d9574b9702da99bbf094a
     layerID: 23
-    mosaicPosition: {x: 132, y: 444}
+    mosaicPosition: {x: 294, y: 124}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -5876,7 +5898,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: f1264be0d7d023146be1d555aafeb360
     layerID: 22
-    mosaicPosition: {x: 156, y: 444}
+    mosaicPosition: {x: 318, y: 124}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -5891,15 +5913,15 @@ ScriptedImporter:
     isImported: 1
     isVisible: 1
   - name: Eyes_Closed
-    spriteName: 
+    spriteName: Eyes_Closed
     isGroup: 0
     parentIndex: -1
     spriteID: 863f9099157f8d441b5fc4caf6e479b9
     layerID: 16
-    mosaicPosition: {x: 0, y: 0}
+    mosaicPosition: {x: 207, y: 147}
     flatten: 0
-    isImported: 0
-    isVisible: 0
+    isImported: 1
+    isVisible: 1
   - name: Eyes_Open
     spriteName: Eyes_Open
     isGroup: 0

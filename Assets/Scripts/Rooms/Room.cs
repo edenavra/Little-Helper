@@ -24,6 +24,7 @@ namespace Rooms
         private bool playerInside;
         private int currentRound = 1;
         private EnemyPool enemyPool;
+        private int _enemyBaseAmount;
         
         private List<IEnemy> enemiesInRoom = new();
 
@@ -58,6 +59,19 @@ namespace Rooms
             if (hasEnemies)
             {
                 enemyPool = EnemyPoolManager.Instance.GetPool(enemyTypeNeededForThisRoom);
+            }
+
+            switch (enemyTypeNeededForThisRoom)
+            {
+                case EnemyType.None:
+                    hasEnemies = false;
+                    break;
+                case EnemyType.Rat:
+                    _enemyBaseAmount = 2;
+                    break;
+                case EnemyType.Mole:
+                    _enemyBaseAmount = 1;
+                    break;
             }
         }
 
@@ -119,7 +133,7 @@ namespace Rooms
                 playerInside = true;
                 if (enemySpawner != null && hasEnemies && enemyPool != null)
                 {
-                    enemySpawner.SpawnEnemies(currentRound, enemyPool);
+                    enemySpawner.SpawnEnemies(enemyPool, currentRound, _enemyBaseAmount);
                 }
                 
                 UpdateEnemyLevel(currentRound);

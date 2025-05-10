@@ -11,6 +11,20 @@ namespace Enemies
         private float changeDirectionTime = 2f;
         private float _timeUntilChange;
         private Rigidbody2D _rb;
+        
+        private void OnEnable()
+        {
+            _timeUntilChange = 0f; 
+            _randomDirection = Vector2.zero;
+            transform.rotation = Quaternion.identity;
+
+            if (_rb == null)
+                _rb = GetComponent<Rigidbody2D>();
+    
+            _rb.linearVelocity = Vector2.zero;
+            _rb.angularVelocity = 0f;
+        }
+
 
         private void Start()
         {
@@ -69,10 +83,6 @@ namespace Enemies
                 _randomDirection = Vector2.Reflect(_randomDirection, other.contacts[0].normal);
                 RotateToDirection(_randomDirection);
             }
-            {
-                _randomDirection *= -1; 
-                _timeUntilChange = changeDirectionTime;
-            }
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -94,7 +104,7 @@ namespace Enemies
 
         public void OnRoundStarted(int level)
         {
-            moveSpeed = 2f + level * 0.5f;
+            moveSpeed = 3f + level * 0.5f;
         }
     }
 }
