@@ -7040,15 +7040,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4436520740695555472, guid: 6b7b14a8f4c57454f8013cdf01fdf997, type: 3}
       propertyPath: m_Size.y
-      value: 3
+      value: 4.492027
       objectReference: {fileID: 0}
     - target: {fileID: 4436520740695555472, guid: 6b7b14a8f4c57454f8013cdf01fdf997, type: 3}
       propertyPath: m_Offset.x
-      value: 0.12
+      value: 0.119999886
       objectReference: {fileID: 0}
     - target: {fileID: 4436520740695555472, guid: 6b7b14a8f4c57454f8013cdf01fdf997, type: 3}
       propertyPath: m_Offset.y
-      value: -2.5
+      value: -1.7539867
       objectReference: {fileID: 0}
     - target: {fileID: 5646574850560624377, guid: 6b7b14a8f4c57454f8013cdf01fdf997, type: 3}
       propertyPath: m_Size.x
