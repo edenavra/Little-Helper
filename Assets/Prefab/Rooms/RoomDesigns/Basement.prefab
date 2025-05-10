@@ -5778,6 +5778,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: DustGenerator
       objectReference: {fileID: 0}
+    - target: {fileID: 2135379268001583448, guid: 83a3b72e7d57adb4e801b6a405ce884c, type: 3}
+      propertyPath: prewarm
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2135379268001583448, guid: 83a3b72e7d57adb4e801b6a405ce884c, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2135379268001583448, guid: 83a3b72e7d57adb4e801b6a405ce884c, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2135379268001583448, guid: 83a3b72e7d57adb4e801b6a405ce884c, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2135379268001583448, guid: 83a3b72e7d57adb4e801b6a405ce884c, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.509434
+      objectReference: {fileID: 0}
+    - target: {fileID: 2135379268001583448, guid: 83a3b72e7d57adb4e801b6a405ce884c, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.509434
+      objectReference: {fileID: 0}
+    - target: {fileID: 2135379268001583448, guid: 83a3b72e7d57adb4e801b6a405ce884c, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.509434
+      objectReference: {fileID: 0}
+    - target: {fileID: 7325229157525653384, guid: 83a3b72e7d57adb4e801b6a405ce884c, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7325229157525653384, guid: 83a3b72e7d57adb4e801b6a405ce884c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 7325229157525653384, guid: 83a3b72e7d57adb4e801b6a405ce884c, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1816458691
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
