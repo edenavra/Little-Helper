@@ -204,7 +204,7 @@ MonoBehaviour:
   visibleDuration: 2
   obstacleLayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 2560
   pauseDuration: 2
 --- !u!70 &7898807081410616892
 CapsuleCollider2D:
