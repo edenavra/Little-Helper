@@ -21,11 +21,13 @@ namespace Rooms
         public int TotalContainers  => containers.Count;
         public int FilledContainers => _fullContainers;
         private bool AllContainersFull => _fullContainers == containers.Count;
-        private bool playerInside;
-        private int currentRound = 1;
-        private EnemyPool enemyPool;
+        private bool _playerInside;
+        private int _currentRound = 1;
+        private EnemyPool _enemyPool;
+        private int _enemyBaseAmount;
+        private FreezingRoomEnemy _freezingRoomEnemy = null;
         
-        private List<IEnemy> enemiesInRoom = new();
+        private List<IEnemy> _enemiesInRoom = new();
 
         private void Awake()
         {
@@ -49,7 +51,7 @@ namespace Rooms
             IEnemy[] existingEnemies = GetComponentsInChildren<IEnemy>(includeInactive: true);
             foreach (var enemy in existingEnemies)
             {
-                enemiesInRoom.Add(enemy);
+                _enemiesInRoom.Add(enemy);
             }
         }
 
@@ -57,7 +59,21 @@ namespace Rooms
         {
             if (hasEnemies)
             {
-                enemyPool = EnemyPoolManager.Instance.GetPool(enemyTypeNeededForThisRoom);
+                _enemyPool = EnemyPoolManager.Instance.GetPool(enemyTypeNeededForThisRoom);
+            }
+
+            switch (enemyTypeNeededForThisRoom)
+            {
+                case EnemyType.None:
+                    hasEnemies = false;
+                    _freezingRoomEnemy = GetComponent<FreezingRoomEnemy>();
+                    break;
+                case EnemyType.Rat:
+                    _enemyBaseAmount = 2;
+                    break;
+                case EnemyType.Mole:
+                    _enemyBaseAmount = 1;
+                    break;
             }
         }
 
@@ -65,19 +81,24 @@ namespace Rooms
         public void RegisterEnemy(GameObject enemyObj)
         {
             IEnemy enemy = enemyObj.GetComponent<IEnemy>();
-            if (enemy != null && !enemiesInRoom.Contains(enemy))
+            if (enemy != null && !_enemiesInRoom.Contains(enemy))
             {
-                enemiesInRoom.Add(enemy);
+                _enemiesInRoom.Add(enemy);
             }
         }
 
         public void OnRoundStarted(int currentRound)
         {
-            this.currentRound = currentRound;
+            this._currentRound = currentRound;
+            if(_freezingRoomEnemy != null)
+            {
+                print("FreezingRoomEnemy found");
+                _freezingRoomEnemy.OnRoundStarted(currentRound);
+            }
         }
         private void UpdateEnemyLevel(int round)
         {
-            foreach (var enemy in enemiesInRoom)
+            foreach (var enemy in _enemiesInRoom)
             {
                 enemy.OnRoundStarted(round);
             }
@@ -102,27 +123,27 @@ namespace Rooms
         
         public void OnPlayerExited()
         {
-            foreach (var enemy in enemiesInRoom)
+            foreach (var enemy in _enemiesInRoom)
             {
                 if (enemy is MonoBehaviour enemyMono) 
                 {
-                    enemyPool.ReturnEnemy(enemyMono.gameObject);
+                    _enemyPool.ReturnEnemy(enemyMono.gameObject);
                 }
             }
-            enemiesInRoom.Clear();
+            _enemiesInRoom.Clear();
         }
         
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("Player"))
             {
-                playerInside = true;
-                if (enemySpawner != null && hasEnemies && enemyPool != null)
+                _playerInside = true;
+                if (enemySpawner != null && hasEnemies && _enemyPool != null)
                 {
-                    enemySpawner.SpawnEnemies(currentRound, enemyPool);
+                    enemySpawner.SpawnEnemies(_enemyPool, _currentRound, _enemyBaseAmount);
                 }
                 
-                UpdateEnemyLevel(currentRound);
+                UpdateEnemyLevel(_currentRound);
             }
         }
 
@@ -130,8 +151,8 @@ namespace Rooms
         {
             if (other.CompareTag("Player"))
             {
-                playerInside = false;
-                if (hasEnemies && enemyPool != null)
+                _playerInside = false;
+                if (hasEnemies && _enemyPool != null)
                 {
                     UpdateEnemyLevel(1);
                     OnPlayerExited();

@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Utils;
 
 namespace Player
 {
@@ -9,6 +11,7 @@ namespace Player
     {
         private static readonly int IsWalking = Animator.StringToHash("isWalking");
         private static readonly int IsDead = Animator.StringToHash("isDead");
+        private static readonly int Respawn = Animator.StringToHash("respawn");
         [SerializeField] private GameObject foxFront;
         [SerializeField] private GameObject foxSide;
         [SerializeField] private GameObject foxBack;
@@ -44,15 +47,44 @@ namespace Player
 
         }
 
+
+        private void OnEnable()
+        {
+            GameEvents.SetUpDeath += SetDead;
+            GameEvents.RestartLevel += TriggerRespawn;
+        }
+        
+        private void OnDisable()
+        {
+            GameEvents.SetUpDeath -= SetDead;
+            GameEvents.RestartLevel -= TriggerRespawn;
+        }
+
+
+        private void TriggerRespawn()
+        {
+            _animFront.SetTrigger(Respawn);
+            _animSide.SetTrigger(Respawn);
+            _animBack.SetTrigger(Respawn);
+        }
+        
         public void SetWalking(bool isWalking)
         {
             _activeAnim.SetBool(IsWalking, isWalking);
         }
 
-        public void SetDead()
+        private void SetDead()
         {
             _activeAnim.SetTrigger(IsDead);
+            //THIS IS TEMP FOR NOW!!!
+            //StartCoroutine(InvokeDeath());
         }
+
+        // private IEnumerator InvokeDeath()
+        // {
+        //     yield return new WaitForSeconds(3f);
+        //     GameEvents.PlayerDied.Invoke();
+        // }
 
         public void SetSideDirectionRight(bool isRight)
         {

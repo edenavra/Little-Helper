@@ -430,7 +430,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97ea8943c8b2479a9358eb49ec1718a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseFreezeTime: 10
+  baseFreezeTime: 30
+  reducedTime: 3
 --- !u!61 &7060953272134830934
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -17,7 +17,7 @@ public class HealthBar : MonoBehaviour
         }
 
         healthSlider.maxValue = playerHealth.maxHealth;
-        healthSlider.value = playerHealth.getHealth();
+        healthSlider.value = playerHealth.GetHealth();
 
         // מאזינים לאירוע
         //playerHealth.OnHealthChanged += UpdateHealthUI;
