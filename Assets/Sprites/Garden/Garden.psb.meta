@@ -449,8 +449,8 @@ ScriptedImporter:
     spritePosition: {x: 1842, y: 1501}
   - name: Bush 2
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.4801449, y: 0.34818828}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:

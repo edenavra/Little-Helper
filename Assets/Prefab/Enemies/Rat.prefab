@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5220024179508887683}
   - component: {fileID: 3890019984189934718}
   - component: {fileID: 3687320999780058377}
+  - component: {fileID: 327051305288579228}
   m_Layer: 7
   m_Name: Rat
   m_TagString: Enemy
@@ -191,6 +192,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &327051305288579228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5798508817191216985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fe5e7f589d94c798e0dd65114d3f1d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDeltaY: 0.1
+  layerOffset: 100
 --- !u!1001 &2990429707544124249
 PrefabInstance:
   m_ObjectHideFlags: 0

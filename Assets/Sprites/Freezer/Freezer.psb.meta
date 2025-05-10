@@ -339,8 +339,8 @@ ScriptedImporter:
     spritePosition: {x: 3093, y: 38}
   - name: Freezer Int Open
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5000007, y: 0.40543392}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -361,13 +361,13 @@ ScriptedImporter:
     spritePosition: {x: 299, y: 50}
   - name: Freezer Int
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5000007, y: 0.4054339}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 6885
+      x: 6890
       y: 4
       width: 756
       height: 787
