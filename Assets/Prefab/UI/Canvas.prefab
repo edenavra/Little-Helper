@@ -425,6 +425,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3034079833591488925}
     m_Modifications:
+    - target: {fileID: 4073855759298297334, guid: c6f07b9e3c2504a3b8460f322da8fc7f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073855759298297334, guid: c6f07b9e3c2504a3b8460f322da8fc7f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073855759298297334, guid: c6f07b9e3c2504a3b8460f322da8fc7f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4118071411062066835, guid: c6f07b9e3c2504a3b8460f322da8fc7f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 8368291831606176573, guid: d4ed9015de2ee4a44b956f3f47c03d97, type: 3}
+    - target: {fileID: 5107393678152156753, guid: c6f07b9e3c2504a3b8460f322da8fc7f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5107393678152156753, guid: c6f07b9e3c2504a3b8460f322da8fc7f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5107393678152156753, guid: c6f07b9e3c2504a3b8460f322da8fc7f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5107393678152156753, guid: c6f07b9e3c2504a3b8460f322da8fc7f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7530788910252563284, guid: c6f07b9e3c2504a3b8460f322da8fc7f, type: 3}
       propertyPath: m_Name
       value: CurrencyUI
@@ -451,7 +483,7 @@ PrefabInstance:
       objectReference: {fileID: 8368291831606176573, guid: d4ed9015de2ee4a44b956f3f47c03d97, type: 3}
     - target: {fileID: 9110758779450200791, guid: c6f07b9e3c2504a3b8460f322da8fc7f, type: 3}
       propertyPath: m_Pivot.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9110758779450200791, guid: c6f07b9e3c2504a3b8460f322da8fc7f, type: 3}
       propertyPath: m_Pivot.y
@@ -459,7 +491,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9110758779450200791, guid: c6f07b9e3c2504a3b8460f322da8fc7f, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9110758779450200791, guid: c6f07b9e3c2504a3b8460f322da8fc7f, type: 3}
       propertyPath: m_AnchorMax.y
@@ -467,7 +499,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9110758779450200791, guid: c6f07b9e3c2504a3b8460f322da8fc7f, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9110758779450200791, guid: c6f07b9e3c2504a3b8460f322da8fc7f, type: 3}
       propertyPath: m_AnchorMin.y
@@ -475,11 +507,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9110758779450200791, guid: c6f07b9e3c2504a3b8460f322da8fc7f, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 9110758779450200791, guid: c6f07b9e3c2504a3b8460f322da8fc7f, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 9110758779450200791, guid: c6f07b9e3c2504a3b8460f322da8fc7f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -511,7 +543,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9110758779450200791, guid: c6f07b9e3c2504a3b8460f322da8fc7f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -230
+      value: 0.000030517578
       objectReference: {fileID: 0}
     - target: {fileID: 9110758779450200791, guid: c6f07b9e3c2504a3b8460f322da8fc7f, type: 3}
       propertyPath: m_AnchoredPosition.y
