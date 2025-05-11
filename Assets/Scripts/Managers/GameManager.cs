@@ -136,7 +136,7 @@ namespace Managers
             //SoundManager.Instance.PlayGameOver();
         }
         
-        public void PlayerWon()
+        private void PlayerWon()
         {
             Time.timeScale = 0;
             winPanel.SetActive(true);
