@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Utils;
 
@@ -17,6 +18,14 @@ namespace Player
         private void Awake()
         {
             _animatorController = GetComponent<PlayerAnimatorController>();
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                TakeDamage(1);
+            }
         }
 
         private void Start()
@@ -50,6 +59,7 @@ namespace Player
         public void TakeDamage(int amount)
         {
             if (_isInvincible) return;
+            _animatorController.SetHurt();
             _currentHealth -= amount;
             _currentHealth = Mathf.Clamp(_currentHealth, 0, maxHealth);
             Debug.Log($"Player took {amount} damage. Current health: {_currentHealth}");
