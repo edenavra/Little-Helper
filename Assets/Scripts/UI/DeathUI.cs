@@ -53,7 +53,7 @@ namespace UI
             yield return new WaitForSeconds(delayBeforeShow);
 
             // 2) fade in background
-            yield return FadeImage(background, 0f, 0.75f, backgroundFadeDuration);
+            yield return FadeImage(background, 0f, 0.95f, backgroundFadeDuration);
 
             // 3) fade in top text
             yield return FadeImage(topText, 0f, 1f, textFadeDuration);
