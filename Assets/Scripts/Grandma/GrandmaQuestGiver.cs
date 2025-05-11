@@ -74,9 +74,10 @@ namespace Grandma
             
             //item animation
             var item = Instantiate(itemDelivered.prefab, playerInventory.transform.position, Quaternion.identity);
-
+            item.transform.localScale = itemDelivered.scale;
+            item.transform.localRotation = itemDelivered.rotation;
             item.transform
-                .DOJump(itemDelivered.DeliveryPosition, 3, 1, 2)
+                .DOJump(itemDelivered.deliveryPosition, 3, 1, 2)
                 .SetEase(Ease.OutQuad);
             
             if(_currentItemIndex != worldConfig.recipeItems.Count) SetNextItemGoal();

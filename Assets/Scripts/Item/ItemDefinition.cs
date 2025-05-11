@@ -1,5 +1,6 @@
 using Rooms;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Scriptable_Objects
 {
@@ -18,6 +19,8 @@ namespace Scriptable_Objects
         public RoomType roomType;
 
         [Tooltip("Position where the item will be placed on delivery (leave empty if trash item")]
-        public Vector3 DeliveryPosition;
+        public Vector3 deliveryPosition;
+        public Vector3 scale;
+        public Quaternion rotation;
     }
 }
