@@ -138,12 +138,15 @@ namespace Managers
         
         private void PlayerWon()
         {
-            Time.timeScale = 0;
-            winPanel.SetActive(true);
-            _isWinPanelOpen = true;
-            Debug.Log("Player Won!");
-            StartCoroutine(ResetAfterDelay());
-            //CurrencyManager.Instance.ResetMoney();
+            // Time.timeScale = 0;
+            // winPanel.SetActive(true);
+            // _isWinPanelOpen = true;
+            // Debug.Log("Player Won!");
+            // StartCoroutine(ResetAfterDelay());
+            // //CurrencyManager.Instance.ResetMoney();
+            
+            //TODO: ADD TIMER OR SMTH SO IT WONT GO STRAIGHT TO END SCENE
+            SceneManager.LoadScene("Win Scene");
         }
         
         private IEnumerator ResetAfterDelay()
