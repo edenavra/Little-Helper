@@ -2284,6 +2284,10 @@ PrefabInstance:
       propertyPath: stats.hideDuration
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 943122071827317455, guid: 37732eacdad45544da9d2729242e790e, type: 3}
+      propertyPath: invincibilityDuration
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 1008244845920057381, guid: 37732eacdad45544da9d2729242e790e, type: 3}
       propertyPath: m_SortingOrder
       value: 42
@@ -2348,6 +2352,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 38
       objectReference: {fileID: 0}
+    - target: {fileID: 3763651628051304758, guid: 37732eacdad45544da9d2729242e790e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3867541628579492507, guid: 37732eacdad45544da9d2729242e790e, type: 3}
       propertyPath: m_SortingOrder
       value: 40
@@ -2367,6 +2375,14 @@ PrefabInstance:
     - target: {fileID: 5582364905175994634, guid: 37732eacdad45544da9d2729242e790e, type: 3}
       propertyPath: m_SortingOrder
       value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594157101623065490, guid: 37732eacdad45544da9d2729242e790e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594157101623065490, guid: 37732eacdad45544da9d2729242e790e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 5653398557280068742, guid: 37732eacdad45544da9d2729242e790e, type: 3}
       propertyPath: m_SortingOrder
