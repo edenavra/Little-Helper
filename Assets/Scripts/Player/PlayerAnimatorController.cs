@@ -12,6 +12,7 @@ namespace Player
         private static readonly int IsWalking = Animator.StringToHash("isWalking");
         private static readonly int IsDead = Animator.StringToHash("isDead");
         private static readonly int Respawn = Animator.StringToHash("respawn");
+        private static readonly int IsHurt = Animator.StringToHash("isHurt");
         [SerializeField] private GameObject foxFront;
         [SerializeField] private GameObject foxSide;
         [SerializeField] private GameObject foxBack;
@@ -95,6 +96,8 @@ namespace Player
         {
             foreach (var sr in _allRenderers)
             {
+                if (sr.gameObject.name == "Shadow") continue;
+                
                 var color = sr.color;
                 color.a = alpha;
                 sr.color = color;
@@ -116,6 +119,11 @@ namespace Player
             model.SetActive(true);
             _activeModel = model;
             _activeAnim = anim;
+        }
+
+        public void SetHurt()
+        {
+            _activeAnim.SetTrigger(IsHurt);
         }
     }
 

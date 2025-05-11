@@ -18,6 +18,8 @@ namespace Grandma
         
         [SerializeField] private WorldConfig worldConfig;
         
+        [SerializeField] private Transform givenItemContainer;
+        
         private List<ItemDefinition> _remainingItems;
         private ItemDefinition _currentItem;
         private bool _isPlayerInRange;
@@ -68,15 +70,16 @@ namespace Grandma
             
             //TODO: REMOVE THIS SHIT ONCE WE HAVE PROPER ANIMATIONS 
             //grandma jump
-            transform
-                .DOPunchPosition(Vector3.up * 0.5f, 0.2f, vibrato: 1, elasticity: 0.5f)
-                .SetEase(Ease.OutQuad);
+            // transform
+            //     .DOPunchPosition(Vector3.up * 0.5f, 0.2f, vibrato: 1, elasticity: 0.5f)
+            //     .SetEase(Ease.OutQuad);
             
             //item animation
-            var item = Instantiate(itemDelivered.prefab, playerInventory.transform.position, Quaternion.identity);
-
+            var item = Instantiate(itemDelivered.prefab, playerInventory.transform.position, Quaternion.identity, givenItemContainer);
+            item.transform.localScale = itemDelivered.scale;
+            item.transform.localRotation = itemDelivered.rotation;
             item.transform
-                .DOJump(itemDelivered.DeliveryPosition, 3, 1, 2)
+                .DOJump(itemDelivered.deliveryPosition, 3, 1, 2)
                 .SetEase(Ease.OutQuad);
             
             if(_currentItemIndex != worldConfig.recipeItems.Count) SetNextItemGoal();
