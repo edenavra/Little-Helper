@@ -81,7 +81,7 @@ namespace Player
             else _animatorController.SetWalking(false);
 
             // HIDE input
-            if (Input.GetKeyDown(KeyCode.H))
+            if (Input.GetKeyDown(KeyCode.V))
             {
                 if (!stats.hasHideUpgrade)
                 {
