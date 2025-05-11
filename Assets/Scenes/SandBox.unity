@@ -1572,6 +1572,51 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 9152757833034778477, guid: 2a054759962b22944b085713ec2d1652, type: 3}
   m_PrefabInstance: {fileID: 632987935}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1032315924
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1032315926}
+  - component: {fileID: 1032315925}
+  m_Layer: 0
+  m_Name: Given Items
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1032315925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032315924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b82423791d4cab81b2c0ad7f6e6e44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  givenItemsContainer: {fileID: 1032315926}
+--- !u!4 &1032315926
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032315924}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1127429374 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8240068045212839232, guid: 37732eacdad45544da9d2729242e790e, type: 3}
@@ -3926,6 +3971,10 @@ PrefabInstance:
       propertyPath: playerInventory
       value: 
       objectReference: {fileID: 1422595822}
+    - target: {fileID: 3160014039804254337, guid: 3e6674a353e1f3445a9b2cf87c3226cd, type: 3}
+      propertyPath: givenItemContainer
+      value: 
+      objectReference: {fileID: 1032315926}
     - target: {fileID: 8794774209833433885, guid: 3e6674a353e1f3445a9b2cf87c3226cd, type: 3}
       propertyPath: m_Name
       value: 'Grandma '
@@ -3975,3 +4024,4 @@ SceneRoots:
   - {fileID: 1171983864}
   - {fileID: 2007442580}
   - {fileID: 2037528364451581908}
+  - {fileID: 1032315926}
