@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
+using System.Linq;
 using Managers;
 using Player;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 using Random = UnityEngine.Random;
 
 namespace Enemies
@@ -28,25 +30,35 @@ namespace Enemies
         private bool _isAttacking = false;
         private GameObject _player;
         private float _currentAttackInterval;
-        public float pauseDuration = 0.5f;
+        public float pauseDuration = 0.3f;
         private Animator _animator;
         private bool _isMoleOut = false;
         private bool _waitingForContinue = false;
         private string _lastFinishedAnimation;
-        
+        private Collider2D _childTriggerCollider;
+
+        private void Awake()
+        {
+            _childTriggerCollider = GetComponentsInChildren<Collider2D>().FirstOrDefault(c => c.isTrigger);
+            moleCollider = GetComponent<Collider2D>();
+        }
+
         private void OnEnable()
         {
             _attackTimer = 0f;
             _isAttacking = false;
             _waitingForContinue = false;
             _lastFinishedAnimation = null;
-
+            _childTriggerCollider.enabled = true;
+            moleCollider.enabled = false;
+            attackInterval = Random.Range(3f, 4.5f);
+            _isMoleOut = false;
             if (_animator != null)
             {
                 _animator.Rebind(); 
                 _animator.Update(0f); 
             }
-
+            UpdateSortingOrder();
             HideMole(); 
         }
 
@@ -54,7 +66,7 @@ namespace Enemies
         {
             _player = GameManager.Instance.playerObject;
             _animator = GetComponentInChildren<Animator>();
-            moleCollider = GetComponent<Collider2D>();
+           
             /*if (moundVisual != null)
                 moundVisual.SetActive(false);*/
 
@@ -89,13 +101,16 @@ namespace Enemies
                 Vector2 randomOffset = Random.insideUnitCircle * moveRadius;
                 Vector2 possiblePos = (Vector2)_player.transform.position + randomOffset;
 
-                if (!Physics2D.OverlapCircle(possiblePos, 0.3f, obstacleLayer))
+                _childTriggerCollider.enabled = false;
+                bool blocked = Physics2D.OverlapCircle(possiblePos, 0.3f, obstacleLayer);
+                _childTriggerCollider.enabled = true;
+                
+                if (!blocked)
                 {
                     targetPos = possiblePos;
                     break;
                 }
             }
-
             transform.position = Vector2.Lerp(transform.position, targetPos, followSpeed * Time.deltaTime);
         }
 
@@ -137,6 +152,8 @@ namespace Enemies
         {
             if (moleCollider != null)
                 moleCollider.enabled = true;
+            
+            UpdateSortingOrder();
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
@@ -191,6 +208,16 @@ namespace Enemies
         public void NotifyAnimationEnded(string animationName)
         {
             _lastFinishedAnimation = animationName;
+        }
+        
+        private void UpdateSortingOrder()
+        {
+            var sortingGroup = GetComponentInChildren<SortingGroup>();
+            if (sortingGroup != null)
+            {
+                sortingGroup.sortingOrder = Mathf.RoundToInt(- transform.position.y * 1000f + Random.Range(-5f, 5f));
+
+            }
         }
 
     }
