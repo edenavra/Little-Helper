@@ -779,10 +779,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3413846708091943649, guid: 2a054759962b22944b085713ec2d1652, type: 3}
-      propertyPath: targetToShake
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 5991591897331600237, guid: 2a054759962b22944b085713ec2d1652, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

@@ -103,12 +103,12 @@ TextureImporter:
       name: Jar Red Inactive_0
       rect:
         serializedVersion: 2
-        x: 52
-        y: 25
-        width: 475
-        height: 450
+        x: 0
+        y: 0
+        width: 600
+        height: 500
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: f5ac32e5627f0b349a5211695fa6785c
     internalID: 0
     vertices: []
     indices: 
