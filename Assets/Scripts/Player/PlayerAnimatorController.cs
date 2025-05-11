@@ -95,6 +95,8 @@ namespace Player
         {
             foreach (var sr in _allRenderers)
             {
+                if (sr.gameObject.name == "Shadow") continue;
+                
                 var color = sr.color;
                 color.a = alpha;
                 sr.color = color;
