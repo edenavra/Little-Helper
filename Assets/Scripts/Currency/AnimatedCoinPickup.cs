@@ -23,7 +23,8 @@ public class AnimatedCoinPickup : MonoBehaviour
         RectTransform coinRect = coin.GetComponent<RectTransform>();
         coinRect.anchoredPosition = anchoredPos;
 
-        coinRect.DOMove(jarTargetUI.position, 0.6f)
+        // coinRect.DOMove(jarTargetUI.position, 0.6f)
+        coinRect.DOMove(jarTargetUI.transform.position, 0.6f)
             .SetEase(Ease.OutBack)
             .OnComplete(() => Destroy(coin));
     }
