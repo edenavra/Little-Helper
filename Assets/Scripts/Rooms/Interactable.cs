@@ -28,6 +28,7 @@ namespace Rooms
         public bool IsEmpty => _storedItem == null;
         
         private bool _isPlayerInRange;
+        public bool IsPlayerInRange => _isPlayerInRange;
         private bool _isOpen;
         
         
@@ -56,6 +57,7 @@ namespace Rooms
                 Open();
             }
         }
+        
 
         public void AddItem(ItemDefinition item) {_storedItem = item;}
         
