@@ -6,7 +6,7 @@ namespace Utils
     public class DynamicLayer : MonoBehaviour
     {
         [SerializeField] private float minDeltaY = 0.1f; 
-        private int layerOffset = 100;  
+        private int layerOffset = 2070;  
 
         private SpriteRenderer[] _sprites;
         private int[] _originalOrders;

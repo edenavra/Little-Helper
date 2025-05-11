@@ -45,6 +45,10 @@ namespace Enemies
 
         private void OnEnable()
         {
+            if (_player == null)
+                _player = GameManager.Instance.playerObject;
+
+            StopAllCoroutines();
             _attackTimer = 0f;
             _isAttacking = false;
             _waitingForContinue = false;
@@ -53,13 +57,15 @@ namespace Enemies
             moleCollider.enabled = false;
             attackInterval = Random.Range(3f, 4.5f);
             _isMoleOut = false;
+
             if (_animator != null)
             {
                 _animator.Rebind(); 
                 _animator.Update(0f); 
             }
+    
             UpdateSortingOrder();
-            HideMole(); 
+            HideMole();
         }
 
         private void Start()
@@ -90,6 +96,8 @@ namespace Enemies
                     FollowPlayer();
                 }
             }
+            
+            UpdateSortingOrder();
         }
         
         private void FollowPlayer()
@@ -152,8 +160,6 @@ namespace Enemies
         {
             if (moleCollider != null)
                 moleCollider.enabled = true;
-            
-            UpdateSortingOrder();
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
@@ -209,16 +215,53 @@ namespace Enemies
         {
             _lastFinishedAnimation = animationName;
         }
-        
+
         private void UpdateSortingOrder()
         {
             var sortingGroup = GetComponentInChildren<SortingGroup>();
-            if (sortingGroup != null)
+            if (sortingGroup == null || _player == null) return;
+
+            const int TOP_BASE_LAYER = 0;
+            const int BOTTOM_BASE_LAYER = 1060;
+            const int LAYER_RANGE = 1000;
+            const float WORLD_HALF_HEIGHT = 10f; 
+            const int PLAYER_LAYER = 1000;
+            const int BUFFER = 5;
+
+            float moleY = transform.position.y;
+            float playerY = _player.transform.position.y;
+
+            int sortingOrder;
+
+            if (moleY >= 0)
             {
-                sortingGroup.sortingOrder = Mathf.RoundToInt(- transform.position.y * 1000f + Random.Range(-5f, 5f));
+                float t = Mathf.InverseLerp(10f, 0f, moleY);
 
+                if (moleY < playerY)
+                {
+                    sortingOrder = PLAYER_LAYER + BUFFER + Mathf.RoundToInt(t * LAYER_RANGE);
+                }
+                else
+                {
+                    sortingOrder = TOP_BASE_LAYER + Mathf.RoundToInt(t * LAYER_RANGE);
+                }
             }
-        }
+            else
+            {
+                float t = Mathf.InverseLerp(-10f, 0f, moleY);
 
+                if (moleY > playerY)
+                {
+                    sortingOrder = BOTTOM_BASE_LAYER + Mathf.RoundToInt(t * LAYER_RANGE) - (PLAYER_LAYER + BUFFER);
+                }
+                else
+                {
+                    sortingOrder = BOTTOM_BASE_LAYER + Mathf.RoundToInt(t * LAYER_RANGE);
+
+                }
+            }
+
+            sortingGroup.sortingOrder = sortingOrder;
+        }
     }
 }
