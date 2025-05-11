@@ -1,5 +1,74 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1324605575457915276
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1422093714789723820}
+  - component: {fileID: 5549073044603881643}
+  m_Layer: 12
+  m_Name: mound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1422093714789723820
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1324605575457915276}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0.15, y: 2.03, z: -0.0016604611}
+  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6453870583808429105}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!70 &5549073044603881643
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1324605575457915276}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.8589367, y: 0.086475834}
+  m_Size: {x: 1.5897921, y: 1.8226664}
+  m_Direction: 0
 --- !u!1 &3772794058808836585
 GameObject:
   m_ObjectHideFlags: 0
@@ -33,7 +102,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.81}
+  m_AnchoredPosition: {x: 0, y: -0.8}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!331 &431800499373654444
@@ -103,6 +172,8 @@ GameObject:
   - component: {fileID: 7998108746690428952}
   - component: {fileID: 6821292340692867550}
   - component: {fileID: 7898807081410616892}
+  - component: {fileID: 3818522150965420792}
+  - component: {fileID: 4665704537667849276}
   m_Layer: 7
   m_Name: Mole
   m_TagString: Enemy
@@ -123,6 +194,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3670906253687204260}
+  - {fileID: 1422093714789723820}
   - {fileID: 229099184976841702}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -199,13 +271,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveRadius: 4
-  followSpeed: 2
+  followSpeed: 3
   attackInterval: 4
   visibleDuration: 1
   obstacleLayer:
     serializedVersion: 2
-    m_Bits: 2560
-  pauseDuration: 0.5
+    m_Bits: 6656
+  pauseDuration: 0.3
 --- !u!70 &7898807081410616892
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -243,6 +315,31 @@ CapsuleCollider2D:
   m_Offset: {x: 0.018777847, y: 0.7920654}
   m_Size: {x: 1.2035027, y: 1.5840507}
   m_Direction: 0
+--- !u!210 &3818522150965420792
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5793066981831633996}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
+--- !u!114 &4665704537667849276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5793066981831633996}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fe5e7f589d94c798e0dd65114d3f1d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDeltaY: 0.1
 --- !u!1001 &2728754500756885626
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -264,6 +361,14 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: ef62c2ef9b3107f4c99188aa1bfd3ee5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7552582706839291426, guid: ef62c2ef9b3107f4c99188aa1bfd3ee5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7552582706839291426, guid: ef62c2ef9b3107f4c99188aa1bfd3ee5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -281,15 +386,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: ef62c2ef9b3107f4c99188aa1bfd3ee5, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: ef62c2ef9b3107f4c99188aa1bfd3ee5, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: ef62c2ef9b3107f4c99188aa1bfd3ee5, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: ef62c2ef9b3107f4c99188aa1bfd3ee5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -390,7 +495,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &8622123947813437008 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3280437133896962518, guid: ef62c2ef9b3107f4c99188aa1bfd3ee5, type: 3}
@@ -409,4 +513,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
