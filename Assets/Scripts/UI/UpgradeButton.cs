@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -5,13 +7,16 @@ using Managers;
 using Player;
 using UnityEngine.EventSystems;
 using Utils;
+using DG.Tweening;
 
 namespace UI
 {
     public class UpgradeButton : MonoBehaviour
     {
         [SerializeField] private Upgrade upgradeData;
-
+        [SerializeField] private RectTransform targetToShake;
+        
+        
         private Button buyButton;
         private UpgradeManager upgradeManager;
 
@@ -20,16 +25,22 @@ namespace UI
             buyButton = GetComponent<Button>();
             upgradeManager = FindFirstObjectByType<UpgradeManager>();
 
+            targetToShake = buyButton.GetComponent<RectTransform>();
+
             buyButton.onClick.AddListener(BuyUpgrade);
             UpdateButtonState();
         }
-        
         
         private void BuyUpgrade()
         {
             Debug.Log(">>> BuyUpgrade called!");
 
-            if (!buyButton.interactable) return;
+            if (!buyButton.interactable)
+            {
+                Debug.Log("Buy button is not interactable");
+                return;
+            }
+
             if (upgradeData == null)
             {
                 Debug.LogWarning("No upgrade data assigned!");
@@ -42,14 +53,25 @@ namespace UI
             {
                 Debug.Log($"Purchased upgrade: {upgradeData.upgradeName}");
                 UpdateButtonState();
-                //GameEvents.RestartLevel?.Invoke();
-                // buyButton.interactable = false;
             }
             else
             {
                 Debug.Log("Could not purchase upgrade – not enough money?");
+                StartCoroutine(ShakeWithDelay());
             }
         }
+        private IEnumerator ShakeWithDelay()
+        {
+            yield return null;
+
+            if (targetToShake != null && targetToShake.gameObject.activeInHierarchy)
+            {
+                targetToShake.DOKill();
+                targetToShake.DOShakePosition(0.4f, new Vector3(10f, 0f, 0f), vibrato: 10)
+                    .SetUpdate(true);
+            }
+        }
+
         
         private void UpdateButtonState()
         {
