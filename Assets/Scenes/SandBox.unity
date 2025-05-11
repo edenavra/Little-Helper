@@ -2528,7 +2528,7 @@ GameObject:
   - component: {fileID: 2139381080}
   - component: {fileID: 2139381079}
   m_Layer: 0
-  m_Name: Global Volume
+  m_Name: Grain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
