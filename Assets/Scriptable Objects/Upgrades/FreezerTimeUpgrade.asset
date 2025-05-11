@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Freezer
   description: Increases freezing room timer
-  cost: 160
+  cost: 150
   type: 2
