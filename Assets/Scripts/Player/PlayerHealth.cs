@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using Utils;
 
@@ -6,6 +7,7 @@ namespace Player
 {
     public class PlayerHealth : MonoBehaviour
     {
+        
         [SerializeField] internal int maxHealth = 3;
         private int _currentHealth;
         //public event Action<int, int> OnHealthChanged;
@@ -14,6 +16,10 @@ namespace Player
     
         private PlayerAnimatorController _animatorController;
         private bool _isInvincible = false;
+        
+        [Header("Invincibility")]
+        [SerializeField] private float invincibilityDuration = 0.75f;
+        [SerializeField] private float flashDelay = 0.0833f;
 
         private void Awake()
         {
@@ -59,6 +65,7 @@ namespace Player
         public void TakeDamage(int amount)
         {
             if (_isInvincible) return;
+            TriggerInvincibility(invincibilityDuration);
             _animatorController.SetHurt();
             _currentHealth -= amount;
             _currentHealth = Mathf.Clamp(_currentHealth, 0, maxHealth);
@@ -70,6 +77,40 @@ namespace Player
                 Die();
             }
         }
+        
+        private void TriggerInvincibility(float duration)
+        {
+            if (duration > 0f)
+            {
+                // start one coroutine that both gates damage
+                // and drives the flashing on the animator
+                StartCoroutine(InvincibilityRoutine(duration));
+            }
+        }
+        
+        private IEnumerator InvincibilityRoutine(float duration)
+        {
+            _isInvincible = true;
+            float elapsed = 0f;
+            bool   visible = true;
+
+            while (elapsed < duration)
+            {
+                // toggle sprite visibility
+                visible = !visible;
+                _animatorController.SetSpritesVisible(visible);
+
+                // wait for the flash interval
+                yield return new WaitForSeconds(flashDelay);
+                elapsed += flashDelay;
+            }
+
+            // ensure we’re fully visible & vulnerable again
+            _animatorController.SetSpritesVisible(true);
+            _isInvincible = false;
+        }
+        
+        
     
         public int GetHealth()
         {

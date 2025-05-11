@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using Utils;
 
@@ -124,6 +125,18 @@ namespace Player
         public void SetHurt()
         {
             _activeAnim.SetTrigger(IsHurt);
+        }
+        
+        
+        public void SetSpritesVisible(bool v)
+        {
+            foreach (var sr in _allRenderers)
+            {
+                if (sr.gameObject.name != "Shadow" && sr.gameObject.name != "Eyes_Open" && sr.gameObject.name != "Eyes_Closed")
+                    sr.enabled = v;
+                if (sr.gameObject.name == "Eyes_Open" && sr.gameObject.name == "Eyes_Closed")
+                    sr.enabled = true;
+            }
         }
     }
 
