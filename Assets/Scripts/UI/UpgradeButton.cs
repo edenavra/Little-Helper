@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using Managers;
 using Player;
+using UnityEngine.EventSystems;
 using Utils;
 
 namespace UI
@@ -60,7 +61,14 @@ namespace UI
                 colors.disabledColor = new Color(0.3f, 0.3f, 0.3f);
                 buyButton.colors = colors;
             }
+            else
+            {
+                // Refresh the state to trigger hover again if needed
+                buyButton.interactable = true;
+                EventSystem.current.SetSelectedGameObject(null);
+            }
         }
+
 
         
     }
