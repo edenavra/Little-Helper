@@ -103,8 +103,8 @@ TextureImporter:
       name: Jar Red Front_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 53
+        y: 25
         width: 475
         height: 450
       alignment: 0

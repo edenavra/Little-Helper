@@ -103,8 +103,8 @@ TextureImporter:
       name: Jar Green Inactive_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 53
+        y: 25
         width: 474
         height: 450
       alignment: 0
