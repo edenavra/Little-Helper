@@ -195,7 +195,7 @@ ScriptedImporter:
       y: 1404
       width: 417
       height: 412
-    spriteID: a4e9451b7e1c9cd44887431014b33b44
+    spriteID: e1bf776e38cff4b15afbd5261f049c3d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -422,8 +422,8 @@ ScriptedImporter:
     spriteName: Jar Orange Back
     isGroup: 0
     parentIndex: -1
-    spriteID: a4e9451b7e1c9cd44887431014b33b44
-    layerID: 98
+    spriteID: e1bf776e38cff4b15afbd5261f049c3d
+    layerID: 210
     mosaicPosition: {x: 534, y: 1404}
     flatten: 0
     isImported: 1
