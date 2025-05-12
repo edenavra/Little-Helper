@@ -51,13 +51,29 @@ namespace Managers
             GameEvents.PlayerWon -= PlayerWon;
         }
 
+        // private void Start()
+        // {
+        //     if (SceneManager.GetActiveScene().name == "SandBox")
+        //     {
+        //         StartRun();
+        //     }
+        // }
+        
         private void Start()
         {
-            if (SceneManager.GetActiveScene().name == "SandBox")
+            string currentScene = SceneManager.GetActiveScene().name;
+
+            if (currentScene == "Start" || currentScene == "Win Scene")
             {
+                SoundManager.Instance.PlayStartOrWinMusic();
+            }
+            else if (currentScene == "SandBox")
+            {
+                SoundManager.Instance.PlayBackgroundMusic();
                 StartRun();
             }
         }
+
         
         private void Update()
         {
@@ -171,7 +187,10 @@ namespace Managers
         public void OnStartGameButtonPressed()
         {
             if (isTutorialCompleted)
+            {
+                SoundManager.Instance.StopMusic();
                 SceneManager.LoadScene("SandBox");
+            }
         }
         
     }
