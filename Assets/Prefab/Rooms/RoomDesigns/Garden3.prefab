@@ -102,7 +102,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &61089491503735473
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,7 +291,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &86832320889114171
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,7 +813,7 @@ Transform:
   m_GameObject: {fileID: 202549286636634366}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.24041952}
+  m_LocalPosition: {x: 0.42, y: 0, z: 0.24041952}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1307,7 +1305,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &309098648673309249
 GameObject:
   m_ObjectHideFlags: 0
@@ -1497,7 +1494,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &374835167841615103
 GameObject:
   m_ObjectHideFlags: 0
@@ -1600,7 +1596,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &414978913939417311
 GameObject:
   m_ObjectHideFlags: 0
@@ -3042,7 +3037,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &971399410474029972
 GameObject:
   m_ObjectHideFlags: 0
@@ -3232,7 +3226,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &993890175830022429
 GameObject:
   m_ObjectHideFlags: 0
@@ -5040,7 +5033,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &1833177484398753424
 GameObject:
   m_ObjectHideFlags: 0
@@ -5686,7 +5678,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &1991868540438120928
 GameObject:
   m_ObjectHideFlags: 0
@@ -6591,7 +6582,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &2281115923979970130
 GameObject:
   m_ObjectHideFlags: 0
@@ -6832,7 +6822,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &2404029118243050526
 GameObject:
   m_ObjectHideFlags: 0
@@ -6935,7 +6924,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &2407809194155278432
 GameObject:
   m_ObjectHideFlags: 0
@@ -7038,7 +7026,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &2409455637782171823
 GameObject:
   m_ObjectHideFlags: 0
@@ -7303,7 +7290,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &2562093566727401129
 GameObject:
   m_ObjectHideFlags: 0
@@ -7528,7 +7514,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &2604703559411370068
 GameObject:
   m_ObjectHideFlags: 0
@@ -7764,7 +7749,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &2667799470721396764
 GameObject:
   m_ObjectHideFlags: 0
@@ -8302,7 +8286,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &2790503276551312988
 GameObject:
   m_ObjectHideFlags: 0
@@ -9119,7 +9102,7 @@ Transform:
   m_GameObject: {fileID: 3021386179547190863}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 26.8, y: 19.9, z: 0}
+  m_LocalPosition: {x: 27.1, y: 13.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -9214,17 +9197,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.35696238, y: -6.301411}
+  m_Offset: {x: 0.10118717, y: 0.06092751}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5267947, y: 0.07715137}
     oldSize: {x: 11, y: 14.95}
     newSize: {x: 11, y: 14.95}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.568771, y: 2.3471766}
+  m_Size: {x: 1.0572205, y: 2.0274658}
   m_EdgeRadius: 0
 --- !u!114 &3584949630811795815
 MonoBehaviour:
@@ -9239,7 +9222,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &3073766192056077779
 GameObject:
   m_ObjectHideFlags: 0
@@ -9681,7 +9663,6 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 1241565235280311464}
   - {fileID: 3305410866796884620}
-  baseAmount: 1
 --- !u!1 &3192869405190540005
 GameObject:
   m_ObjectHideFlags: 0
@@ -10027,7 +10008,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &3242350951330666598
 GameObject:
   m_ObjectHideFlags: 0
@@ -10424,7 +10404,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &3396105540380354258
 GameObject:
   m_ObjectHideFlags: 0
@@ -11476,7 +11455,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &3892147295267550836
 GameObject:
   m_ObjectHideFlags: 0
@@ -12014,7 +11992,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &4060260089557830007
 GameObject:
   m_ObjectHideFlags: 0
@@ -12156,7 +12133,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &4116895724809592563
 GameObject:
   m_ObjectHideFlags: 0
@@ -12259,7 +12235,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &4134655117233161391
 GameObject:
   m_ObjectHideFlags: 0
@@ -12362,7 +12337,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &4135659650621007607
 GameObject:
   m_ObjectHideFlags: 0
@@ -14594,7 +14568,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &5089578580913655615
 GameObject:
   m_ObjectHideFlags: 0
@@ -14767,7 +14740,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &5183221075593181828
 GameObject:
   m_ObjectHideFlags: 0
@@ -14957,7 +14929,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &5254420352375692534
 GameObject:
   m_ObjectHideFlags: 0
@@ -15060,7 +15031,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &5263491289919956094
 GameObject:
   m_ObjectHideFlags: 0
@@ -15326,7 +15296,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &5372886338808868661
 GameObject:
   m_ObjectHideFlags: 0
@@ -15886,7 +15855,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!114 &1219372518062768296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15900,7 +15868,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &5609027010300900052
 GameObject:
   m_ObjectHideFlags: 0
@@ -17121,7 +17088,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &5969619104140707637
 GameObject:
   m_ObjectHideFlags: 0
@@ -17311,7 +17277,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &6041262404225667481
 GameObject:
   m_ObjectHideFlags: 0
@@ -17801,7 +17766,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &6139327620643520606
 GameObject:
   m_ObjectHideFlags: 0
@@ -18832,7 +18796,7 @@ Transform:
   m_GameObject: {fileID: 6684103548070955538}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 29, y: 2.9, z: 0}
+  m_LocalPosition: {x: 29.8, y: -3.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18927,17 +18891,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.3757497, y: -6.2782946}
+  m_Offset: {x: -0.04435885, y: 0.23341393}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5267947, y: 0.07715137}
     oldSize: {x: 11, y: 14.95}
     newSize: {x: 11, y: 14.95}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.6815035, y: 2.3934102}
+  m_Size: {x: 1.2613983, y: 2.3934174}
   m_EdgeRadius: 0
 --- !u!114 &2599080737999003235
 MonoBehaviour:
@@ -18952,7 +18916,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &6688151732165698251
 GameObject:
   m_ObjectHideFlags: 0
@@ -19280,7 +19243,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &6776454557626401780
 GameObject:
   m_ObjectHideFlags: 0
@@ -19383,7 +19345,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &6796950068549126606
 GameObject:
   m_ObjectHideFlags: 0
@@ -19486,7 +19447,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &6870090072222852692
 GameObject:
   m_ObjectHideFlags: 0
@@ -19658,7 +19618,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &6900522617903306799
 GameObject:
   m_ObjectHideFlags: 0
@@ -20525,7 +20484,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &7177081148735300106
 GameObject:
   m_ObjectHideFlags: 0
@@ -20628,7 +20586,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &7187859968651227412
 GameObject:
   m_ObjectHideFlags: 0
@@ -21583,7 +21540,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &7436837439700213278
 GameObject:
   m_ObjectHideFlags: 0
@@ -21860,7 +21816,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &7459036115553717585
 GameObject:
   m_ObjectHideFlags: 0
@@ -22666,7 +22621,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &7625835773368780191
 GameObject:
   m_ObjectHideFlags: 0
@@ -23237,7 +23191,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &7789496929913055010
 GameObject:
   m_ObjectHideFlags: 0
@@ -23427,7 +23380,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &7829115330372734795
 GameObject:
   m_ObjectHideFlags: 0
@@ -23530,7 +23482,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &7880894653626555544
 GameObject:
   m_ObjectHideFlags: 0
@@ -24202,7 +24153,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &7951028378445895016
 GameObject:
   m_ObjectHideFlags: 0
@@ -24604,7 +24554,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &8099794545878127427
 GameObject:
   m_ObjectHideFlags: 0
@@ -24707,7 +24656,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &8104942549899576891
 GameObject:
   m_ObjectHideFlags: 0
@@ -24973,7 +24921,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &8136288349302109182
 GameObject:
   m_ObjectHideFlags: 0
@@ -25145,7 +25092,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &8143305723331924590
 GameObject:
   m_ObjectHideFlags: 0
@@ -25967,7 +25913,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &8325012714030775756
 GameObject:
   m_ObjectHideFlags: 0
@@ -27171,7 +27116,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &8804495102538838605
 GameObject:
   m_ObjectHideFlags: 0
@@ -27486,7 +27430,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1 &8887506220769577853
 GameObject:
   m_ObjectHideFlags: 0
@@ -28618,7 +28561,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!114 &7289316360450558444 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7386147972453396329, guid: 2b27b830bcb799e458f0950b69bb5264, type: 3}
@@ -28657,6 +28599,10 @@ PrefabInstance:
     - target: {fileID: 3154491777793508569, guid: 94440948d5bedf9429c0b1be38b4e28f, type: 3}
       propertyPath: m_Name
       value: containerGardenBush (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3238561060033810598, guid: 94440948d5bedf9429c0b1be38b4e28f, type: 3}
+      propertyPath: animator
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5272532693020197066, guid: 94440948d5bedf9429c0b1be38b4e28f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -28717,6 +28663,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2609929262692809885, guid: 94440948d5bedf9429c0b1be38b4e28f, type: 3}
+    - {fileID: 684815275388693072, guid: 94440948d5bedf9429c0b1be38b4e28f, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5272532693020197066, guid: 94440948d5bedf9429c0b1be38b4e28f, type: 3}
       insertIndex: -1
@@ -28755,7 +28702,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!4 &6797940417810414087 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5272532693020197066, guid: 94440948d5bedf9429c0b1be38b4e28f, type: 3}
@@ -28859,7 +28805,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1001 &5227667310641778234
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28959,7 +28904,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!114 &7241165433238445724 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3238561060033810598, guid: 94440948d5bedf9429c0b1be38b4e28f, type: 3}
@@ -29171,7 +29115,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1001 &6938657897380235737
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29255,6 +29198,26 @@ PrefabInstance:
     - target: {fileID: 2160828022399439382, guid: 8e32e92b702babe40ab5b3cc11743150, type: 3}
       propertyPath: m_Name
       value: Doors
+      objectReference: {fileID: 0}
+    - target: {fileID: 5934856779807551380, guid: 8e32e92b702babe40ab5b3cc11743150, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5934856779807551380, guid: 8e32e92b702babe40ab5b3cc11743150, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 5934856779807551380, guid: 8e32e92b702babe40ab5b3cc11743150, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746864549565637885, guid: 8e32e92b702babe40ab5b3cc11743150, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746864549565637885, guid: 8e32e92b702babe40ab5b3cc11743150, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.47
       objectReference: {fileID: 0}
     - target: {fileID: 7822450558149874977, guid: 8e32e92b702babe40ab5b3cc11743150, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.size
@@ -29444,7 +29407,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1001 &8766321838942257093
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29592,7 +29554,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!114 &6150111023456890723 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3238561060033810598, guid: 94440948d5bedf9429c0b1be38b4e28f, type: 3}

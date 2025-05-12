@@ -207,8 +207,8 @@ ScriptedImporter:
     spritePosition: {x: 2277, y: 688}
   - name: Box Int Open
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0.40135217}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -493,8 +493,8 @@ ScriptedImporter:
     spritePosition: {x: 3801, y: 119}
   - name: Closet Int Open
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0.15129766}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -515,8 +515,8 @@ ScriptedImporter:
     spritePosition: {x: 479, y: 546}
   - name: Closet Int
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0.1512977}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -537,8 +537,8 @@ ScriptedImporter:
     spritePosition: {x: 1655, y: 559}
   - name: 'Closet '
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0.1512977}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
