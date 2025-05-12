@@ -17,6 +17,7 @@ namespace Player
     
         private PlayerAnimatorController _animatorController;
         private bool _isInvincible = false;
+        private bool _isDead = false;
         
         [Header("Invincibility")]
         [SerializeField] private float invincibilityDuration = 0.75f;
@@ -58,6 +59,7 @@ namespace Player
 
         private void HandleRestart()
         {
+            _isDead        = false; 
             _currentHealth = maxHealth;
             //OnHealthChanged?.Invoke(currentHealth, maxHealth);
             GameEvents.PlayerHealthChanged?.Invoke(_currentHealth, maxHealth);
@@ -65,7 +67,7 @@ namespace Player
         }
         public void TakeDamage(int amount)
         {
-            if (_isInvincible) return;
+            if (_isInvincible || _isDead) return;
             SoundManager.Instance.PlayHit();
             TriggerInvincibility(invincibilityDuration);
             _animatorController.SetHurt();
@@ -121,6 +123,7 @@ namespace Player
 
         private void Die()
         {
+            _isDead = true; 
             Debug.Log("Player died!");
             //SoundManager.Instance?.PlayGameOver();
             GameEvents.SetUpDeath?.Invoke();
