@@ -1,6 +1,7 @@
 using Managers;
 using Unity.Cinemachine;
 using UnityEngine;
+using System.Collections;
 
 namespace Door
 {
@@ -11,6 +12,11 @@ namespace Door
     
         public void SwitchCamera()
         {
+            StartCoroutine(SwitchCameraCoroutine());
+        }
+
+        private IEnumerator SwitchCameraCoroutine()
+        {
             if (previousCamera != null)
             {
                 previousCamera.LookAt = null;
@@ -18,11 +24,18 @@ namespace Door
                 previousCamera.Priority = 0;
             }
 
-            if (newCamera != null)
+            yield return null;
+
+            if (newCamera != null && GameManager.Instance.PlayerObject != null)
             {
-                newCamera.LookAt = GameManager.Instance.PlayerObject.transform;
-                newCamera.Follow = GameManager.Instance.PlayerObject.transform;
+                Transform playerTransform = GameManager.Instance.PlayerObject.transform;
+                newCamera.LookAt = playerTransform;
+                newCamera.Follow = playerTransform;
                 newCamera.Priority = 1;
+            }
+            else
+            {
+                Debug.LogWarning("PlayerObject is null or newCamera is null during camera switch!");
             }
         }
     }
