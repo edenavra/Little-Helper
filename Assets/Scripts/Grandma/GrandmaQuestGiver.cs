@@ -1,11 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using Managers;
 using Player;
 using Rooms;
 using Scriptable_Objects;
-using Unity.VisualScripting;
 using UnityEngine;
 using Utils;
 
@@ -20,7 +20,17 @@ namespace Grandma
         
         [SerializeField] private Transform givenItemContainer;
         
+        [SerializeField] private int    hintBlinkCount   = 3;
+        [SerializeField] private float  hintDuration   = 2f;
+        
+        [SerializeField] private SpriteRenderer[] itemUI;
+        private SpriteRenderer _activeSprite;
+        
         private List<ItemDefinition> _remainingItems;
+        private ItemDefinition _book;
+        [SerializeField] private SpriteRenderer freezerSprite;
+        [SerializeField] private SpriteRenderer gardenSprite;
+        [SerializeField] private SpriteRenderer basementSprite;
         private ItemDefinition _currentItem;
         private bool _isPlayerInRange;
         private int _currentItemIndex;
@@ -68,13 +78,6 @@ namespace Grandma
             
             OnItemDelivered?.Invoke();
             
-            //TODO: REMOVE THIS SHIT ONCE WE HAVE PROPER ANIMATIONS 
-            //grandma jump
-            // transform
-            //     .DOPunchPosition(Vector3.up * 0.5f, 0.2f, vibrato: 1, elasticity: 0.5f)
-            //     .SetEase(Ease.OutQuad);
-            
-            //item animation
             var item = Instantiate(itemDelivered.prefab, playerInventory.transform.position, Quaternion.identity, givenItemContainer);
             item.transform.localScale = itemDelivered.scale;
             item.transform.localRotation = itemDelivered.rotation;
@@ -94,9 +97,61 @@ namespace Grandma
         private void SetNextItemGoal()
         {
             _currentItem = worldConfig.recipeItems[_currentItemIndex++];
+            UpdateSpeechBubble();
             print($"current Item is {_currentItem.itemName}");
         }
+
+        private void UpdateSpeechBubble()
+        {
+            if (_activeSprite != null)
+            {
+                _activeSprite.enabled = false;
+            }
+            foreach (var sprite in itemUI)
+            {
+                if (sprite.name != _currentItem.itemName) continue;
+                sprite.enabled = true;
+                _activeSprite = sprite;
+                ShowLocation();
+            }
+        }
+
+        private void ShowLocation()
+        {
+            //disable the item sprite, then show the location sprite, then shaw the item sprite again, repeat 3 times
+            if (_currentItemIndex > 3) return;
+            switch (_currentItem.roomType)
+            {
+                case RoomType.Freezer:
+                    StartCoroutine(ShowLocationRoutine(freezerSprite));
+                    break;
+                case RoomType.Garden:
+                    StartCoroutine(ShowLocationRoutine(gardenSprite));
+                    break;
+                case RoomType.Pantry:
+                    StartCoroutine(ShowLocationRoutine(basementSprite));
+                    break;
+                default:
+                    return;
+            }
+        }
         
+        private IEnumerator ShowLocationRoutine(SpriteRenderer locSprite)
+        {
+            for (int i = 0; i < hintBlinkCount; i++)
+            {
+                locSprite.enabled   = false;
+                _activeSprite.enabled = true;
+                yield return new WaitForSeconds(hintDuration);
+                
+                _activeSprite.enabled = false;
+                locSprite.enabled   = true;
+                yield return new WaitForSeconds(hintDuration);
+            }
+            locSprite.enabled   = false;
+            _activeSprite.enabled = true;
+        }
+
         public bool IsCurrentItem(ItemDefinition item)
         {
             return _currentItem == item;
