@@ -4,12 +4,13 @@ using UnityEngine;
 using Grandma;
 using Item;
 using Player;
-using UnityEngine.Serialization;
 
 namespace Rooms
 {
     public class Interactable : MonoBehaviour
     {
+        private static readonly int Shake = Animator.StringToHash("Shake");
+
         [Header("sprites")]
         [SerializeField] private Sprite closedSprite;
         [SerializeField] private Sprite openSprite;
@@ -21,6 +22,10 @@ namespace Rooms
         [SerializeField] private Transform itemSpawnPoint;
         private GrandmaQuestGiver _questGiver;
         private PlayerInventory _inventory;
+        
+        [Header("Tutorial Containers")]
+        [SerializeField] private bool isFirstTutorialContainer;
+        
         
         private ItemAnimation _itemAnimation = new();
         
@@ -76,7 +81,7 @@ namespace Rooms
         {
             print("box opened");
             _sr.sprite = openSprite;
-            if (_hasAnimator) animator.SetTrigger("Shake");
+            if (_hasAnimator) animator.SetTrigger(Shake);
             // Todo: add some kind of feedback that the object is empty
             _isOpen = true;
             if (_storedItem == null)

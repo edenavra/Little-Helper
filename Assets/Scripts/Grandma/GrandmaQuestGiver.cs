@@ -27,16 +27,23 @@ namespace Grandma
         private SpriteRenderer _activeSprite;
         
         private List<ItemDefinition> _remainingItems;
-        private ItemDefinition _book;
+        [SerializeField] private ItemDefinition book;
+        [SerializeField] private ItemDefinition pot;
         [SerializeField] private SpriteRenderer freezerSprite;
         [SerializeField] private SpriteRenderer gardenSprite;
         [SerializeField] private SpriteRenderer basementSprite;
+        [SerializeField] private Interactable firstTutorialContainer;
         private ItemDefinition _currentItem;
         private bool _isPlayerInRange;
         private int _currentItemIndex;
         
         public event Action OnItemDelivered;
-        
+
+
+        private void Start()
+        {
+            firstTutorialContainer.AddItem(book);
+        }
 
         private void OnEnable()
         {
