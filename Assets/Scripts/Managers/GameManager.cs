@@ -103,6 +103,7 @@ namespace Managers
                     Destroy(room.gameObject);
             }
             Rooms.Clear();
+            Physics2D.SyncTransforms();
             StartRun();
             Time.timeScale = 1;
         }
@@ -118,7 +119,7 @@ namespace Managers
         
         private void StartRun()
         {
-            _currentRound = -1;
+            _currentRound = 0;
             print("generating world");
             GenerateWorld();
             GameEvents.StartQuest.Invoke();

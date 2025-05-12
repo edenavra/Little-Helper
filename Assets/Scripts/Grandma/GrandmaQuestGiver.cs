@@ -46,7 +46,7 @@ namespace Grandma
         private bool isTutorial = true;
         private ItemDefinition _currentItem;
         private bool _isPlayerInRange;
-        private int _currentItemIndex;
+        private int _currentItemIndex = 0;
         
         public event Action OnItemDelivered;
 
@@ -81,20 +81,24 @@ namespace Grandma
         {
             _currentItemIndex = 0;
             SetNextItemGoal();
-            GameEvents.TutorialContainerOpened -= EnableF;
         }
 
         private void OnDisable()
         {
             GameEvents.StartQuest -= StartQuest;
             GameEvents.RestartLevel -= ResetQuest;
+            GameEvents.TutorialContainerOpened -= EnableF;
         }
         
         private void StartQuest()
         {
-            SetTutorialItem();
+            if (isTutorial)
+            {
+                SetTutorialItem();
+                return;
+            }
             _currentItemIndex = 0;
-            //SetNextItemGoal();
+            SetNextItemGoal();
         }
 
         private void SetTutorialItem()
@@ -131,10 +135,15 @@ namespace Grandma
                 placedBook.enabled = true;
                 DisableF();
             }
+            else
+            {
+                // only for the _real_ game loop do we advance the round  
+                OnItemDelivered?.Invoke();
+            }
             
             playerInventory.DropItem();
             
-            OnItemDelivered?.Invoke();
+           // OnItemDelivered?.Invoke();
             
             var item = Instantiate(itemDelivered.prefab, playerInventory.transform.position, Quaternion.identity, givenItemContainer);
             item.transform.localScale = itemDelivered.scale;
@@ -226,6 +235,8 @@ namespace Grandma
 
         public bool IsCurrentItem(ItemDefinition item)
         {
+            print("your item is  " + item.itemName);
+            print("current item is " + _currentItem.itemName);
             return _currentItem == item;
         }
     }

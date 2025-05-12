@@ -920,7 +920,6 @@ MonoBehaviour:
   animator: {fileID: 0}
   itemSpawnPoint: {fileID: 3002914129740533644}
   isFirstTutorialContainer: 0
-  isSecondTutorialContainer: 0
 --- !u!1 &827269817187799227
 GameObject:
   m_ObjectHideFlags: 0
@@ -4031,7 +4030,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: -4954802389391285157, guid: 58ff306ae52bd934cbd070b45bc85274, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
