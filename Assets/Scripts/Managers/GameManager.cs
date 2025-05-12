@@ -66,7 +66,7 @@ namespace Managers
                 GameEvents.RestartLevel.Invoke();
                 //RestartLevel();
             }
-            if(Input.GetKeyDown((KeyCode.F1)))
+            if(Input.GetKeyDown((KeyCode.Q)))
             {
                 GameEvents.PlayerWon.Invoke();
                 //PlayerWon();
@@ -142,19 +142,21 @@ namespace Managers
             // winPanel.SetActive(true);
             // _isWinPanelOpen = true;
             // Debug.Log("Player Won!");
-            // StartCoroutine(ResetAfterDelay());
+            
             // //CurrencyManager.Instance.ResetMoney();
             
             //TODO: ADD TIMER OR SMTH SO IT WONT GO STRAIGHT TO END SCENE
-            SceneManager.LoadScene("Win Scene");
+            StartCoroutine(ResetAfterDelay());
+            
         }
         
         private IEnumerator ResetAfterDelay()
         {
-            yield return new WaitForSecondsRealtime(2f); // מחכה 2 שניות אמיתיות, לא לפי Time.timeScale
+            yield return new WaitForSecondsRealtime(3f); // מחכה 2 שניות אמיתיות, לא לפי Time.timeScale
             //ResetEntireGame();
             Time.timeScale = 1;
-            SceneManager.LoadScene("Start");
+            //SceneManager.LoadScene("Start");
+            SceneManager.LoadScene("Win Scene");
         }
         
         public void RegisterUpgrade(UpgradeType type)

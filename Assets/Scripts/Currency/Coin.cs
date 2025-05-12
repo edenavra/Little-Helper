@@ -14,6 +14,7 @@ namespace Currency
             if (collision.CompareTag("Player"))
             {
                 CurrencyManager.Instance.AddMoney(moneyWorth);
+                SoundManager.Instance.PlayCollectCandy(0.3f); // sound of candy
                 GameEvents.OnCoinCollected?.Invoke();
                 //CurrencyManager.Instance.GetCoinSpawner().OnCoinCollected();
                 

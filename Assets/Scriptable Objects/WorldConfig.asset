@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: WorldConfig
   m_EditorClassIdentifier: 
   pantryLayouts:
-  - {fileID: 8069372240064540706, guid: c9af15b4e0dfdb34ea43882ec952f836, type: 3}
+  - {fileID: 6840337076172176248, guid: e0d13afadb93a8349b52930a65345409, type: 3}
   freezerLayouts:
-  - {fileID: 5366032940527144061, guid: dd7b80d649ac4114e806553fcc3d182c, type: 3}
+  - {fileID: 8324612997234743524, guid: ee04d97fdc2711e4faac46a4939f2acd, type: 3}
   gardenLayouts:
-  - {fileID: 3178846145805243794, guid: eb734ddc249806e47b00e8996a34cd87, type: 3}
+  - {fileID: 3785531451033931214, guid: 6c7e4eadd8fe23e498a976659c9942fb, type: 3}
   roomSpacing: 50
   recipeItems:
   - {fileID: 11400000, guid: a3f9007261f3b8c408f9170e662334fa, type: 2}

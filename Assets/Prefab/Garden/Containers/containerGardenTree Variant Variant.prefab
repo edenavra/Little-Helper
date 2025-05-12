@@ -52,6 +52,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6037824887172252701, guid: 2b27b830bcb799e458f0950b69bb5264, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037824887172252701, guid: 2b27b830bcb799e458f0950b69bb5264, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.76
+      objectReference: {fileID: 0}
     - target: {fileID: 6281979175113545284, guid: 2b27b830bcb799e458f0950b69bb5264, type: 3}
       propertyPath: m_Size.x
       value: 1.8819351
@@ -131,4 +139,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100

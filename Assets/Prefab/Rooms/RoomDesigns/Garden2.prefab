@@ -28313,6 +28313,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7954249752281231259}
     m_Modifications:
+    - target: {fileID: 1854315279998155730, guid: 94440948d5bedf9429c0b1be38b4e28f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 1854315279998155730, guid: 94440948d5bedf9429c0b1be38b4e28f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.63
+      objectReference: {fileID: 0}
     - target: {fileID: 3154491777793508569, guid: 94440948d5bedf9429c0b1be38b4e28f, type: 3}
       propertyPath: m_Name
       value: containerGardenBush
@@ -28596,6 +28604,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6037824887172252701, guid: 2b27b830bcb799e458f0950b69bb5264, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037824887172252701, guid: 2b27b830bcb799e458f0950b69bb5264, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.52
+      objectReference: {fileID: 0}
     - target: {fileID: 7040940263932558102, guid: 2b27b830bcb799e458f0950b69bb5264, type: 3}
       propertyPath: m_Name
       value: containerGardenTree Variant (1)
@@ -28629,6 +28645,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7954249752281231259}
     m_Modifications:
+    - target: {fileID: 1854315279998155730, guid: 94440948d5bedf9429c0b1be38b4e28f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1854315279998155730, guid: 94440948d5bedf9429c0b1be38b4e28f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.37
+      objectReference: {fileID: 0}
     - target: {fileID: 3154491777793508569, guid: 94440948d5bedf9429c0b1be38b4e28f, type: 3}
       propertyPath: m_Name
       value: containerGardenBush (3)
@@ -28702,6 +28726,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7954249752281231259}
     m_Modifications:
+    - target: {fileID: 1049102507363015812, guid: a5b1b7b7903a2455fa6f67d75fafd992, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 1049102507363015812, guid: a5b1b7b7903a2455fa6f67d75fafd992, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.4
+      objectReference: {fileID: 0}
     - target: {fileID: 4392119383888208783, guid: a5b1b7b7903a2455fa6f67d75fafd992, type: 3}
       propertyPath: m_Name
       value: containerGardenBush (1)
@@ -28775,6 +28807,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7954249752281231259}
     m_Modifications:
+    - target: {fileID: 1854315279998155730, guid: 94440948d5bedf9429c0b1be38b4e28f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 1854315279998155730, guid: 94440948d5bedf9429c0b1be38b4e28f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.55
+      objectReference: {fileID: 0}
     - target: {fileID: 3154491777793508569, guid: 94440948d5bedf9429c0b1be38b4e28f, type: 3}
       propertyPath: m_Name
       value: containerGardenBush
@@ -29039,6 +29079,14 @@ PrefabInstance:
     - target: {fileID: 4674322513921954075, guid: 3ead7499fccda4ac785798b9c70d8a63, type: 3}
       propertyPath: m_Name
       value: container Variant 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8260270136527056400, guid: 3ead7499fccda4ac785798b9c70d8a63, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8260270136527056400, guid: 3ead7499fccda4ac785798b9c70d8a63, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.08
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
