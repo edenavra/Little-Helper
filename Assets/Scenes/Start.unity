@@ -877,6 +877,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8972193786634144748, guid: 0bc436d4b1038404a8ce4b250617cbc4, type: 3}
+      propertyPath: ratsVolume
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8972193786634144748, guid: 0bc436d4b1038404a8ce4b250617cbc4, type: 3}
+      propertyPath: gardenVolume
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 9188393587372992575, guid: 0bc436d4b1038404a8ce4b250617cbc4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.77568
