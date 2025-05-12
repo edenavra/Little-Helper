@@ -18,6 +18,6 @@ namespace Utils
         public static Action<float> OnFreezeStarted;
         public static Action SetUpDeath;
         public static Action<Color> OnTimerColorChanged;
-
+        public static Action TutorialContainerOpened;
     }
 }

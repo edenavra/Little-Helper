@@ -7,6 +7,7 @@ using Player;
 using Rooms;
 using Scriptable_Objects;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using Utils;
 
 namespace Grandma
@@ -27,12 +28,22 @@ namespace Grandma
         private SpriteRenderer _activeSprite;
         
         private List<ItemDefinition> _remainingItems;
+        [Header("Tutorial stuff")]
         [SerializeField] private ItemDefinition book;
-        [SerializeField] private ItemDefinition pot;
+        [SerializeField] private SpriteRenderer placedBook;
+        [SerializeField] private SpriteRenderer bookSprite;
         [SerializeField] private SpriteRenderer freezerSprite;
         [SerializeField] private SpriteRenderer gardenSprite;
         [SerializeField] private SpriteRenderer basementSprite;
         [SerializeField] private Interactable firstTutorialContainer;
+        [SerializeField] private GameObject door1;
+        [SerializeField] private SpriteRenderer closedDoor1;
+        [SerializeField] private GameObject door2;
+        [SerializeField] private SpriteRenderer closedDoor2;
+        [SerializeField] private SpriteRenderer fButton;
+        
+        
+        private bool isTutorial = true;
         private ItemDefinition _currentItem;
         private bool _isPlayerInRange;
         private int _currentItemIndex;
@@ -43,22 +54,54 @@ namespace Grandma
         private void Start()
         {
             firstTutorialContainer.AddItem(book);
+            door1.SetActive(false);
+            door2.SetActive(false);
+            placedBook.enabled = false;
         }
 
         private void OnEnable()
         {
             GameEvents.StartQuest += StartQuest;
+            GameEvents.RestartLevel += ResetQuest;
+            GameEvents.TutorialContainerOpened += EnableF;
         }
-        private void OnDisable()
+
+        private void EnableF()
         {
-            GameEvents.StartQuest -= StartQuest;
+            bookSprite.enabled = false;
+            fButton.enabled = true;
         }
-        private void StartQuest()
+
+        private void DisableF()
+        {
+            fButton.enabled = false;
+        }
+
+        private void ResetQuest()
         {
             _currentItemIndex = 0;
             SetNextItemGoal();
+            GameEvents.TutorialContainerOpened -= EnableF;
+        }
+
+        private void OnDisable()
+        {
+            GameEvents.StartQuest -= StartQuest;
+            GameEvents.RestartLevel -= ResetQuest;
         }
         
+        private void StartQuest()
+        {
+            SetTutorialItem();
+            _currentItemIndex = 0;
+            //SetNextItemGoal();
+        }
+
+        private void SetTutorialItem()
+        {
+            _currentItem = book;
+        }
+
         private void Update()
         {
             if (!_isPlayerInRange || !Input.GetKeyDown(KeyCode.F)) return; 
@@ -80,6 +123,14 @@ namespace Grandma
         private void ItemDelivered(ItemDefinition itemDelivered)
         {
             if (itemDelivered != _currentItem) return;
+            if (isTutorial)
+            {
+                print("finish tutorial");
+                UnlockRoom();
+                isTutorial = false;
+                placedBook.enabled = true;
+                DisableF();
+            }
             
             playerInventory.DropItem();
             
@@ -100,6 +151,14 @@ namespace Grandma
             }
         }
 
+        private void UnlockRoom()
+        {
+            door1.SetActive(true);
+            door2.SetActive(true);
+            closedDoor1.enabled = false;
+            closedDoor2.enabled = false;
+        }
+
 
         private void SetNextItemGoal()
         {
@@ -113,6 +172,12 @@ namespace Grandma
             if (_activeSprite != null)
             {
                 _activeSprite.enabled = false;
+            }
+
+            if (isTutorial)
+            {
+                _activeSprite = bookSprite;
+                return;
             }
             foreach (var sprite in itemUI)
             {

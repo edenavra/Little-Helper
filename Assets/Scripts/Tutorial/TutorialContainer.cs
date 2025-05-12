@@ -8,7 +8,7 @@ namespace Tutorial
     {
         [SerializeField] private Interactable container;
         [SerializeField] private SpriteRenderer sprite;
-
+        
         private void OnTriggerEnter2D(Collider2D other)
         {
             sprite.enabled = true;

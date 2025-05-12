@@ -5,6 +5,7 @@ using Grandma;
 using Item;
 using Managers;
 using Player;
+using Utils;
 
 namespace Rooms
 {
@@ -24,7 +25,7 @@ namespace Rooms
         private GrandmaQuestGiver _questGiver;
         private PlayerInventory _inventory;
         
-        [Header("Tutorial Containers")]
+        // [Header("Tutorial Containers")]
         [SerializeField] private bool isFirstTutorialContainer;
         
         
@@ -80,6 +81,10 @@ namespace Rooms
 
         private void Open()
         {
+            if (isFirstTutorialContainer)
+            {
+                GameEvents.TutorialContainerOpened?.Invoke();
+            }
             print("box opened");
             SoundManager.Instance.PlayOpenContainer();
             _sr.sprite = openSprite;

@@ -102,7 +102,7 @@ namespace Managers
         
         private void StartRun()
         {
-            _currentRound = 0;
+            _currentRound = -1;
             print("generating world");
             GenerateWorld();
             GameEvents.StartQuest.Invoke();
