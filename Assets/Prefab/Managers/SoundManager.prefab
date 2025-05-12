@@ -63,9 +63,10 @@ MonoBehaviour:
   openContainer: {fileID: 8300000, guid: 05b6433757709461e8c8031a880c7a16, type: 3}
   startAndWinMusic: {fileID: 8300000, guid: 49401d243ea1747498e244ed73f5d5d7, type: 3}
   musicVolume: 0.1
-  freezerVolume: 0.5
+  freezerVolume: 0.42
   gardenVolume: 0.1
   ratsVolume: 0.1
+  startAndWinVolume: 0.4
 --- !u!82 &3922683515979654398
 AudioSource:
   m_ObjectHideFlags: 0
