@@ -3,6 +3,7 @@ using Scriptable_Objects;
 using UnityEngine;
 using Grandma;
 using Item;
+using Managers;
 using Player;
 using UnityEngine.Serialization;
 
@@ -75,6 +76,7 @@ namespace Rooms
         private void Open()
         {
             print("box opened");
+            SoundManager.Instance.PlayOpenContainer();
             _sr.sprite = openSprite;
             if (_hasAnimator) animator.SetTrigger("Shake");
             // Todo: add some kind of feedback that the object is empty
@@ -108,6 +110,7 @@ namespace Rooms
             {
                 Vector3 target = _inventory.transform.position;
                 _itemAnimation.GrabItem(item,target);
+                SoundManager.Instance.PlayCollectItem(); // sound of item pickup
             }
             else _itemAnimation.ShakeItemAndReturn(item,itemSpawnPoint.position);
         }

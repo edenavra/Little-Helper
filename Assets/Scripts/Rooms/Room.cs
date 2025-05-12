@@ -75,6 +75,7 @@ namespace Rooms
                     _enemyBaseAmount = 1;
                     break;
             }
+            
         }
 
 
@@ -145,6 +146,22 @@ namespace Rooms
                 
                 UpdateEnemyLevel(_currentRound);
             }
+
+            switch (enemyTypeNeededForThisRoom)
+            {
+                case EnemyType.None:
+                    //play freezer sound
+                    SoundManager.Instance.PlayFreezerAmbience();
+                    break;
+                case EnemyType.Rat:
+                    // play PlayRatsAmbience
+                    SoundManager.Instance.PlayRatsAmbience();
+                    break;
+                case EnemyType.Mole:
+                    // play PlayGardenAmbience
+                    SoundManager.Instance.PlayGardenAmbience();
+                    break;
+            }
         }
 
         private void OnTriggerExit2D(Collider2D other)
@@ -158,6 +175,20 @@ namespace Rooms
                     OnPlayerExited();
                 }
             }
+            //SoundManager.Instance.StopAmbience();
+            switch (enemyTypeNeededForThisRoom)
+            {
+                case EnemyType.None:
+                    SoundManager.Instance.StopFreezerAmbience();
+                    break;
+                case EnemyType.Rat:
+                    SoundManager.Instance.StopRatsAmbience();
+                    break;
+                case EnemyType.Mole:
+                    SoundManager.Instance.StopGardenAmbience();
+                    break;
+            }
+
         }
 
     }

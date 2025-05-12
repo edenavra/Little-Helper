@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Managers;
 using UnityEngine;
 using Utils;
 
@@ -65,6 +66,7 @@ namespace Player
         public void TakeDamage(int amount)
         {
             if (_isInvincible) return;
+            SoundManager.Instance.PlayHit();
             TriggerInvincibility(invincibilityDuration);
             _animatorController.SetHurt();
             _currentHealth -= amount;
