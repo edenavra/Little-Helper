@@ -118,11 +118,19 @@ namespace Enemies
         {
             _isAttacking = true;
 
+            if (this == null || gameObject == null) yield break;
             _animator.SetTrigger(MoleUp);
+            
             yield return new WaitUntil(() => _waitingForContinue);
             _waitingForContinue = false;
+            
             yield return new WaitForSeconds(pauseDuration);
+            
+            if (this == null || gameObject == null) yield break;
+            SoundManager.Instance.PlayMolePop(); //sound effect mole pop
+            
             ShowMole();
+            
             _animator.speed = 1f;
             yield return WaitForAnimationToEnd("MoleUp");
 

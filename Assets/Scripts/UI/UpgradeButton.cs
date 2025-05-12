@@ -53,6 +53,9 @@ namespace UI
             {
                 Debug.Log($"Purchased upgrade: {upgradeData.upgradeName}");
                 UpdateButtonState();
+                // SoundManager.Instance.PlayBuyUpgrade(); //sound of purchase
+                SoundManager.Instance.PlaySFX(SoundManager.Instance.buyUpgrade, 0.4f); // sound of purchase
+
             }
             else
             {

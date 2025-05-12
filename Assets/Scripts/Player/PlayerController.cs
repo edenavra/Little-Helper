@@ -21,6 +21,8 @@ namespace Player
         private PlayerHealth playerHealth;
         
         private Vector3 _firstLocation;
+        private AudioSource footstepSource;
+        private bool isMovingSoundPlaying = false;
 
 
         private void Awake()
@@ -30,6 +32,12 @@ namespace Player
             _rb = GetComponent<Rigidbody2D>();
             playerHealth = GetComponentInChildren<PlayerHealth>();
             _animatorController = GetComponent<PlayerAnimatorController>();
+            
+            //sound
+            footstepSource = gameObject.AddComponent<AudioSource>();
+            footstepSource.clip = SoundManager.Instance.footstep;
+            footstepSource.loop = true;
+            footstepSource.volume = 2f;
         }
         
         private void OnEnable()
@@ -65,6 +73,11 @@ namespace Player
 
             if (_movement.magnitude > 0.1f)
             {
+                if (!isMovingSoundPlaying)
+                {
+                    footstepSource.Play();
+                    isMovingSoundPlaying = true;
+                }
                 _animatorController.SetWalking(true);
                 if (Mathf.Abs(_movement.x) > Mathf.Abs(_movement.y))
                 {
@@ -78,7 +91,13 @@ namespace Player
                     _animatorController.ActivateModel(isMovingUp ? ModelType.Back: ModelType.Front);
                 }
             }
-            else _animatorController.SetWalking(false);
+            else
+            {
+                _animatorController.SetWalking(false);
+                footstepSource.Stop();
+                isMovingSoundPlaying = false;
+
+            }
 
             // HIDE input
             if (Input.GetKeyDown(KeyCode.V))

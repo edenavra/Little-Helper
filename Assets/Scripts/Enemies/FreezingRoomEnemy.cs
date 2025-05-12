@@ -40,6 +40,7 @@ public class FreezingRoomEnemy : MonoBehaviour, IEnemy
     {
         if (!other.CompareTag("Player")) return;
 
+        // SoundManager.Instance.PlayFreezerAmbience();
         /*var stats = other.GetComponentInParent<PlayerController>()?.stats;
         if (stats == null)
         {
@@ -63,7 +64,7 @@ public class FreezingRoomEnemy : MonoBehaviour, IEnemy
     private void OnTriggerExit2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
-
+        // SoundManager.Instance.StopAmbience();
         _playerInside = false;
         GameEvents.OnTimerVisibilityChanged?.Invoke(false);
 
