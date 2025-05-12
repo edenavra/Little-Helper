@@ -17,7 +17,7 @@ MonoBehaviour:
   freezerLayouts:
   - {fileID: 8324612997234743524, guid: ee04d97fdc2711e4faac46a4939f2acd, type: 3}
   gardenLayouts:
-  - {fileID: 5423751172510222162, guid: d4e74a6140fa3b0488ce8ea276a78c58, type: 3}
+  - {fileID: 3785531451033931214, guid: 6c7e4eadd8fe23e498a976659c9942fb, type: 3}
   roomSpacing: 50
   recipeItems:
   - {fileID: 11400000, guid: a3f9007261f3b8c408f9170e662334fa, type: 2}
