@@ -1201,7 +1201,7 @@ GameObject:
   - component: {fileID: 847789259}
   - component: {fileID: 847789258}
   m_Layer: 0
-  m_Name: Sweet Potato
+  m_Name: Potato
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3860,7 +3860,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7628407173753772763, guid: 37732eacdad45544da9d2729242e790e, type: 3}
       propertyPath: stats.baseFreezeTime
-      value: 30
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 7687985939172856974, guid: 37732eacdad45544da9d2729242e790e, type: 3}
       propertyPath: m_SortingOrder

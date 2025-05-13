@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e30e3648efa4337aa81b44256542170, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 6
 --- !u!70 &3890019984189934718
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -205,7 +205,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minDeltaY: 0.1
-  layerOffset: 100
 --- !u!1001 &2990429707544124249
 PrefabInstance:
   m_ObjectHideFlags: 0

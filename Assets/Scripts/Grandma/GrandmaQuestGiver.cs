@@ -68,8 +68,11 @@ namespace Grandma
 
         private void EnableF()
         {
-            bookSprite.enabled = false;
-            fButton.enabled = true;
+            if (isTutorial)
+            {
+                bookSprite.enabled = false;
+                fButton.enabled = true;
+            }
         }
 
         private void DisableF()

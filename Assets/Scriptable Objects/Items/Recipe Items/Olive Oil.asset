@@ -16,6 +16,6 @@ MonoBehaviour:
   icon: {fileID: 0}
   prefab: {fileID: 6126163920862144351, guid: c0cec45082a718a4f9de1ace5c093be2, type: 3}
   roomType: 0
-  deliveryPosition: {x: 0.868, y: -0.08695652, z: 0}
+  deliveryPosition: {x: 0.868, y: -4.46, z: 0}
   scale: {x: 0.24, y: 0.24, z: 0.24}
   rotation: {x: 0, y: 0, z: 0, w: 0}

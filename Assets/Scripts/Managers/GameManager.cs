@@ -75,19 +75,19 @@ namespace Managers
         }
 
         
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                GameEvents.RestartLevel.Invoke();
-                //RestartLevel();
-            }
-            if(Input.GetKeyDown((KeyCode.Q)))
-            {
-                GameEvents.PlayerWon.Invoke();
-                //PlayerWon();
-            }
-        }
+        // private void Update()
+        // {
+        //     if (Input.GetKeyDown(KeyCode.R))
+        //     {
+        //         GameEvents.RestartLevel.Invoke();
+        //         //RestartLevel();
+        //     }
+        //     if(Input.GetKeyDown((KeyCode.Q)))
+        //     {
+        //         GameEvents.PlayerWon.Invoke();
+        //         //PlayerWon();
+        //     }
+        // }
 
         private void RestartLevel()
         {

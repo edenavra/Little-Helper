@@ -55,7 +55,7 @@ namespace Enemies
             _lastFinishedAnimation = null;
             _childTriggerCollider.enabled = true;
             moleCollider.enabled = false;
-            attackInterval = Random.Range(3f, 4.5f);
+            //attackInterval = Random.Range(3f, 4.5f);
             _isMoleOut = false;
 
             if (_animator != null)
@@ -100,27 +100,66 @@ namespace Enemies
             UpdateSortingOrder();
         }
         
+        // private void FollowPlayer()
+        // {
+        //     Vector2 targetPos = transform.position;
+        //
+        //     for (int i = 0; i < 10; i++)
+        //     {
+        //         Vector2 randomOffset = Random.insideUnitCircle * moveRadius;
+        //         Vector2 possiblePos = (Vector2)_player.transform.position + randomOffset;
+        //
+        //         _childTriggerCollider.enabled = false;
+        //         bool blocked = Physics2D.OverlapCircle(possiblePos, 0.3f, obstacleLayer);
+        //         _childTriggerCollider.enabled = true;
+        //         
+        //         if (!blocked)
+        //         {
+        //             targetPos = possiblePos;
+        //             break;
+        //         }
+        //     }
+        //     transform.position = Vector2.Lerp(transform.position, targetPos, followSpeed * Time.deltaTime);
+        // }
+        
         private void FollowPlayer()
         {
-            Vector2 targetPos = transform.position;
+            Vector2 playerPos = _player.transform.position;
+            Vector2 selfPos   = transform.position;
+    
+            // 1) Figure out the player’s current facing direction.
+            //    We’ll grab the player’s RigidBody2D velocity. If they’re standing still,
+            //    just default to “right” so we still spawn somewhere.
+            var prb = _player.GetComponent<Rigidbody2D>();
+            Vector2 facing = prb.linearVelocity.normalized;
+            if (facing == Vector2.zero) facing = Vector2.right;
 
-            for (int i = 0; i < 10; i++)
+            Vector2 targetPos = selfPos;
+            for (int i = 0; i < 50; i++)
             {
-                Vector2 randomOffset = Random.insideUnitCircle * moveRadius;
-                Vector2 possiblePos = (Vector2)_player.transform.position + randomOffset;
+                // 2) Sample a random offset in the full circle
+                Vector2 offset = Random.insideUnitCircle * moveRadius;
+        
+                // 3) Reject any that lie *behind* the player:
+                //    dot( offset, facing ) must be > 0 to be in the front half
+                if (Vector2.Dot(offset.normalized, facing) <= 0f) 
+                    continue;
 
+                // 4) Obstacle check (temporarily disable the mole’s trigger to avoid self-hit)
                 _childTriggerCollider.enabled = false;
-                bool blocked = Physics2D.OverlapCircle(possiblePos, 0.3f, obstacleLayer);
+                bool blocked = Physics2D.OverlapCircle(playerPos + offset, 0.3f, obstacleLayer);
                 _childTriggerCollider.enabled = true;
-                
-                if (!blocked)
-                {
-                    targetPos = possiblePos;
-                    break;
-                }
+                if (blocked) continue;
+
+                targetPos = playerPos + offset;
+                break;
             }
-            transform.position = Vector2.Lerp(transform.position, targetPos, followSpeed * Time.deltaTime);
+
+            // 5) Lens toward that spot
+            transform.position = Vector2.Lerp(selfPos, targetPos, followSpeed * Time.deltaTime);
         }
+
+
 
         private IEnumerator AttackRoutine()
         {

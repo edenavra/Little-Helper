@@ -271,13 +271,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveRadius: 4
-  followSpeed: 3
-  attackInterval: 4
-  visibleDuration: 1
+  followSpeed: 10
+  attackInterval: 2
+  visibleDuration: 0.5
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 6656
-  pauseDuration: 0.3
+  pauseDuration: 0.75
 --- !u!70 &7898807081410616892
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

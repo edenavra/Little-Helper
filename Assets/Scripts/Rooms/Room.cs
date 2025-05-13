@@ -141,7 +141,7 @@ namespace Rooms
                 _playerInside = true;
                 if (enemySpawner != null && hasEnemies && _enemyPool != null)
                 {
-                    enemySpawner.SpawnEnemies(_enemyPool, _currentRound, _enemyBaseAmount);
+                    enemySpawner.SpawnEnemies(_enemyPool, _currentRound * 2, _enemyBaseAmount);
                 }
                 
                 UpdateEnemyLevel(_currentRound);

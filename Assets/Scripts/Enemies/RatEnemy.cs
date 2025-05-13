@@ -104,7 +104,7 @@ namespace Enemies
 
         public void OnRoundStarted(int level)
         {
-            moveSpeed = 3f + level * 0.5f;
+            moveSpeed = 5f + level * 0.5f;
         }
     }
 }
