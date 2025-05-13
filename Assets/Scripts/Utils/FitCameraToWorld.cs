@@ -43,6 +43,7 @@ namespace Utils
             var currWidth = currHeight * _currRatio;
             var ratioChange = width / currWidth;
             cam.orthographicSize *= ratioChange;
+            print(cam.orthographicSize);
         }
     }
 }
