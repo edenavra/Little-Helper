@@ -1,4 +1,5 @@
 ﻿using System;
+using Unity.Cinemachine;
 using UnityEngine;
 
 namespace Utils
@@ -43,7 +44,6 @@ namespace Utils
             var currWidth = currHeight * _currRatio;
             var ratioChange = width / currWidth;
             cam.orthographicSize *= ratioChange;
-            print(cam.orthographicSize);
         }
     }
 }

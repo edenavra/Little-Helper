@@ -529,6 +529,7 @@ GameObject:
   - component: {fileID: 372379027}
   - component: {fileID: 372379030}
   - component: {fileID: 372379031}
+  - component: {fileID: 372379032}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -686,6 +687,20 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!114 &372379032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372379026}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39244e453fee471ebeaccda0e3d65eef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 372379028}
+  width: 17.5
 --- !u!4 &391096288 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6375593594704643576, guid: 2436f3b8b84864c43a86f04ec4812d08, type: 3}
@@ -1649,6 +1664,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   container: {fileID: 1076465081}
   sprite: {fileID: 1850202125}
+--- !u!1 &1087063772 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3048365076465631698, guid: 2436f3b8b84864c43a86f04ec4812d08, type: 3}
+  m_PrefabInstance: {fileID: 1516223367}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1087063776 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4014760002133123974, guid: 2436f3b8b84864c43a86f04ec4812d08, type: 3}
+  m_PrefabInstance: {fileID: 1516223367}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1087063772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1087063777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1087063772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46242b5dc76644c7865bff652d70c45a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vcam: {fileID: 1087063776}
+  worldWidth: 17.5
 --- !u!4 &1089403199 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1715777210776079536, guid: 3e6674a353e1f3445a9b2cf87c3226cd, type: 3}
@@ -1896,7 +1941,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10000
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -1917,7 +1962,7 @@ Transform:
   m_GameObject: {fileID: 1193255165}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -1.51, y: 5.88, z: 0}
+  m_LocalPosition: {x: -1.51, y: 5.81, z: 0}
   m_LocalScale: {x: 7.07, y: 34.77, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2159,6 +2204,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: KitchenFinal
       objectReference: {fileID: 0}
+    - target: {fileID: 499528766942832332, guid: 2436f3b8b84864c43a86f04ec4812d08, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1346846107782048929, guid: 2436f3b8b84864c43a86f04ec4812d08, type: 3}
       propertyPath: m_LocalScale.x
       value: 20
@@ -2327,6 +2376,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8934717511400922517, guid: 2436f3b8b84864c43a86f04ec4812d08, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -2340,6 +2393,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1850202124}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3048365076465631698, guid: 2436f3b8b84864c43a86f04ec4812d08, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1087063777}
     - targetCorrespondingSourceObject: {fileID: 671130979215207577, guid: 2436f3b8b84864c43a86f04ec4812d08, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1076465083}
@@ -3438,7 +3494,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10000
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -3459,7 +3515,7 @@ Transform:
   m_GameObject: {fileID: 2103833379}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -1.51, y: -11.97, z: 0}
+  m_LocalPosition: {x: -1.51, y: -11.73, z: 0}
   m_LocalScale: {x: 7.07, y: 34.77, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
