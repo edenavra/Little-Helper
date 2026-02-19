@@ -7,7 +7,7 @@ A 2.5D procedural roguelike in Unity where a tiny fox gathers soup ingredients f
 ## 🔗 Links
 
 - 🕹️ **Play the Game:** [The Little Helper on Itch.io](https://danaeck.itch.io/the-little-helper)
-- 📹 **Gameplay video:** [https://www.youtube.com/watch?v=vAzwCNk-x_8]
+- 📹 [Gameplay video](https://www.youtube.com/watch?v=vAzwCNk-x_8)
   
 ---
 
